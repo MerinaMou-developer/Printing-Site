@@ -12,7 +12,7 @@ import {
 } from "lucide-react";
 import site from "@/content/site.json";
 import servicesData from "@/content/services.json";
-import { createWhatsAppLink, createPhoneLink, formatPhoneNumber } from "@/lib/whatsapp";
+import { createPhoneLink, formatPhoneNumber } from "@/lib/whatsapp";
 
 /** Lightweight type matching your services JSON */
 type Svc = { slug: string; title?: string; name?: string };

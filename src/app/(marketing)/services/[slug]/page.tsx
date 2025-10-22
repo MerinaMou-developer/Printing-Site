@@ -4,6 +4,8 @@ import type { Service } from "@/types";
 import Link from "next/link";
 import site from "@/content/site.json";
 import { CheckCircle2, Star, Clock, Shield, Truck, Palette, Zap, Award, Users, ArrowRight, Download, Phone, Mail, MessageCircle } from "lucide-react";
+import { getServiceImages } from "@/lib/service-images";
+import Image from "next/image";
 
 const services = data as Service[];
 
@@ -44,13 +46,8 @@ export default async function ServicePage(
   const digits = String(site.whatsapp ?? site.phone ?? "").replace(/\D/g, "");
   const wa = digits ? `https://wa.me/${digits}` : undefined;
 
-  // Generate service-specific images and content
-  const serviceImages = [
-    { src: `/images/services/${s.slug}/1.jpg`, alt: `${s.name} Example 1` },
-    { src: `/images/services/${s.slug}/2.jpg`, alt: `${s.name} Example 2` },
-    { src: `/images/services/${s.slug}/3.jpg`, alt: `${s.name} Example 3` },
-    { src: `/images/services/${s.slug}/4.jpg`, alt: `${s.name} Example 4` },
-  ];
+  // Get service-specific images
+  const serviceImages = getServiceImages(s.slug);
 
   const specifications = {
     "screen-printing": {
@@ -165,27 +162,59 @@ export default async function ServicePage(
             <div className="relative">
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-4">
-                  <div className="relative aspect-square rounded-2xl overflow-hidden bg-gradient-to-br from-[var(--color-brand-100)] to-[var(--color-brand-200)] group">
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <span className="text-6xl font-bold text-[var(--color-brand-600)]">{s.name.charAt(0)}</span>
+                  <div className="relative aspect-square rounded-2xl overflow-hidden group">
+                    <Image
+                      src={serviceImages[0].src}
+                      alt={serviceImages[0].alt}
+                      fill
+                      className="object-cover transition-transform duration-300 group-hover:scale-105"
+                      sizes="(max-width: 768px) 50vw, 25vw"
+                      priority
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
+                    <div className="absolute bottom-4 left-4 right-4">
+                      <h3 className="text-white font-semibold text-sm">{serviceImages[0].title}</h3>
                     </div>
-                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors"></div>
                   </div>
-                  <div className="relative aspect-square rounded-2xl overflow-hidden bg-gradient-to-br from-[var(--color-accent-100)] to-[var(--color-accent-200)] group">
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <Palette className="h-12 w-12 text-[var(--color-accent-600)]" />
+                  <div className="relative aspect-square rounded-2xl overflow-hidden group">
+                    <Image
+                      src={serviceImages[1].src}
+                      alt={serviceImages[1].alt}
+                      fill
+                      className="object-cover transition-transform duration-300 group-hover:scale-105"
+                      sizes="(max-width: 768px) 50vw, 25vw"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
+                    <div className="absolute bottom-4 left-4 right-4">
+                      <h3 className="text-white font-semibold text-sm">{serviceImages[1].title}</h3>
                     </div>
                   </div>
                 </div>
                 <div className="space-y-4 pt-8">
-                  <div className="relative aspect-square rounded-2xl overflow-hidden bg-gradient-to-br from-[var(--color-accent-100)] to-[var(--color-accent-200)] group">
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <Zap className="h-12 w-12 text-[var(--color-accent-600)]" />
+                  <div className="relative aspect-square rounded-2xl overflow-hidden group">
+                    <Image
+                      src={serviceImages[2].src}
+                      alt={serviceImages[2].alt}
+                      fill
+                      className="object-cover transition-transform duration-300 group-hover:scale-105"
+                      sizes="(max-width: 768px) 50vw, 25vw"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
+                    <div className="absolute bottom-4 left-4 right-4">
+                      <h3 className="text-white font-semibold text-sm">{serviceImages[2].title}</h3>
                     </div>
                   </div>
-                  <div className="relative aspect-square rounded-2xl overflow-hidden bg-gradient-to-br from-[var(--color-brand-100)] to-[var(--color-brand-200)] group">
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <Award className="h-12 w-12 text-[var(--color-brand-600)]" />
+                  <div className="relative aspect-square rounded-2xl overflow-hidden group">
+                    <Image
+                      src={serviceImages[3].src}
+                      alt={serviceImages[3].alt}
+                      fill
+                      className="object-cover transition-transform duration-300 group-hover:scale-105"
+                      sizes="(max-width: 768px) 50vw, 25vw"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
+                    <div className="absolute bottom-4 left-4 right-4">
+                      <h3 className="text-white font-semibold text-sm">{serviceImages[3].title}</h3>
                     </div>
                   </div>
                 </div>
@@ -209,15 +238,22 @@ export default async function ServicePage(
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {serviceImages.map((image, index) => (
             <div key={index} className="group relative aspect-square rounded-2xl overflow-hidden bg-gradient-to-br from-[var(--color-brand-100)] to-[var(--color-brand-200)] hover:shadow-xl transition-all duration-300">
-              <div className="absolute inset-0 flex items-center justify-center">
-                <span className="text-4xl font-bold text-[var(--color-brand-600)]">
-                  {s.name.charAt(0)}{index + 1}
-                </span>
+              <Image
+                src={image.src}
+                alt={image.alt}
+                fill
+                className="object-cover transition-transform duration-300 group-hover:scale-105"
+                sizes="(max-width: 768px) 50vw, (max-width: 1024px) 25vw, 20vw"
+                priority={index < 2}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div className="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <h3 className="text-white font-semibold text-sm mb-1">{image.title}</h3>
+                <p className="text-white/80 text-xs">{image.alt}</p>
               </div>
-              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors"></div>
-              <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                <div className="bg-white/90 rounded-full p-3">
-                  <ArrowRight className="h-6 w-6 text-[var(--color-brand-600)]" />
+              <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div className="bg-white/90 rounded-full p-2">
+                  <ArrowRight className="h-4 w-4 text-[var(--color-brand-600)]" />
                 </div>
               </div>
             </div>
