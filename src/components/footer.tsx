@@ -167,7 +167,7 @@ export default function Footer() {
       {/* Bottom bar */}
       <div className="wrapper py-6 flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-white/70">
         <p>
-          © {new Date().getFullYear()} {site.brand}. All rights reserved.
+          © 2024 {site.brand}. All rights reserved.
         </p>
         <p>Made in Dubai • VAT invoices available on request.</p>
       </div>

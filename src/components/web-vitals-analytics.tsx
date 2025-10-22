@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 interface WebVitalsMetric {
   name: string;
@@ -11,7 +11,15 @@ interface WebVitalsMetric {
 }
 
 export function WebVitalsAnalytics() {
+  const [isClient, setIsClient] = useState(false);
+
   useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  useEffect(() => {
+    if (!isClient) return;
+    
     // Function to send metrics to analytics
     const sendToAnalytics = (metric: WebVitalsMetric) => {
       // You can replace this with your analytics service
@@ -64,7 +72,7 @@ export function WebVitalsAnalytics() {
 
       return () => observer.disconnect();
     }
-  }, []);
+  }, [isClient]);
 
   return null;
 }

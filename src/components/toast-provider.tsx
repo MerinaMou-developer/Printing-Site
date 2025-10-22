@@ -28,7 +28,10 @@ export function ToastProvider({ children }: { children: React.ReactNode }) {
   const [toasts, setToasts] = useState<Toast[]>([]);
 
   const generateId = () => {
-    return Math.random().toString(36).substr(2, 9);
+    if (typeof window !== 'undefined') {
+      return Math.random().toString(36).substr(2, 9);
+    }
+    return 'toast-' + Date.now();
   };
 
   const removeToast = useCallback((id: string) => {
