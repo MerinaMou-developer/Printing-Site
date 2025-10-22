@@ -1,0 +1,19 @@
+# Robots.txt for Al Arqa Printing & Signage
+
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://sehamadvertising.com/sitemap.xml
+Sitemap: https://sehamadvertising.com/sitemap-0.xml
+
+# Disallow admin/api routes (if any)
+Disallow: /api/
+
+# Allow all images
+User-agent: Googlebot-Image
+Allow: /images/
+
+# Crawl delay for all bots (optional, helps prevent server overload)
+Crawl-delay: 1
+

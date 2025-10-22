@@ -1,0 +1,66 @@
+[
+  { 
+    "slug": "neon-restaurant-sign", 
+    "title": "Premium Neon Sign for Restaurant in Dubai Marina", 
+    "image": "/images/portfolio/portfolio1.jpeg", 
+    "tags": ["signage", "neon"],
+    "category": "signage",
+    "description": "Custom LED neon signage with professional installation"
+  },
+  { 
+    "slug": "vehicle-branding-van", 
+    "title": "Complete Van Wrap for Delivery Service", 
+    "image": "/images/portfolio/portfolio2.jpeg", 
+    "tags": ["vehicle", "branding"],
+    "category": "vehicle",
+    "description": "Full vehicle wrap with high-quality vinyl graphics"
+  },
+  { 
+    "slug": "corporate-tshirts", 
+    "title": "Corporate Staff T-Shirts - DTF Print", 
+    "image": "/images/products/tshirt.jpg", 
+    "tags": ["apparel", "dtf"],
+    "category": "apparel",
+    "description": "Premium DTF printing for 200+ corporate staff uniforms"
+  },
+  { 
+    "slug": "promotional-mugs", 
+    "title": "Promotional Mugs for Corporate Event", 
+    "image": "/images/products/mug.jpg", 
+    "tags": ["products", "sublimation"],
+    "category": "products",
+    "description": "Sublimation printing on ceramic mugs for corporate gifts"
+  },
+  { 
+    "slug": "safety-vests-construction", 
+    "title": "Hi-Vis Safety Vests with Company Logo", 
+    "image": "/images/products/vest.jpg", 
+    "tags": ["apparel", "safety"],
+    "category": "apparel",
+    "description": "Reflective safety vests for construction company"
+  },
+  { 
+    "slug": "custom-gift-boxes", 
+    "title": "Luxury Gift Box Packaging", 
+    "image": "/images/products/giftbox.jpg", 
+    "tags": ["packaging", "luxury"],
+    "category": "packaging",
+    "description": "Premium gift boxes with custom branding for retail"
+  },
+  { 
+    "slug": "event-balloons", 
+    "title": "Branded Balloons for Corporate Launch", 
+    "image": "/images/products/balloon.jpg", 
+    "tags": ["products", "events"],
+    "category": "products",
+    "description": "Custom printed balloons for product launch event"
+  },
+  { 
+    "slug": "branded-bottles", 
+    "title": "Metal Bottles with Logo Engraving", 
+    "image": "/images/products/bottle.jpg", 
+    "tags": ["products", "corporate"],
+    "category": "products",
+    "description": "Premium metal bottles with laser engraving"
+  }
+]

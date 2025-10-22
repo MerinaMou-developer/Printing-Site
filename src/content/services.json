@@ -1,0 +1,36 @@
+[
+  { "slug":"screen-printing","name":"Screen Printing","category":"Screen & DTF Printing","desc":"High-quality prints for apparel and fabric.","faqs":[{"q":"MOQ?","a":"Best pricing above 10 pcs."}]},
+  { "slug":"dtf-print","name":"DTF Print","category":"Screen & DTF Printing","desc":"Direct-to-film transfers for vibrant colors."},
+
+  { "slug":"vinyl-stickers","name":"Vinyl Stickers","category":"Digital Print","desc":"Durable indoor/outdoor stickers."},
+  { "slug":"banners","name":"Banners","category":"Digital Print","desc":"PVC/mesh banners with hems & eyelets."},
+  { "slug":"vehicle-branding","name":"Vehicle Branding","category":"Digital Print","desc":"Full/partial wraps and decals."},
+  { "slug":"reflective-stickers","name":"Reflective Stickers","category":"Digital Print","desc":"High-visibility reflective labels."},
+  { "slug":"glass-stickers","name":"Glass Stickers","category":"Digital Print","desc":"Frosted & one-way vision films."},
+  { "slug":"rollups","name":"Rollups/Popups","category":"Digital Print","desc":"Portable stands with premium print."},
+
+  { "slug":"brochures","name":"Brochures","category":"Offset Print","desc":"Folded brochures in multiple finishes."},
+  { "slug":"business-cards","name":"Business Cards","category":"Offset Print","desc":"Matte, glossy, textured or luxe."},
+  { "slug":"catalogues","name":"Catalogues","category":"Offset Print","desc":"Saddle stitch & perfect bound."},
+  { "slug":"flyers","name":"Flyers","category":"Offset Print","desc":"Bulk promos with fast turnaround."},
+  { "slug":"letterheads","name":"Letterheads","category":"Offset Print","desc":"Corporate stationery."},
+  { "slug":"invoices","name":"Invoices","category":"Offset Print","desc":"NCR books (2–4 ply)."},
+  { "slug":"shopping-bags","name":"Shopping Bags","category":"Offset Print","desc":"Custom paper bags."},
+
+  { "slug":"led-light-box","name":"LED Light Box","category":"Digital Signage","desc":"Backlit light boxes for retail."},
+  { "slug":"acrylic-letters","name":"3D Acrylic Letter","category":"Digital Signage","desc":"Illuminated letters & logos."},
+  { "slug":"neon-signs","name":"Neon Signs","category":"Digital Signage","desc":"LED neon for indoor/outdoor."},
+  { "slug":"metal-cutting","name":"Metal Cutting","category":"Digital Signage","desc":"CNC & laser cut metal signs."},
+  { "slug":"display-stands","name":"Display Stands","category":"Digital Signage","desc":"POS displays & kiosks."},
+
+  { "slug":"stamps","name":"Stamps","category":"Other Services","desc":"Self-ink & classic rubber stamps."},
+  { "slug":"3d-design","name":"3D Design","category":"Other Services","desc":"3D mockups and previews."},
+  { "slug":"company-profile","name":"Company Profile Design","category":"Other Services","desc":"Professional company profiles."},
+  { "slug":"arabic-book","name":"Arabic Book Design","category":"Other Services","desc":"Layout & typesetting."},
+  { "slug":"executive-work","name":"Executive Work","category":"Other Services","desc":"Corporate branding support."},
+
+  { "slug":"gift-boxes","name":"Gift Boxes","category":"Packaging Services","desc":"Rigid & foldable boxes."},
+  { "slug":"custom-shopping-bags","name":"Custom Shopping Bags","category":"Packaging Services","desc":"Paper & premium bags."},
+  { "slug":"cloth-bags","name":"Cloth Bags","category":"Packaging Services","desc":"Tote & canvas bags."},
+  { "slug":"poly-prints","name":"Plastic Poly Prints","category":"Packaging Services","desc":"Custom poly mailers."}
+]

@@ -1,0 +1,44 @@
+[
+  {
+    "name": "Sara M.",
+    "quote": "Outstanding quality and incredibly fast turnaround! The LED signage transformed our restaurant's entrance.",
+    "role": "Restaurant Owner",
+    "rating": 5,
+    "location": "Dubai Marina"
+  },
+  {
+    "name": "Imran Khan",
+    "quote": "The DTF prints came out perfect with vibrant colors. Professional service and great prices. Highly recommend!",
+    "role": "Apparel Brand Owner",
+    "rating": 5,
+    "location": "Business Bay"
+  },
+  {
+    "name": "Aisha Rahman",
+    "quote": "Installation team was very professional and finished everything in one day. The quality is exceptional!",
+    "role": "Retail Store Manager",
+    "rating": 5,
+    "location": "Dubai Mall"
+  },
+  {
+    "name": "Michael Chen",
+    "quote": "We've been using them for all our corporate branding needs for 3 years. Always reliable and high quality.",
+    "role": "Marketing Director",
+    "rating": 5,
+    "location": "DIFC"
+  },
+  {
+    "name": "Fatima Al-Sayed",
+    "quote": "Beautiful custom gift boxes for our boutique. The attention to detail and finish is perfect!",
+    "role": "Boutique Owner",
+    "rating": 5,
+    "location": "JBR"
+  },
+  {
+    "name": "David Thompson",
+    "quote": "Excellent vehicle branding service. Our delivery vans look amazing and the wrap quality is top-notch.",
+    "role": "Logistics Manager",
+    "rating": 5,
+    "location": "Al Quoz"
+  }
+]

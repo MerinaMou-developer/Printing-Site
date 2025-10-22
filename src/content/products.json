@@ -1,0 +1,9 @@
+[
+  {"slug":"t-shirts","name":"T-shirts","desc":"100% cotton & blends","img":"/images/products/tshirt.jpg"},
+  {"slug":"mugs","name":"Mugs","desc":"Sublimation & print","img":"/images/products/mug.jpg"},
+  {"slug":"lanyards","name":"Lanyards","desc":"Brand lanyards & IDs","img":"/images/products/lanyard.jpg"},
+  {"slug":"bottles","name":"Bottles","desc":"Printed metal/plastic bottles","img":"/images/products/bottle.jpg"},
+  {"slug":"safety-vests","name":"Safety Vests","desc":"Hi-vis with logos","img":"/images/products/vest.jpg"},
+  {"slug":"balloons","name":"Balloons","desc":"Custom printed balloons","img":"/images/products/balloon.jpg"},
+  {"slug":"gift-boxes","name":"Gift Boxes","desc":"Branded gift packaging","img":"/images/products/giftbox.jpg"}
+]

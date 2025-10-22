@@ -1,0 +1,6 @@
+[
+  { "name": "Client A", "logo": "/images/clients/a.png" },
+  { "name": "Client B", "logo": "/images/clients/b.png" },
+  { "name": "Client C", "logo": "/images/clients/c.png" },
+  { "name": "Client D", "logo": "/images/clients/d.png" }
+]
