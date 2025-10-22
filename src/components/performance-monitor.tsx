@@ -1,17 +1,9 @@
 "use client";
 
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 
 export function PerformanceMonitor() {
-  const [isClient, setIsClient] = useState(false);
-
   useEffect(() => {
-    setIsClient(true);
-  }, []);
-
-  useEffect(() => {
-    if (!isClient) return;
-    
     // Web Vitals monitoring
     if (typeof window !== 'undefined' && 'performance' in window) {
       // Monitor Core Web Vitals
@@ -43,7 +35,7 @@ export function PerformanceMonitor() {
 
       return () => observer.disconnect();
     }
-  }, [isClient]);
+  }, []);
 
   return null;
 }
