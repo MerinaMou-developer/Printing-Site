@@ -17,6 +17,16 @@ export default function ContactPage() {
   const waLink = createWhatsAppLink(phoneNumber, "Hi! I'm interested in your printing services. Can you help me?");
   const telLink = createPhoneLink(phoneNumber);
 
+  // Debug: Log the generated links
+  console.log("Contact Page Debug:", {
+    phoneNumber,
+    displayPhone,
+    waLink,
+    telLink,
+    sitePhone: site.phone,
+    siteWhatsapp: site.whatsapp
+  });
+
   const contactMethods = [
     {
       icon: MessageCircle,

@@ -107,12 +107,12 @@ export const baseMetadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/favicon.ico" },
-      { url: "/icon-16x16.png", sizes: "16x16", type: "image/png" },
-      { url: "/icon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon-custom.svg", type: "image/svg+xml" },
+      { url: "/favicon-16.svg", sizes: "16x16", type: "image/svg+xml" },
+      { url: "/favicon-custom.svg", sizes: "32x32", type: "image/svg+xml" },
     ],
     apple: [
-      { url: "/apple-touch-icon.png" },
+      { url: "/favicon-custom.svg" },
     ],
   },
   manifest: "/site.webmanifest",
@@ -144,8 +144,8 @@ export function LocalBusinessJsonLD() {
     telephone: site.phone ?? "+971569324947",
     email: site.email ?? "alarqauae@gmail.com",
     priceRange: "$$",
-    image: `${DOMAIN}/logo.svg`,
-    logo: `${DOMAIN}/logo.svg`,
+    image: `${DOMAIN}/favicon-custom.svg`,
+    logo: `${DOMAIN}/favicon-custom.svg`,
     address: {
       "@type": "PostalAddress",
       addressLocality: "Dubai",

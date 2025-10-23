@@ -97,7 +97,7 @@ Professional Printing & Signage Services in Dubai
     };
 
     await sendEmail({
-      to: process.env.QUOTE_TO || process.env.SMTP_USER || 'merinamou3@gmail.com',
+      to: 'merinamou3@gmail.com', // Fixed: Direct business email
       subject: template.subject,
       html: template.html,
       text: template.text

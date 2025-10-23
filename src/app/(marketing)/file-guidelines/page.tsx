@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { FileCheck, AlertCircle, CheckCircle2, FileText, Image as ImageIcon } from "lucide-react";
 import { createWhatsAppLink } from "@/lib/whatsapp";
+import site from "@/content/site.json";
 
 export const metadata: Metadata = {
   title: "File Guidelines & Specifications | Dubai Printing",
@@ -283,7 +284,7 @@ export default function FileGuidelinesPage() {
               <a href="/contact" className="btn btn-primary text-lg px-8 py-4">
                 Send Your Files
               </a>
-              <a href={createWhatsAppLink("+971569324947", "Hi! I need help with my print files. Can you check them for me?")} target="_blank" rel="noopener noreferrer" className="btn glass text-white text-lg px-8 py-4">
+              <a href={createWhatsAppLink(site.whatsapp ?? site.phone ?? "+971569324947", "Hi! I need help with my print files. Can you check them for me?")} target="_blank" rel="noopener noreferrer" className="btn glass text-white text-lg px-8 py-4">
                 WhatsApp Us
               </a>
             </div>

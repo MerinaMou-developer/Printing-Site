@@ -1,6 +1,4 @@
-
 @import "tailwindcss";
-
 
 /* ------------------------------
    Design tokens
@@ -61,7 +59,7 @@
     --surface-1: #0f1524;
     --surface-2: #111a2b;
     --surface-3: #122036;
-    --border:    rgba(255,255,255,.08);
+    --border: rgba(255,255,255,.08);
     --shadow-soft: 0 10px 20px -8px rgba(0,0,0,.5);
     --shadow-card: 0 12px 28px -16px rgba(0,0,0,.6);
   }
@@ -100,8 +98,18 @@ h1 { margin-top: 0; }
   padding-left: 1rem;
   padding-right: 1rem;
 }
-@media (min-width: 640px){ .wrapper{ padding-left: 1.5rem; padding-right: 1.5rem; } }
-@media (min-width: 1024px){ .wrapper{ padding-left: 2rem; padding-right: 2rem; } }
+@media (min-width: 640px) {
+  .wrapper {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+@media (min-width: 1024px) {
+  .wrapper {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
 
 /* help anchor links when header is sticky */
 section { scroll-margin-top: 88px; }
@@ -117,9 +125,11 @@ section { scroll-margin-top: 88px; }
     border-color: var(--border);
     box-shadow: var(--shadow-soft);
   }
+
   .card-hover {
     transition: box-shadow .2s ease, transform .2s ease;
   }
+
   .card-hover:hover {
     box-shadow: var(--shadow-card);
     transform: translateY(-2px);
@@ -131,29 +141,39 @@ section { scroll-margin-top: 88px; }
     border-radius: 9999px; /* full pill */
     padding: 0.75rem 1.5rem; /* px-6 py-3 */
   }
+
   .btn-primary {
     background: var(--color-accent-500);
     color: var(--background);
   }
-  .btn-primary:hover { background: var(--color-accent-600); }
+
+  .btn-primary:hover {
+    background: var(--color-accent-600);
+  }
 
   .btn-light {
-    background: rgba(255,255,255,.90);
+    background: rgba(255, 255, 255, .90);
     color: #0f172a;
   }
 
   .btn-ghost {
-    background: rgba(255,255,255,.10);
+    background: rgba(255, 255, 255, .10);
     color: #fff;
   }
-  .btn-ghost:hover { background: rgba(255,255,255,.15); }
+
+  .btn-ghost:hover {
+    background: rgba(255, 255, 255, .15);
+  }
 
   .btn-outline {
     background: transparent;
     color: var(--foreground);
     border: 1px solid var(--border);
   }
-  .btn-outline:hover { background: var(--surface-2); }
+
+  .btn-outline:hover {
+    background: var(--surface-2);
+  }
 
   /* Focus ring (keyboard users) */
   .ring-focus {
@@ -168,8 +188,15 @@ section { scroll-margin-top: 88px; }
     border-color: var(--border);
     color: var(--foreground);
   }
-  .input:focus, .textarea:focus, .select:focus { @apply ring-0; box-shadow: 0 0 0 3px color-mix(in oklab, var(--ring) 35%, transparent); }
-  .textarea { @apply min-h-[120px]; }
+
+  .input:focus, .textarea:focus, .select:focus {
+    @apply ring-0;
+    box-shadow: 0 0 0 3px color-mix(in oklab, var(--ring) 35%, transparent);
+  }
+
+  .textarea {
+    @apply min-h-[120px];
+  }
 
   /* Badges */
   .badge {
@@ -194,8 +221,7 @@ section { scroll-margin-top: 88px; }
 
 /* Optional subtle hero overlay pattern */
 .hero-sheen {
-  background:
-    radial-gradient(900px 400px at 20% -10%, rgba(255,255,255,.06), transparent 60%),
+  background: radial-gradient(900px 400px at 20% -10%, rgba(255,255,255,.06), transparent 60%),
     radial-gradient(700px 360px at 80% 20%, rgba(255,255,255,.05), transparent 60%);
 }
 
@@ -349,5 +375,112 @@ section { scroll-margin-top: 88px; }
   color: white;
 }
 
+@layer components {
+  /* Mobile Navigation */
+  .mobile-nav {
+    @apply absolute top-full left-0 right-0 z-50 bg-[var(--color-brand-600)]/95 backdrop-blur-md;
+    transform: translateY(-100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  }
 
+  /* Open the mobile menu */
+  .mobile-nav.open {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
 
+  /* Mobile nav content container */
+  .mobile-nav-content {
+    @apply flex flex-col h-full;
+    padding: 1rem;
+    padding-top: 2rem;
+    min-height: 100vh;
+  }
+
+  /* Mobile nav header */
+  .mobile-nav-header {
+    @apply flex items-center justify-between mb-8 pb-4;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  /* Mobile nav close button */
+  .mobile-nav-close {
+    @apply p-2 rounded-lg hover:bg-white/10 transition-colors duration-200;
+    color: white;
+  }
+
+  /* Mobile nav links container */
+  .mobile-nav-links {
+    @apply flex flex-col space-y-2;
+    padding: 1rem 0;
+  }
+
+  /* Styling individual mobile nav items */
+  .mobile-nav-item {
+    @apply text-lg font-medium text-white py-3 px-4 block hover:bg-white/10 rounded-lg transition-all duration-200;
+    border-left: 3px solid transparent;
+    width: 100%;
+    text-align: left;
+    /* Override base nav styles for mobile */
+    position: static !important;
+    padding: 0.75rem 1rem !important;
+    font-size: 1.125rem !important;
+    line-height: 1.5rem !important;
+    border-radius: 0.5rem !important;
+    transition: all 0.2s ease !important;
+    transform: none !important;
+  }
+  
+  .mobile-nav-item:hover {
+    transform: none !important;
+    border-left-color: var(--color-accent-500);
+    background: rgba(255, 255, 255, 0.1);
+  }
+  
+  .mobile-nav-item::after {
+    display: none !important;
+  }
+
+  /* Mobile nav footer */
+  .mobile-nav-footer {
+    @apply pt-6 mt-auto;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  /* Mobile button styling */
+  .mobile-nav-button {
+    @apply text-white hover:bg-white/10 rounded-md p-3;
+  }
+
+  /* Animation for mobile nav items */
+  .mobile-nav-item {
+    opacity: 0;
+    transform: translateX(20px);
+    animation: slideInFromRight 0.4s ease-out forwards;
+  }
+
+  .mobile-nav-item:nth-child(1) { animation-delay: 0.1s; }
+  .mobile-nav-item:nth-child(2) { animation-delay: 0.15s; }
+  .mobile-nav-item:nth-child(3) { animation-delay: 0.2s; }
+  .mobile-nav-item:nth-child(4) { animation-delay: 0.25s; }
+  .mobile-nav-item:nth-child(5) { animation-delay: 0.3s; }
+  .mobile-nav-item:nth-child(6) { animation-delay: 0.35s; }
+  .mobile-nav-item:nth-child(7) { animation-delay: 0.4s; }
+}
+
+/* Keyframe for mobile nav item animation */
+@keyframes slideInFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

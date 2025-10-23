@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import site from "@/content/site.json";
 import { Award, Zap, Users, Factory, Truck, HeadphonesIcon, Target, Shield, Heart } from "lucide-react";
+import { createWhatsAppLink } from "@/lib/whatsapp";
 
 export const metadata: Metadata = {
   title: `About ${site.brand ?? "Our Company"} - Leading Printing & Signage in Dubai`,
@@ -220,7 +221,7 @@ export default function AboutPage() {
                 Get a Free Quote
               </a>
               <a
-                href={`https://wa.me/${String(site.whatsapp ?? site.phone ?? "+971569324947").replace(/\D/g, "")}`}
+                href={createWhatsAppLink(site.whatsapp ?? site.phone ?? "+971569324947", "Hi! I'm interested in your printing services. Can you help me?")}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn glass text-white text-lg px-8 py-4"

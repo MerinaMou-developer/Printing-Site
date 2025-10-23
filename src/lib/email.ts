@@ -5,7 +5,7 @@ import { createWhatsAppLink, createPhoneLink, formatPhoneNumber } from './whatsa
 const SITE_CONFIG = {
   brand: "SEHAM ADVERTISING",
   email: "alarqauae@gmail.com",
-  phone: "+971 56 932 4947",
+  phone: "+971569324947",
   whatsapp: "+971569324947",
   address: "Dubai, U.A.E."
 };
@@ -377,7 +377,7 @@ export const sendQuoteRequestEmail = async (data: {
   
   // Send to business email
   await sendEmail({
-    to: process.env.QUOTE_TO || process.env.SMTP_USER || 'merinamou3@gmail.com',
+    to: 'merinamou3@gmail.com', // Fixed: Direct business email
     subject: template.subject,
     html: template.html,
     text: template.text,

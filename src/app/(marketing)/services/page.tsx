@@ -3,6 +3,7 @@ import type { Service } from "@/types";
 import ServiceCard from "@/components/service-card";
 import site from "@/content/site.json";
 import Link from "next/link";
+import { createWhatsAppLink } from "@/lib/whatsapp";
 
 const services = servicesData as Service[];
 
@@ -12,8 +13,8 @@ export default function ServicesIndex() {
     return acc;
   }, {});
 
-  const digits = String(site.whatsapp ?? site.phone ?? "").replace(/\D/g, "");
-  const wa = digits ? `https://wa.me/${digits}` : undefined;
+  const phoneNumber = site.whatsapp ?? site.phone ?? "+971569324947";
+  const waLink = createWhatsAppLink(phoneNumber, "Hi! I'm interested in your printing services. Can you help me?");
 
   return (
     <>
@@ -28,11 +29,9 @@ export default function ServicesIndex() {
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
             <Link href="/contact" className="btn btn-primary">Get a Quote</Link>
-            {wa && (
-              <a href={wa} target="_blank" rel="noopener noreferrer" className="btn btn-ghost">
-                WhatsApp us
-              </a>
-            )}
+            <a href={waLink} target="_blank" rel="noopener noreferrer" className="btn btn-ghost">
+              WhatsApp us
+            </a>
           </div>
         </div>
       </section>

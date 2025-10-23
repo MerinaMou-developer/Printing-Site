@@ -26,9 +26,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <WebsiteJsonLD />
         <CriticalCSS />
         <PerformanceMonitor />
+        {/* Favicon */}
+        <link rel="icon" href="/favicon-custom.svg" type="image/svg+xml" />
+        <link rel="shortcut icon" href="/favicon-custom.svg" type="image/svg+xml" />
+        
         {/* Preload critical resources */}
         <link rel="preload" href="/images/hero-print.jpg" as="image" />
-        <link rel="preload" href="/logo.svg" as="image" />
+        <link rel="preload" href="/favicon-custom.svg" as="image" />
         <link rel="dns-prefetch" href="//fonts.googleapis.com" />
         <link rel="dns-prefetch" href="//fonts.gstatic.com" />
         <link rel="dns-prefetch" href="//www.google.com" />

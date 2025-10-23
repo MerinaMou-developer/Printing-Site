@@ -37,6 +37,6 @@ export function formatPhoneNumber(phoneNumber: string): string {
     }
   }
   
-  // Default formatting
-  return cleanNumber;
+  // Default formatting - return the clean number with + if it doesn't have one
+  return cleanNumber.startsWith('+') ? cleanNumber : `+${cleanNumber}`;
 }

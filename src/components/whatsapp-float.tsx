@@ -9,10 +9,23 @@ export default function WhatsAppFloat() {
   const [isVisible, setIsVisible] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
   
+  // EXACT same variables as contact page - FORCE REFRESH
+  const email = site.email ?? "alarqauae@gmail.com";
   const phoneNumber = site.whatsapp ?? site.phone ?? "+971569324947";
   const displayPhone = formatPhoneNumber(site.phone ?? phoneNumber);
   const waLink = createWhatsAppLink(phoneNumber, "Hi! I'm interested in your printing services. Can you help me?");
   const telLink = createPhoneLink(phoneNumber);
+
+  // Debug: Log the generated links
+  console.log("WhatsApp Float Debug:", {
+    phoneNumber,
+    displayPhone,
+    waLink,
+    telLink,
+    sitePhone: site.phone,
+    siteWhatsapp: site.whatsapp,
+    timestamp: new Date().toISOString()
+  });
 
   // Show after scrolling a bit
   useEffect(() => {
@@ -49,7 +62,7 @@ export default function WhatsAppFloat() {
             </div>
           </a>
 
-          {/* WhatsApp */}
+          {/* WhatsApp - EXACT same as contact page Message us */}
           <a
             href={waLink}
             target="_blank"
