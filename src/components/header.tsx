@@ -80,7 +80,7 @@ export default function Header() {
       </div>
 
       {/* Main Header */}
-      <div className="wrapper h-20 flex items-center justify-between gap-4">
+      <div className="wrapper h-20 grid grid-cols-[auto_1fr_auto_auto] lg:grid-cols-[auto_1fr_auto_auto] items-center gap-4 lg:gap-6">
         {/* Brand Name - No Logo */}
         <Link href="/" className="group flex-shrink-0">
           <div className="flex flex-col">
@@ -97,7 +97,7 @@ export default function Header() {
         </Link>
 
         {/* Desktop: Navigation Menu */}
-        <nav className="hidden lg:flex items-center gap-1 flex-1 justify-center max-w-2xl">
+        <nav className="hidden lg:flex items-center gap-1 justify-center">
           {NAV_ITEMS.map((item) => (
             <NavLink 
               key={item.href} 
@@ -108,19 +108,19 @@ export default function Header() {
         </nav>
 
         {/* Desktop: Search Bar */}
-        <div className="hidden xl:flex items-center flex-1 max-w-md ml-4">
+        <div className="hidden xl:flex items-center max-w-md">
           <CategoryDropdown />
-          <form onSubmit={handleSearch} className="flex flex-1 ml-2">
+          <form onSubmit={handleSearch} className="flex flex-1 ml-2 min-w-0">
             <input
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search products..."
-              className="flex-1 px-4 py-2.5 bg-gray-50 text-gray-900 placeholder-gray-400 border border-gray-200 rounded-l-lg outline-none focus:ring-2 focus:ring-[var(--color-accent-500)] focus:border-[var(--color-accent-500)] transition-all text-sm"
+              className="flex-1 min-w-0 px-4 py-2.5 bg-gray-50 text-gray-900 placeholder-gray-400 border border-gray-200 rounded-l-lg outline-none focus:ring-2 focus:ring-[var(--color-accent-500)] focus:border-[var(--color-accent-500)] transition-all text-sm"
             />
             <button
               type="submit"
-              className="px-4 py-2.5 bg-gradient-to-r from-[var(--color-accent-500)] to-[var(--color-accent-600)] text-white hover:from-[var(--color-accent-600)] hover:to-[var(--color-accent-700)] transition-all font-semibold rounded-r-lg shadow-md hover:shadow-lg"
+              className="px-4 py-2.5 bg-gradient-to-r from-[var(--color-accent-500)] to-[var(--color-accent-600)] text-white hover:from-[var(--color-accent-600)] hover:to-[var(--color-accent-700)] transition-all font-semibold rounded-r-lg shadow-md hover:shadow-lg flex-shrink-0"
             >
               <Search className="h-5 w-5" />
             </button>
@@ -131,9 +131,9 @@ export default function Header() {
         <div className="hidden lg:flex items-center gap-3 flex-shrink-0">
           <Link 
             href="/checkout" 
-            className="relative group flex items-center gap-2 px-4 py-2.5 bg-gradient-to-r from-[var(--color-accent-500)] to-[var(--color-accent-600)] text-white rounded-lg font-semibold text-sm shadow-md hover:shadow-lg hover:from-[var(--color-accent-600)] hover:to-[var(--color-accent-700)] transition-all duration-200"
+            className="relative group flex items-center gap-2 px-4 py-2.5 bg-gradient-to-r from-[var(--color-accent-500)] to-[var(--color-accent-600)] text-white rounded-lg font-semibold text-sm shadow-md hover:shadow-lg hover:from-[var(--color-accent-600)] hover:to-[var(--color-accent-700)] transition-all duration-200 whitespace-nowrap"
           >
-            <ShoppingCart className="h-5 w-5" />
+            <ShoppingCart className="h-5 w-5 flex-shrink-0" />
             <span className="hidden xl:inline">Cart</span>
             {cartCount > 0 && (
               <span className="absolute -top-2 -right-2 bg-white text-[var(--color-accent-600)] text-xs font-bold rounded-full w-6 h-6 flex items-center justify-center shadow-lg border-2 border-white">
@@ -144,14 +144,14 @@ export default function Header() {
           
           <Link 
             href="/contact" 
-            className="px-5 py-2.5 bg-[var(--color-brand-700)] text-white rounded-lg font-semibold text-sm hover:bg-[var(--color-brand-800)] transition-all duration-200 shadow-md hover:shadow-lg hidden xl:inline-block"
+            className="px-5 py-2.5 bg-[var(--color-brand-700)] text-white rounded-lg font-semibold text-sm hover:bg-[var(--color-brand-800)] transition-all duration-200 shadow-md hover:shadow-lg hidden xl:inline-block whitespace-nowrap"
           >
             Get Quote
           </Link>
         </div>
 
         {/* Mobile: Search & Menu Icons */}
-        <div className="flex items-center gap-2 lg:hidden">
+        <div className="flex items-center gap-2 lg:hidden col-start-4 col-end-5 justify-end">
           <Link href="/checkout" className="relative p-2 hover:bg-gray-100 rounded-lg transition-all" aria-label="Cart">
             <ShoppingCart className="h-6 w-6 text-gray-700" />
             {cartCount > 0 && (
