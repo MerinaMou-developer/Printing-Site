@@ -15,32 +15,39 @@ type CartItem = {
 
 export function useCart() {
   const [cartCount, setCartCount] = useState(0);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (!mounted) return;
+
     // Function to get cart count from localStorage
     const getCartCount = () => {
-      if (typeof window === 'undefined') return 0;
-      
+      if (typeof window === "undefined") return 0;
+
       try {
-        const cartData = localStorage.getItem('cart');
+        const cartData = localStorage.getItem("cart");
         if (!cartData) return 0;
-        
+
         const parsed = JSON.parse(cartData);
         const cartArray = Array.isArray(parsed) ? parsed : [parsed];
-        
+
         // Filter out old format items
         const validCart = cartArray.filter((item: any) => {
           return item.emiratesId?.key && item.tradeLicense?.key && !item.emiratesId?.data;
         });
-        
+
         // Calculate total quantity
         const totalQuantity = validCart.reduce((sum: number, item: CartItem) => {
           return sum + (item.quantity || 1);
         }, 0);
-        
+
         return totalQuantity;
       } catch (error) {
-        console.error('Error reading cart:', error);
+        console.error("Error reading cart:", error);
         return 0;
       }
     };
@@ -50,7 +57,7 @@ export function useCart() {
 
     // Listen for storage changes (when cart is updated in other tabs/components)
     const handleStorageChange = (e: StorageEvent) => {
-      if (e.key === 'cart') {
+      if (e.key === "cart") {
         setCartCount(getCartCount());
       }
     };
@@ -60,13 +67,13 @@ export function useCart() {
       setCartCount(getCartCount());
     };
 
-    window.addEventListener('storage', handleStorageChange);
-    window.addEventListener('cartUpdated', handleCartUpdate);
+    window.addEventListener("storage", handleStorageChange);
+    window.addEventListener("cartUpdated", handleCartUpdate);
 
     // Poll for changes (in case events don't fire)
     const interval = setInterval(() => {
       const newCount = getCartCount();
-      setCartCount(prev => {
+      setCartCount((prev) => {
         if (prev !== newCount) {
           return newCount;
         }
@@ -75,11 +82,11 @@ export function useCart() {
     }, 500);
 
     return () => {
-      window.removeEventListener('storage', handleStorageChange);
-      window.removeEventListener('cartUpdated', handleCartUpdate);
+      window.removeEventListener("storage", handleStorageChange);
+      window.removeEventListener("cartUpdated", handleCartUpdate);
       clearInterval(interval);
     };
-  }, []);
+  }, [mounted]);
 
   return cartCount;
 }
