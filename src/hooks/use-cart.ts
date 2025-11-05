@@ -19,10 +19,6 @@ export function useCart() {
 
   useEffect(() => {
     setMounted(true);
-  }, []);
-
-  useEffect(() => {
-    if (!mounted) return;
 
     // Function to get cart count from localStorage
     const getCartCount = () => {
@@ -96,8 +92,9 @@ export function useCart() {
       window.removeEventListener("cartUpdated", handleCartUpdate);
       clearInterval(interval);
     };
-  }, [mounted]);
+  }, []);
 
-  return cartCount;
+  // Return 0 during SSR, actual count after hydration
+  return mounted ? cartCount : 0;
 }
 
