@@ -1,4 +1,4 @@
-# 📧 Complete Email System for SEHAM ADVERTISING
+# 📧 Complete Email System for PrintPro Dubai
 
 ## Overview
 This Next.js application includes a comprehensive email system that automatically sends professional emails when customers interact with your website.
@@ -21,7 +21,7 @@ This Next.js application includes a comprehensive email system that automaticall
 
 #### 2. **Customer Confirmation Emails**
 - **Auto-sent to customers** who provide email addresses
-- **Professional branding** with SEHAM ADVERTISING logo
+- **Professional branding** with PrintPro Dubai logo
 - **Next steps explanation** and contact information
 - **Mobile-responsive design**
 
@@ -44,10 +44,10 @@ SMTP_PASS=your-app-password
 SMTP_FROM=your-email@gmail.com
 
 # Email Recipients
-QUOTE_TO=info@sehamadvertising.com
+QUOTE_TO=info@printprodubai.com
 
 # Site Configuration
-NEXT_PUBLIC_SITE_URL=https://sehamadvertising.com
+NEXT_PUBLIC_SITE_URL=https://printprodubai.com
 ```
 
 ### 3. Gmail Setup (Recommended)
@@ -307,7 +307,7 @@ DEBUG_EMAIL=true
 5. **Contact your hosting provider** if deployment issues
 
 ### Contact Information:
-- **Email**: info@sehamadvertising.com
+- **Email**: info@printprodubai.com
 - **Phone**: +971 50 123 4567
 - **WhatsApp**: +971 50 123 4567
 

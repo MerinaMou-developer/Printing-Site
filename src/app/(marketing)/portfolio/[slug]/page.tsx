@@ -25,8 +25,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (!item) return { title: "Project Not Found" };
   
   return {
-    title: `${item.title} | SEHAM ADVERTISING Portfolio`,
-    description: `${item.description} - Professional ${item.category} services by SEHAM ADVERTISING in Dubai.`,
+    title: `${item.title} | PrintPro Dubai Portfolio`,
+    description: `${item.description} - Professional ${item.category} services by PrintPro Dubai in Dubai.`,
     alternates: { canonical: `/portfolio/${slug}` },
   };
 }
@@ -226,7 +226,7 @@ export default async function PortfolioDetailPage({ params }: { params: Promise<
             ">
               <p>
                 This project showcases our expertise in {item.category} services, delivering exceptional quality 
-                and attention to detail that our clients have come to expect from SEHAM ADVERTISING.
+                and attention to detail that our clients have come to expect from PrintPro Dubai.
               </p>
               
               <h3>What We Delivered</h3>

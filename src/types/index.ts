@@ -13,6 +13,7 @@ export type Product = {
   name: string;
   desc: string;
   img?: string;
+  category?: string;
 };
 
 

@@ -1,6 +1,6 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-  siteUrl: process.env.NEXT_PUBLIC_SITE_URL || 'https://sehamadvertising.com',
+  siteUrl: process.env.NEXT_PUBLIC_SITE_URL || 'https://printprodubai.com',
   generateRobotsTxt: true,
   generateIndexSitemap: false,
   exclude: ['/admin/*', '/api/*'],
@@ -70,7 +70,7 @@ module.exports = {
       },
     ],
     additionalSitemaps: [
-      'https://sehamadvertising.com/sitemap.xml',
+      'https://printprodubai.com/sitemap.xml',
     ],
   },
   transform: async (config, path) => {

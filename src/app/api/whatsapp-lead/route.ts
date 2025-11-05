@@ -41,7 +41,7 @@ export async function POST(req: Request) {
           <div class="container">
             <div class="header">
               <h1>💬 WhatsApp Lead</h1>
-              <p>SEHAM ADVERTISING - Dubai</p>
+              <p>PrintPro Dubai - Dubai</p>
             </div>
             
             <div class="content">
@@ -65,7 +65,7 @@ export async function POST(req: Request) {
         </html>
       `,
       text: `
-WhatsApp Lead - SEHAM ADVERTISING
+WhatsApp Lead - PrintPro Dubai
 
 Customer Information:
 - Name: ${name}
@@ -79,7 +79,7 @@ WhatsApp: https://wa.me/${phone.replace(/\D/g, '')}
 Call: tel:${phone}
 
 ---
-SEHAM ADVERTISING
+PrintPro Dubai
 Professional Printing & Signage Services in Dubai
       `
     };

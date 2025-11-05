@@ -56,7 +56,7 @@ export default function ContactPage() {
   ];
 
   const quickInfo = [
-    { icon: MapPin, label: "Location", value: "Dubai, U.A.E." },
+    { icon: MapPin, label: "Location", value: "Marina Dubai, U.A.E." },
     { icon: Clock, label: "Working Hours", value: "Sat-Thu, 9:00 AM - 9:00 PM" },
     { icon: MessageCircle, label: "WhatsApp", value: "24/7 Available" },
   ];
@@ -188,10 +188,12 @@ export default function ContactPage() {
           <div className="space-y-6">
             <div className="rounded-2xl overflow-hidden border-2 border-[var(--border)] shadow-lg hover:shadow-xl transition-shadow">
               <iframe
-                title="SEHAM ADVERTISING Location - Dubai"
+                title="PrintPro Dubai Location - Marina Dubai"
                 className="w-full h-[400px]"
-                src="https://www.google.com/maps?q=25.271983,55.3135949&hl=en&z=15&output=embed"
+                src={`https://www.google.com/maps?q=25.275614,55.3310329&hl=en&z=15&output=embed`}
                 loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                allowFullScreen
                 style={{ border: 0 }}
               />
               <div className="p-6 bg-white border-t border-[var(--border)]">
@@ -199,8 +201,11 @@ export default function ContactPage() {
                 <div className="flex items-start gap-2 text-[var(--color-ink)]/70">
                   <MapPin className="h-5 w-5 mt-0.5 flex-shrink-0 text-[var(--color-accent-600)]" />
                   <p className="leading-relaxed">
-                    {site.address ?? "Dubai, U.A.E."}<br />
-                    <span className="text-sm">Installation & delivery available across Dubai</span>
+                    Dubai Marina Sail Tower<br />
+                    Hor Al Anz - Marsa Dubai<br />
+                    Dubai - United Arab Emirates<br />
+                    <span className="text-sm text-[var(--color-ink)]/60 mt-1 block">Plus Code: 78GM+6C Dubai</span>
+                    <span className="text-sm mt-2 block">Installation & delivery available across Dubai</span>
                   </p>
                 </div>
               </div>

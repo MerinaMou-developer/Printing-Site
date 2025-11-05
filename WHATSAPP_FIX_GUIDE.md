@@ -19,7 +19,7 @@
 ### **Step 1: Update `src/content/site.json`**
 ```json
 {
-  "brand": "SEHAM ADVERTISING",
+  "brand": "PrintPro Dubai",
   "phone": "+971 XX XXX XXXX",  // Your display phone number
   "whatsapp": "+971XXXXXXXXX",  // Your WhatsApp number (no spaces)
   "email": "your-email@domain.com"
@@ -70,7 +70,7 @@ The new system automatically handles:
 Your site is now configured with:
 - **Phone**: `+971 56 932 4947` (display format)
 - **WhatsApp**: `+971569324947` (link format)
-- **Email**: `info@sehamadvertising.com`
+- **Email**: `info@printprodubai.com`
 
 **To change these, simply update the values in `src/content/site.json` and the changes will apply site-wide!**
 

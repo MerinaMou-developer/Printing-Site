@@ -4,6 +4,7 @@ import Link from "next/link";
 import { ArrowLeft, CheckCircle2, Star, ShoppingCart, MessageCircle, Phone } from "lucide-react";
 import productsData from "@/content/products.json";
 import site from "@/content/site.json";
+import ProductDetailForm from "@/components/product-detail-form";
 
 type Product = {
   slug: string;
@@ -24,14 +25,14 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (!product) return { title: "Product Not Found" };
   
   return {
-    title: `${product.name} Dubai | SEHAM ADVERTISING - Custom ${product.name} Printing`,
-    description: `${product.desc} - Professional ${product.name} printing and customization by SEHAM ADVERTISING in Dubai. Fast turnaround, competitive prices, premium quality. Get a free quote today!`,
+    title: `${product.name} Dubai | PrintPro Dubai - Custom ${product.name} Printing`,
+    description: `${product.desc} - Professional ${product.name} printing and customization by PrintPro Dubai in Dubai. Fast turnaround, competitive prices, premium quality. Get a free quote today!`,
     keywords: [
       `${product.name} Dubai`,
       `${product.name} UAE`,
       `custom ${product.name} printing Dubai`,
       `${product.name} printing Dubai`,
-      `SEHAM ADVERTISING ${product.name}`,
+      `PrintPro Dubai ${product.name}`,
       `professional ${product.name} Dubai`,
     ],
     alternates: { canonical: `/products/${slug}` },
@@ -95,11 +96,11 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
               </h1>
 
               <p className="text-lg text-white/90 leading-relaxed mb-8">
-                {product.desc} - Professional printing and customization services by SEHAM ADVERTISING in Dubai.
+                {product.desc} - Professional printing and customization services by PrintPro Dubai in Dubai.
               </p>
 
               <div className="flex flex-wrap gap-4">
-                <Link href="/contact" className="btn btn-primary text-lg px-8 py-4 animate-pulse-glow shadow-xl">
+                <Link href="/contact" className="btn glass text-white text-lg px-8 py-4 hover:bg-white/15">
                   Get Free Quote
                 </Link>
                 {wa && (
@@ -140,6 +141,13 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
         <div className="grid lg:grid-cols-3 gap-12">
           {/* Main Content */}
           <div className="lg:col-span-2 space-y-8">
+            {/* Product Order Form */}
+            <div className="card border-2 border-[var(--border)] p-8 bg-white">
+              <h2 className="text-2xl font-bold mb-6 text-[var(--color-brand-700)]">
+                Customize Your Order
+              </h2>
+              <ProductDetailForm product={product} />
+            </div>
             {/* Product Features */}
             <div className="card border-2 border-[var(--border)] p-8">
               <h2 className="text-2xl md:text-3xl font-bold mb-6 text-[var(--color-brand-700)]">Product Features</h2>

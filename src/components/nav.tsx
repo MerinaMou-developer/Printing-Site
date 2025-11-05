@@ -11,8 +11,6 @@ export const NAV_ITEMS: NavItem[] = [
   { href: "/about", label: "About" },
   { href: "/services", label: "Services" },
   { href: "/products", label: "Products" },
-  { href: "/portfolio", label: "Portfolio" },
-  { href: "/blog", label: "Blog" },
   { href: "/contact", label: "Contact" },
 ];
 
@@ -24,10 +22,12 @@ export function NavLink({ href, label, onClick, className }: NavItem & { onClick
   const isActive = pathname === href || (href !== "/" && pathname.startsWith(href));
 
   // Base classes that are consistent between server and client
-  const baseClasses = "relative px-3 py-2 rounded-md text-sm font-medium transition hover:bg-white/10 text-white/80 hover:text-white";
+  const baseClasses = "relative px-3 py-2 rounded-md text-sm font-medium transition-all duration-200";
   
   // Active classes - applied consistently
-  const activeClasses = isActive ? "text-white" : "";
+  const activeClasses = isActive 
+    ? "text-[var(--color-brand-700)] bg-gray-50 font-semibold" 
+    : "text-gray-700 hover:text-[var(--color-brand-700)] hover:bg-gray-50";
 
   return (
     <Link
@@ -36,7 +36,12 @@ export function NavLink({ href, label, onClick, className }: NavItem & { onClick
       aria-current={isActive ? "page" : undefined}
       className={`${baseClasses} ${activeClasses} ${className || ""}`}
     >
-      {label}
+      <span className="relative">
+        {label}
+        {isActive && (
+          <span className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-6 h-0.5 bg-[var(--color-accent-500)] rounded-full"></span>
+        )}
+      </span>
     </Link>
   );
 }

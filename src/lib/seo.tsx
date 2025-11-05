@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import site from "@/content/site.json";
 
-const DOMAIN = process.env.NEXT_PUBLIC_SITE_URL || "https://sehamadvertising.com"; // Update with actual domain
-const BRAND = site.brand ?? "SEHAM ADVERTISING";
+const DOMAIN = process.env.NEXT_PUBLIC_SITE_URL || "https://printprodubai.com"; // Update with actual domain
+const BRAND = site.brand ?? "PrintPro Dubai";
 
 export const baseMetadata: Metadata = {
   metadataBase: DOMAIN ? new URL(DOMAIN) : undefined,
@@ -11,10 +11,10 @@ export const baseMetadata: Metadata = {
     template: `%s | ${BRAND}`,
   },
   description:
-    "SEHAM ADVERTISING - Dubai's premier printing & signage company. Offset printing, screen printing, DTF, LED signs, vehicle branding, neon signs, business cards, vinyl stickers. Fast turnaround, professional installation. Get a free quote today!",
+    "PrintPro Dubai - Dubai's premier printing & signage company. Offset printing, screen printing, DTF, LED signs, vehicle branding, neon signs, business cards, vinyl stickers. Fast turnaround, professional installation. Get a free quote today!",
   keywords: [
-    "SEHAM ADVERTISING",
-    "Seham Advertising Dubai",
+    "PrintPro Dubai",
+    "Print Pro Dubai",
     "printing Dubai",
     "signage Dubai",
     "offset printing Dubai",
@@ -89,7 +89,7 @@ export const baseMetadata: Metadata = {
     locale: "en_AE",
     url: DOMAIN || undefined,
     title: `${BRAND} — Premium Printing & Signage in Dubai`,
-    description: "SEHAM ADVERTISING - Dubai's trusted printing & signage partner. Fast turnaround, professional quality, competitive prices. Offset printing, screen printing, LED signs, vehicle branding & more.",
+    description: "PrintPro Dubai - Dubai's trusted printing & signage partner. Fast turnaround, professional quality, competitive prices. Offset printing, screen printing, LED signs, vehicle branding & more.",
     images: [
       {
         url: "/og-image.jpg",
@@ -102,7 +102,7 @@ export const baseMetadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: `${BRAND} — Premium Printing & Signage in Dubai`,
-    description: "SEHAM ADVERTISING - Dubai's trusted printing & signage partner. Fast turnaround, professional quality.",
+    description: "PrintPro Dubai - Dubai's trusted printing & signage partner. Fast turnaround, professional quality.",
     images: ["/og-image.jpg"],
   },
   icons: {
@@ -138,8 +138,8 @@ export function LocalBusinessJsonLD() {
     "@type": "LocalBusiness",
     "@id": `${DOMAIN}#business`,
     name: BRAND,
-    alternateName: "Al Arqa Printing",
-    description: "SEHAM ADVERTISING - Professional printing and signage services in Dubai. Offset printing, screen printing, DTF, LED signs, vehicle branding, and more.",
+    alternateName: "Print Pro Dubai",
+    description: "PrintPro Dubai - Professional printing and signage services in Dubai. Offset printing, screen printing, DTF, LED signs, vehicle branding, and more.",
     url: DOMAIN,
     telephone: site.phone ?? "+971569324947",
     email: site.email ?? "alarqauae@gmail.com",
@@ -244,7 +244,7 @@ export function OrganizationJsonLD() {
     name: BRAND,
     url: DOMAIN,
     logo: `${DOMAIN}/logo.svg`,
-    description: "SEHAM ADVERTISING - Leading printing and signage company in Dubai providing quality offset printing, screen printing, and signage services since 2014.",
+    description: "PrintPro Dubai - Leading printing and signage company in Dubai providing quality offset printing, screen printing, and signage services.",
     address: {
       "@type": "PostalAddress",
       addressLocality: "Dubai",
@@ -282,7 +282,7 @@ export function WebsiteJsonLD() {
     "@id": `${DOMAIN}#website`,
     url: DOMAIN,
     name: BRAND,
-    description: "SEHAM ADVERTISING - Professional printing and signage services in Dubai",
+    description: "PrintPro Dubai - Professional printing and signage services in Dubai",
     publisher: {
       "@id": `${DOMAIN}#organization`,
     },

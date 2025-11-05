@@ -1,9 +1,31 @@
 [
-  {"slug":"t-shirts","name":"T-shirts","desc":"100% cotton & blends","img":"/images/products/tshirt.jpg"},
-  {"slug":"mugs","name":"Mugs","desc":"Sublimation & print","img":"/images/products/mug.jpg"},
-  {"slug":"lanyards","name":"Lanyards","desc":"Brand lanyards & IDs","img":"/images/products/lanyard.jpg"},
-  {"slug":"bottles","name":"Bottles","desc":"Printed metal/plastic bottles","img":"/images/products/bottle.jpg"},
-  {"slug":"safety-vests","name":"Safety Vests","desc":"Hi-vis with logos","img":"/images/products/vest.jpg"},
-  {"slug":"balloons","name":"Balloons","desc":"Custom printed balloons","img":"/images/products/balloon.jpg"},
-  {"slug":"gift-boxes","name":"Gift Boxes","desc":"Branded gift packaging","img":"/images/products/giftbox.jpg"}
+  {"slug":"shiny-r-532d","name":"Shiny R-532D","category":"Dater Stamp Products","desc":"Professional dater stamp with date, company name and received text","img":"/images/category/Dater Stamp Products/Shiny-R-532D-360x360.png"},
+  {"slug":"shiny-r-538d-blue","name":"Shiny R-538D Blue","category":"Dater Stamp Products","desc":"Blue professional dater stamp with date, company name and received text","img":"/images/category/Dater Stamp Products/Shiny-R-538D_Blue-360x360.png"},
+  {"slug":"shiny-r-542d-black","name":"Shiny R-542D Black","category":"Dater Stamp Products","desc":"Black professional dater stamp with date, company name and received text","img":"/images/category/Dater Stamp Products/Shiny-R-542D_Black-360x360.png"},
+  {"slug":"shiny-r-542d-t12-red","name":"Shiny R-542D T12 Red","category":"Dater Stamp Products","desc":"Red professional dater stamp with date, company name and received text","img":"/images/category/Dater Stamp Products/Shiny-R-542D-T12_Red-360x360.png"},
+  {"slug":"shiny-r-552d-blue","name":"Shiny R-552D Blue","category":"Dater Stamp Products","desc":"Blue professional dater stamp with date, company name and received text","img":"/images/category/Dater Stamp Products/Shiny-R-552D_Blue-360x360.png"},
+  {"slug":"shiny-s-530d","name":"Shiny S-530D","category":"Dater Stamp Products","desc":"Professional square dater stamp with date, company name and received text","img":"/images/category/Dater Stamp Products/Shiny-S-530D-360x360.png"},
+  {"slug":"shiny-s-538d","name":"Shiny S-538D","category":"Dater Stamp Products","desc":"Professional square dater stamp with date, company name and received text","img":"/images/category/Dater Stamp Products/Shiny-S-538D-360x360.png"},
+  {"slug":"shiny-s-722","name":"Shiny S-722","category":"Dater Stamp Products","desc":"Professional pocket-sized dater stamp","img":"/images/category/Dater Stamp Products/Shiny-S-722_Others-360x360.png"},
+  {"slug":"shiny-s-723-green","name":"Shiny S-723 Green","category":"Dater Stamp Products","desc":"Green professional pocket-sized dater stamp","img":"/images/category/Dater Stamp Products/Shiny-S-723_Green-360x360.png"},
+  {"slug":"shiny-s-723-others","name":"Shiny S-723 Others","category":"Dater Stamp Products","desc":"Professional pocket-sized dater stamp in various colors","img":"/images/category/Dater Stamp Products/Shiny-S-723_Others-360x360.png"},
+  {"slug":"shiny-s-724-blue","name":"Shiny S-724 Blue","category":"Dater Stamp Products","desc":"Blue professional pocket-sized dater stamp","img":"/images/category/Dater Stamp Products/Shiny-S-724_Blue-360x360.png"},
+  {"slug":"shiny-s-724-others","name":"Shiny S-724 Others","category":"Dater Stamp Products","desc":"Professional pocket-sized dater stamp in various colors","img":"/images/category/Dater Stamp Products/Shiny-S-724_Others-360x360.png"},
+
+  {"slug":"shiny-elite-42-green","name":"Shiny Elite 42 Green","category":"Handy and Pocket Stamps","desc":"Compact green pocket stamp for on-the-go use","img":"/images/category/Handy and Pocket Stamps/Shiny-Elite-42_Green-360x360.png"},
+  {"slug":"shiny-elite-42-pink","name":"Shiny Elite 42 Pink","category":"Handy and Pocket Stamps","desc":"Compact pink pocket stamp for on-the-go use","img":"/images/category/Handy and Pocket Stamps/Shiny-Elite-42_Pink-360x360.png"},
+
+  {"slug":"trodat-heavy-52040","name":"Trodat Heavy 52040","category":"Heavy Duty Stamps","desc":"Heavy-duty professional stamp for high-volume use","img":"/images/category/Heavy Duty Stamps/Trodat-Heavy-52040.png"},
+  {"slug":"trodat-heavy-54110","name":"Trodat Heavy 54110","category":"Heavy Duty Stamps","desc":"Heavy-duty professional stamp for high-volume use","img":"/images/category/Heavy Duty Stamps/Trodat-Heavy-54110.png"},
+  {"slug":"trodat-heavy-54120","name":"Trodat Heavy 54120","category":"Heavy Duty Stamps","desc":"Heavy-duty professional stamp for high-volume use","img":"/images/category/Heavy Duty Stamps/Trodat-Heavy-54120.png"},
+
+  {"slug":"colop-printer-oval-55-black","name":"Colop Printer Oval 55 Black","category":"Oval Self Ink Stamps","desc":"Professional oval self-inking stamp in black","img":"/images/category/Oval Self Ink Stamps/Colop-Printer-Oval-55_Black.png"},
+  {"slug":"colop-printer-oval-55-blue","name":"Colop Printer Oval 55 Blue","category":"Oval Self Ink Stamps","desc":"Professional oval self-inking stamp in blue","img":"/images/category/Oval Self Ink Stamps/Colop-Printer-Oval-55_Blue.png"},
+  {"slug":"colop-printer-oval-55-red","name":"Colop Printer Oval 55 Red","category":"Oval Self Ink Stamps","desc":"Professional oval self-inking stamp in red","img":"/images/category/Oval Self Ink Stamps/Colop-Printer-Oval-55_Red.png"},
+  {"slug":"trodat-44055-red","name":"Trodat 44055 Red","category":"Oval Self Ink Stamps","desc":"Professional oval self-inking stamp in red","img":"/images/category/Oval Self Ink Stamps/Trodat-44055_Red.png"},
+
+  {"slug":"trodat-46050","name":"Trodat 46050","category":"Round Self Ink Stamps","desc":"Professional round self-inking stamp","img":"/images/category/Round Self Ink Stamps/Trodat-46050.png"},
+  {"slug":"trodat-4642-black","name":"Trodat 4642 Black","category":"Round Self Ink Stamps","desc":"Professional round self-inking stamp in black","img":"/images/category/Round Self Ink Stamps/Trodat-4642_Black.png"},
+  {"slug":"trodat-4642-blue","name":"Trodat 4642 Blue","category":"Round Self Ink Stamps","desc":"Professional round self-inking stamp in blue","img":"/images/category/Round Self Ink Stamps/Trodat-4642_Blue.png"},
+  {"slug":"trodat-4642-red","name":"Trodat 4642 Red","category":"Round Self Ink Stamps","desc":"Professional round self-inking stamp in red","img":"/images/category/Round Self Ink Stamps/Trodat-4642_Red.png"}
 ]

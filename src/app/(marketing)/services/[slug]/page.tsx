@@ -19,13 +19,13 @@ export async function generateMetadata(
   const s = services.find((x) => x.slug === slug);
   if (!s) return {};
   return {
-    title: `${s.name} Dubai | SEHAM ADVERTISING - ${s.category}`,
-    description: `${s.desc} - Professional ${s.name} services by SEHAM ADVERTISING in Dubai. Fast turnaround, competitive prices, professional installation. Get a free quote today!`,
+    title: `${s.name} Dubai | PrintPro Dubai - ${s.category}`,
+    description: `${s.desc} - Professional ${s.name} services by PrintPro Dubai in Dubai. Fast turnaround, competitive prices, professional installation. Get a free quote today!`,
     keywords: [
       `${s.name} Dubai`,
       `${s.name} UAE`,
       `${s.category} Dubai`,
-      `SEHAM ADVERTISING ${s.name}`,
+      `PrintPro Dubai ${s.name}`,
       `professional ${s.name} Dubai`,
       `best ${s.name} company Dubai`,
     ],
@@ -265,7 +265,7 @@ export default async function ServicePage(
                 <div className="space-y-6">
                   <h3 className="text-xl font-semibold text-[var(--color-brand-600)] flex items-center gap-2">
                     <Award className="h-6 w-6 text-[var(--color-accent-500)]" />
-                    Why Choose SEHAM
+                    Why Choose PrintPro Dubai
                   </h3>
                   <ul className="space-y-3">
                     {[

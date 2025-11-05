@@ -79,7 +79,7 @@
   
   <!-- Company Name -->
   <g transform="translate(75, 8)">
-    <!-- SEHAM -->
+    <!-- PrintPro -->
     <text x="0" y="32" 
           font-family="'Segoe UI', 'Montserrat', 'Poppins', Arial, sans-serif" 
           font-size="28" 
@@ -87,10 +87,10 @@
           fill="url(#textGradient)"
           filter="url(#shadow)"
           letter-spacing="1px">
-      SEHAM
+      PrintPro
     </text>
     
-    <!-- ADVERTISING -->
+    <!-- Dubai -->
     <text x="0" y="52" 
           font-family="'Segoe UI', 'Montserrat', 'Poppins', Arial, sans-serif" 
           font-size="14" 
@@ -98,7 +98,7 @@
           fill="url(#silverGradient)"
           filter="url(#shadow)"
           letter-spacing="2px">
-      ADVERTISING
+      Dubai
     </text>
   </g>
   

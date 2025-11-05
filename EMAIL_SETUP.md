@@ -19,10 +19,10 @@ SMTP_PASS=your-app-password
 SMTP_FROM=your-email@gmail.com
 
 # Email Recipients
-QUOTE_TO=info@sehamadvertising.com
+QUOTE_TO=info@printprodubai.com
 
 # Site Configuration
-NEXT_PUBLIC_SITE_URL=https://sehamadvertising.com
+NEXT_PUBLIC_SITE_URL=https://printprodubai.com
 ```
 
 ## Email Provider Setup

@@ -41,7 +41,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta name="msapplication-TileColor" content="#1a3a63" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-        <meta name="apple-mobile-web-app-title" content="SEHAM ADVERTISING" />
+        <meta name="apple-mobile-web-app-title" content="PrintPro Dubai" />
       </head>
       <body
         className={`${inter.className} min-h-screen bg-[var(--background)] text-[var(--foreground)] antialiased`}

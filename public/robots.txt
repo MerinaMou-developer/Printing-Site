@@ -1,11 +1,11 @@
-# Robots.txt for Al Arqa Printing & Signage
+# Robots.txt for PrintPro Dubai - Printing & Signage
 
 User-agent: *
 Allow: /
 
 # Sitemaps
-Sitemap: https://sehamadvertising.com/sitemap.xml
-Sitemap: https://sehamadvertising.com/sitemap-0.xml
+Sitemap: https://printprodubai.com/sitemap.xml
+Sitemap: https://printprodubai.com/sitemap-0.xml
 
 # Disallow admin/api routes (if any)
 Disallow: /api/
