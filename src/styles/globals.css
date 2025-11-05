@@ -76,10 +76,18 @@ html, body { min-height: 100%; }
 
 body {
   margin: 0; /* kill default browser margin (removes side gaps) */
+  padding: 0;
   background: var(--background);
   color: var(--foreground);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+  width: 100%;
+}
+
+html {
+  overflow-x: hidden; /* Prevent horizontal scroll */
+  width: 100%;
 }
 
 img { image-rendering: -webkit-optimize-contrast; }
@@ -90,27 +98,6 @@ a:hover { text-decoration: none; }
 h1, h2, h3 { line-height: 1.2; letter-spacing: -0.01em; }
 h1 { margin-top: 0; }
 
-/* consistent page gutters + max width */
-.wrapper {
-  max-width: 80rem; /* ~1280px */
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 1rem;
-  padding-right: 1rem;
-}
-@media (min-width: 640px) {
-  .wrapper {
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
-  }
-}
-@media (min-width: 1024px) {
-  .wrapper {
-    padding-left: 2rem;
-    padding-right: 2rem;
-  }
-}
-
 /* help anchor links when header is sticky */
 section { scroll-margin-top: 88px; }
 
@@ -118,6 +105,28 @@ section { scroll-margin-top: 88px; }
    Components (Tailwind layer)
 ---------------------------------*/
 @layer components {
+  /* consistent page gutters + max width */
+  .wrapper {
+    max-width: 80rem; /* ~1280px */
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  @media (min-width: 640px) {
+    .wrapper {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+  @media (min-width: 1024px) {
+    .wrapper {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
   /* Cards */
   .card {
     @apply border rounded-2xl p-6;

@@ -80,7 +80,7 @@ export default function Header() {
       </div>
 
       {/* Main Header */}
-      <div className="wrapper h-20 grid grid-cols-[auto_1fr_auto_auto] lg:grid-cols-[auto_1fr_auto_auto] items-center gap-4 lg:gap-6">
+      <div className="wrapper h-20 grid grid-cols-[auto_1fr_auto_auto] lg:grid-cols-[auto_1fr_auto_auto] items-center gap-4 lg:gap-6 min-w-0">
         {/* Brand Name - No Logo */}
         <Link href="/" className="group flex-shrink-0">
           <div className="flex flex-col">
