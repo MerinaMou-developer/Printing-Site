@@ -1,21 +1,12 @@
 import Link from "next/link";
-import servicesData from "@/content/services.json";
 import productsData from "@/content/products.json";
-import type { Service, Product } from "@/types";
-import ServiceCard from "@/components/service-card";
+import type { Product } from "@/types";
 import Hero from "@/components/hero";
-import PortfolioTeaser from "@/components/portfolio-teaser";
-import Testimonials from "@/components/testimonials";
-import StatsSection from "@/components/stats-section";
-import ProcessSection from "@/components/process-section";
 import ProductGrid from "@/components/product-grid";
 
-const services = servicesData as Service[];
 const products = productsData as Product[];
 
 export default function HomePage() {
-  const quick = services.slice(0, 6);
-
   return (
     <>
       {/* 1) Hero */}

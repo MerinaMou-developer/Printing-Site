@@ -4,7 +4,7 @@ import type { Service } from "@/types";
 import Link from "next/link";
 import site from "@/content/site.json";
 import { CheckCircle2, Star, Clock, Shield, Truck, Palette, Zap, Award, Users, ArrowRight, Download, Phone, Mail, MessageCircle } from "lucide-react";
-import { createWhatsAppLink, createPhoneLink, formatPhoneNumber } from "@/lib/whatsapp";
+import { createWhatsAppLink } from "@/lib/whatsapp";
 
 const services = data as Service[];
 
