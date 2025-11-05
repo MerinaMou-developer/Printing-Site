@@ -36,8 +36,18 @@ export function useCart() {
         const cartArray = Array.isArray(parsed) ? parsed : [parsed];
 
         // Filter out old format items
-        const validCart = cartArray.filter((item: any) => {
-          return item.emiratesId?.key && item.tradeLicense?.key && !item.emiratesId?.data;
+        const validCart = cartArray.filter((item: unknown): item is CartItem => {
+          if (typeof item !== 'object' || item === null) return false;
+          const i = item as Record<string, unknown>;
+          return (
+            typeof i.emiratesId === 'object' &&
+            i.emiratesId !== null &&
+            'key' in i.emiratesId &&
+            typeof i.tradeLicense === 'object' &&
+            i.tradeLicense !== null &&
+            'key' in i.tradeLicense &&
+            !('data' in (i.emiratesId as Record<string, unknown>))
+          );
         });
 
         // Calculate total quantity

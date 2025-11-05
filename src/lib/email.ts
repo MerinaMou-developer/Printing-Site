@@ -372,12 +372,19 @@ export const sendEmail = async (options: {
       // Log what actually gets passed to nodemailer
       console.log('Mail options attachments count:', mailOptions.attachments?.length || 0);
       mailOptions.attachments?.forEach((att, idx) => {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        const attContent = att.content as any;
+        const contentSize = Buffer.isBuffer(attContent) 
+          ? attContent.length 
+          : typeof attContent === 'string' 
+            ? attContent.length 
+            : 0;
         console.log(`  Attachment ${idx + 1}:`, {
           filename: att.filename,
           contentType: att.contentType,
-          size: Buffer.isBuffer(att.content) ? att.content.length : (att.content as any)?.length || 0,
-          isBuffer: Buffer.isBuffer(att.content),
-          firstBytes: Buffer.isBuffer(att.content) ? att.content.slice(0, 20).toString('hex') : 'N/A'
+          size: contentSize,
+          isBuffer: Buffer.isBuffer(attContent),
+          firstBytes: Buffer.isBuffer(attContent) ? attContent.slice(0, 20).toString('hex') : 'N/A'
         });
       });
     }
