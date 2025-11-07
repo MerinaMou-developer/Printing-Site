@@ -51,7 +51,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <AuthProvider>
           <ToastProvider>
             <Header />
-            <main>{children}</main>
+            <main style={{ paddingTop: "var(--header-height, 7.5rem)" }}>{children}</main>
             <Footer />
             <WhatsAppFloat />
           </ToastProvider>
