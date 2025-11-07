@@ -1,14 +1,13 @@
 'use client';
 
 import { useState } from 'react';
-import { useRouter, useSearchParams } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { useAuth } from '@/context/auth-context';
 import { LogIn, Mail, Lock, AlertCircle, Loader2, UserPlus } from 'lucide-react';
 
 export default function LoginPage() {
   const router = useRouter();
-  const searchParams = useSearchParams();
   const { login } = useAuth();
   
   const [formData, setFormData] = useState({
@@ -18,8 +17,6 @@ export default function LoginPage() {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
 
-  const redirectTo = searchParams.get('redirect') || '/';
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
@@ -27,7 +24,7 @@ export default function LoginPage() {
 
     try {
       await login(formData.email, formData.password);
-      router.push(redirectTo);
+      router.push('/');
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Invalid username or password');
     } finally {
