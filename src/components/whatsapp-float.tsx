@@ -10,7 +10,6 @@ export default function WhatsAppFloat() {
   const [isExpanded, setIsExpanded] = useState(false);
   
   // EXACT same variables as contact page - FORCE REFRESH
-  const email = site.email ?? "alarqauae@gmail.com";
   const phoneNumber = site.whatsapp ?? site.phone ?? "+971569324947";
   const displayPhone = formatPhoneNumber(site.phone ?? phoneNumber);
   const waLink = createWhatsAppLink(phoneNumber, "Hi! I'm interested in your printing services. Can you help me?");

@@ -60,7 +60,6 @@ export default function CheckoutClient() {
   }, []);
 
   const removeFromCart = async (index: number) => {
-    const itemToRemove = cart[index];
     const newCart = cart.filter((_, i) => i !== index);
     setCart(newCart);
     localStorage.setItem('cart', JSON.stringify(newCart));
@@ -68,17 +67,8 @@ export default function CheckoutClient() {
     // Dispatch cart update event for header
     window.dispatchEvent(new Event('cartUpdated'));
     
-    // Also remove files from IndexedDB
-    try {
-      const { deleteFile } = await import('@/lib/indexeddb');
-      await deleteFile(itemToRemove.emiratesId.key);
-      await deleteFile(itemToRemove.tradeLicense.key);
-      if (itemToRemove.specificDesign) {
-        await deleteFile(itemToRemove.specificDesign.key);
-      }
-    } catch (error) {
-      console.error('Error deleting files from IndexedDB:', error);
-    }
+    // NOTE: Old IndexedDB code removed - now using Django API
+    // Files are handled by the backend
   };
 
   const updateQuantity = (index: number, newQuantity: number) => {

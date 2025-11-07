@@ -1,9 +1,8 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef } from "react";
 import { Upload, X, FileText } from "lucide-react";
 import type { Product } from "@/types";
-import { autoCleanupIfNeeded } from "@/lib/force-cleanup-cart";
 
 type Props = {
   product: Product;
@@ -21,11 +20,6 @@ export default function ProductDetailForm({ product }: Props) {
   const [tradeLicense, setTradeLicense] = useState<UploadedFile | null>(null);
   const [specificDesign, setSpecificDesign] = useState<UploadedFile | null>(null);
   const [loading, setLoading] = useState(false);
-
-  // Clean cart on mount to prevent quota errors
-  useEffect(() => {
-    autoCleanupIfNeeded();
-  }, []);
 
   const emiratesIdRef = useRef<HTMLInputElement>(null);
   const tradeLicenseRef = useRef<HTMLInputElement>(null);
@@ -111,7 +105,7 @@ export default function ProductDetailForm({ product }: Props) {
               localStorage.removeItem('cart');
             }
           }
-        } catch (error) {
+        } catch {
           // If ANY error reading cart, clear it completely
           console.error('AGGRESSIVE CLEANUP: Error reading cart, clearing completely');
           try {

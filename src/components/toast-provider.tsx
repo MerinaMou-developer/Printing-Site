@@ -1,10 +1,8 @@
 "use client";
 
-import React, { createContext, useContext, useState, useCallback, useEffect } from 'react';
+import React, { createContext, useContext, useState, useCallback } from 'react';
 import { Toast } from './toast';
 import ToastContainer from './toast';
-import { cleanupOldCartData } from '@/lib/cart-cleanup';
-import { autoCleanupIfNeeded } from '@/lib/force-cleanup-cart';
 
 interface ToastContextType {
   showToast: (toast: Omit<Toast, 'id'>) => void;
@@ -28,14 +26,6 @@ export function useToast() {
 
 export function ToastProvider({ children }: { children: React.ReactNode }) {
   const [toasts, setToasts] = useState<Toast[]>([]);
-
-  // Clean up old cart data on app load
-  useEffect(() => {
-    // Run automatic cleanup first (quick check)
-    autoCleanupIfNeeded();
-    // Then run detailed cleanup
-    cleanupOldCartData();
-  }, []);
 
   const generateId = () => {
     return Math.random().toString(36).substr(2, 9);

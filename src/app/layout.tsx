@@ -8,6 +8,7 @@ import WhatsAppFloat from "@/components/whatsapp-float";
 import { ToastProvider } from "@/components/toast-provider";
 import { PerformanceMonitor } from "@/components/performance-monitor";
 import { CriticalCSS } from "@/components/critical-css";
+import { AuthProvider } from "@/context/auth-context";
 
 export const metadata: Metadata = baseMetadata;
 const inter = Inter({ 
@@ -47,12 +48,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         className={`${inter.className} min-h-screen bg-[var(--background)] text-[var(--foreground)] antialiased`}
         suppressHydrationWarning
       >
-        <ToastProvider>
-          <Header />
-          <main>{children}</main>
-          <Footer />
-          <WhatsAppFloat />
-        </ToastProvider>
+        <AuthProvider>
+          <ToastProvider>
+            <Header />
+            <main>{children}</main>
+            <Footer />
+            <WhatsAppFloat />
+          </ToastProvider>
+        </AuthProvider>
       </body>
     </html>
   );

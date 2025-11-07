@@ -42,9 +42,7 @@ export default function OrderFormClient() {
         return;
       }
       
-      // Import IndexedDB helper
-      const { getFile, clearAllFiles } = await import('@/lib/indexeddb');
-      
+      // NOTE: Old IndexedDB code removed - now using Django API directly
       // Get form data - use formRef to ensure we have a valid form element
       const formElement = formRef.current || e.currentTarget;
       if (!formElement || !(formElement instanceof HTMLFormElement)) {
@@ -55,85 +53,24 @@ export default function OrderFormClient() {
       
       const fd = new FormData(formElement);
       
-      // Fetch all files from IndexedDB in parallel (much faster!)
-      // This replaces sequential await calls which were very slow
-      const filePromises: Promise<{ index: number; emiratesId: File; tradeLicense: File; specificDesign?: File }>[] = [];
+      // NOTE: Old IndexedDB file handling removed
+      // Files are now handled directly by Django API
       
+      // Add products to FormData
       for (let index = 0; index < cart.length; index++) {
         const item = cart[index];
-        
-        // Create promise to fetch all files for this item in parallel
-        const itemFilePromise = Promise.all([
-          getFile(item.emiratesId.key),
-          getFile(item.tradeLicense.key),
-          item.specificDesign ? getFile(item.specificDesign.key) : Promise.resolve(null)
-        ]).then(([emiratesIdFile, tradeLicenseFile, specificDesignFile]) => {
-          if (!emiratesIdFile || !tradeLicenseFile) {
-            throw new Error(`Missing required files for ${item.productName}`);
-          }
-          
-          // Validate files are actually File objects
-          if (!(emiratesIdFile instanceof File) || !(tradeLicenseFile instanceof File)) {
-            console.error('Invalid file objects from IndexedDB:', {
-              emiratesIdFile: typeof emiratesIdFile,
-              tradeLicenseFile: typeof tradeLicenseFile,
-              emiratesIdType: emiratesIdFile?.constructor?.name,
-              tradeLicenseType: tradeLicenseFile?.constructor?.name
-            });
-            throw new Error(`Invalid file format for ${item.productName}. Please add items to cart again.`);
-          }
-          
-          // Validate file sizes
-          if (emiratesIdFile.size !== item.emiratesId.size || tradeLicenseFile.size !== item.tradeLicense.size) {
-            console.error('File size mismatch:', {
-              emiratesId: { expected: item.emiratesId.size, actual: emiratesIdFile.size },
-              tradeLicense: { expected: item.tradeLicense.size, actual: tradeLicenseFile.size }
-            });
-          }
-          
-          return { 
-            index, 
-            emiratesId: emiratesIdFile, 
-            tradeLicense: tradeLicenseFile, 
-            specificDesign: specificDesignFile || undefined 
-          };
-        }).catch((error) => {
-          throw new Error(`Failed to load files for ${item.productName}: ${error instanceof Error ? error.message : 'Unknown error'}`);
-        });
-        
-        filePromises.push(itemFilePromise);
-      }
-      
-      // Wait for all files to be fetched in parallel (much faster than sequential!)
-      const fileResults = await Promise.all(filePromises);
-      
-      // Now add products and files to FormData
-      for (let index = 0; index < cart.length; index++) {
-        const item = cart[index];
-        const files = fileResults[index];
         
         fd.append(`products[${index}][productSlug]`, item.productSlug);
         fd.append(`products[${index}][productName]`, item.productName);
         fd.append(`products[${index}][quantity]`, item.quantity.toString());
-        
-        if (files.emiratesId) fd.append(`products[${index}][emiratesId]`, files.emiratesId);
-        if (files.tradeLicense) fd.append(`products[${index}][tradeLicense]`, files.tradeLicense);
-        if (files.specificDesign) fd.append(`products[${index}][specificDesign]`, files.specificDesign);
       }
       
       const res = await fetch("/api/order", { method: "POST", body: fd });
       const data = await res.json();
       
       if (res.ok) {
-        // Clear cart and files after successful submission
+        // Clear cart after successful submission
         localStorage.removeItem('cart');
-        
-        // Clear files from IndexedDB
-        try {
-          await clearAllFiles();
-        } catch (error) {
-          console.error('Error clearing IndexedDB:', error);
-        }
         
         showSuccess(
           "Order Placed Successfully! 🎉",

@@ -2,18 +2,18 @@
 import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
 import { Menu, X, Search, ShoppingCart, Phone, MessageCircle } from "lucide-react";
-import { NAV_ITEMS, NavLink } from "@/components/nav";
+import { NAV_ITEMS, NavLink, ProfileNavButton } from "@/components/nav";
 import CategoryDropdown from "./category-dropdown";
 import site from "@/content/site.json";
 import { createWhatsAppLink } from "@/lib/whatsapp";
-import { useCart } from "@/hooks/use-cart";
+import { useCartApi } from "@/hooks/use-cart-api";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [scrolled, setScrolled] = useState(false);
   const headerRef = useRef<HTMLElement>(null);
-  const cartCount = useCart();
+  const { cartCount } = useCartApi();
 
   // Handle scroll effect
   useEffect(() => {
@@ -127,14 +127,19 @@ export default function Header() {
           </form>
         </div>
 
-        {/* Desktop: Cart & Actions */}
+        {/* Desktop: Auth, Cart & Actions */}
         <div className="hidden lg:flex items-center gap-3 flex-shrink-0">
+          {/* Profile Icon Button */}
+          <ProfileNavButton />
+          
+          {/* Cart Icon Button */}
           <Link 
             href="/checkout" 
-            className="relative group flex items-center gap-2 px-4 py-2.5 bg-gradient-to-r from-[var(--color-accent-500)] to-[var(--color-accent-600)] text-white rounded-lg font-semibold text-sm shadow-md hover:shadow-lg hover:from-[var(--color-accent-600)] hover:to-[var(--color-accent-700)] transition-all duration-200 whitespace-nowrap"
+            className="relative h-10 w-10 rounded-lg bg-gradient-to-r from-[var(--color-accent-500)] to-[var(--color-accent-600)] hover:from-[var(--color-accent-600)] hover:to-[var(--color-accent-700)] flex items-center justify-center text-white shadow-md hover:shadow-lg transition-all duration-200"
+            aria-label="Shopping Cart"
+            title="View Cart"
           >
-            <ShoppingCart className="h-5 w-5 flex-shrink-0" />
-            <span className="hidden xl:inline">Cart</span>
+            <ShoppingCart className="h-5 w-5" />
             {cartCount > 0 && (
               <span className="absolute -top-2 -right-2 bg-white text-[var(--color-accent-600)] text-xs font-bold rounded-full w-6 h-6 flex items-center justify-center shadow-lg border-2 border-white">
                 {cartCount > 99 ? '99+' : cartCount}
@@ -144,14 +149,19 @@ export default function Header() {
           
           <Link 
             href="/contact" 
-            className="px-5 py-2.5 bg-[var(--color-brand-700)] text-white rounded-lg font-semibold text-sm hover:bg-[var(--color-brand-800)] transition-all duration-200 shadow-md hover:shadow-lg hidden xl:inline-block whitespace-nowrap"
+            className="px-5 py-2.5 bg-[var(--color-brand-700)] text-white rounded-lg font-semibold text-sm hover:bg-[var(--color-brand-800)] transition-all duration-200 shadow-md hover:shadow-lg whitespace-nowrap"
           >
             Get Quote
           </Link>
         </div>
 
-        {/* Mobile: Search & Menu Icons */}
+        {/* Mobile: Profile, Cart & Menu Icons */}
         <div className="flex items-center gap-2 lg:hidden col-start-4 col-end-5 justify-end">
+          {/* Mobile Profile Icon - show in mobile header */}
+          <div className="lg:hidden">
+            <ProfileNavButton onClick={() => setOpen(false)} />
+          </div>
+          
           <Link href="/checkout" className="relative p-2 hover:bg-gray-100 rounded-lg transition-all" aria-label="Cart">
             <ShoppingCart className="h-6 w-6 text-gray-700" />
             {cartCount > 0 && (
