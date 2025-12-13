@@ -1,10 +1,41 @@
 import Link from "next/link";
+import type { Metadata } from "next";
 import productsData from "@/content/products.json";
 import type { Product } from "@/types";
 import Hero from "@/components/hero";
 import ProductGrid from "@/components/product-grid";
+import { baseMetadata } from "@/lib/seo";
 
 const products = productsData as Product[];
+
+export const metadata: Metadata = {
+  ...baseMetadata,
+  title: "PrimePrint Dubai - Premium Stamps, Printing & Signage Services in Dubai",
+  description: "PrimePrint Dubai - Dubai's leading printing & signage company specializing in stamps, offset printing, screen printing, DTF, LED signs, vehicle branding, neon signs, business cards, vinyl stickers, and custom packaging. Fast 1-5 day turnaround, professional installation across Dubai. Get a free quote today!",
+  keywords: [
+    ...(baseMetadata.keywords as string[]),
+    "stamps Dubai",
+    "stamp making Dubai",
+    "custom stamps Dubai",
+    "rubber stamps Dubai",
+    "self-ink stamps Dubai",
+    "date stamps Dubai",
+    "printing services Dubai",
+    "signage company Dubai",
+    "best printing Dubai",
+    "professional printing Dubai",
+  ],
+  openGraph: {
+    ...baseMetadata.openGraph,
+    title: "PrimePrint Dubai - Premium Stamps, Printing & Signage Services",
+    description: "Dubai's leading printing & signage company. Stamps, offset printing, screen printing, DTF, LED signs, vehicle branding, and more. Fast turnaround, professional installation.",
+  },
+  twitter: {
+    ...baseMetadata.twitter,
+    title: "PrimePrint Dubai - Premium Stamps, Printing & Signage Services",
+    description: "Dubai's leading printing & signage company. Stamps, offset printing, screen printing, DTF, LED signs, vehicle branding, and more.",
+  },
+};
 
 export default function HomePage() {
   return (

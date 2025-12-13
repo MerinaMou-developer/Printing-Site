@@ -1,11 +1,39 @@
+import type { Metadata } from "next";
 import servicesData from "@/content/services.json";
 import type { Service } from "@/types";
 import ServiceCard from "@/components/service-card";
 import site from "@/content/site.json";
 import Link from "next/link";
 import { createWhatsAppLink } from "@/lib/whatsapp";
+import { BreadcrumbJsonLD } from "@/lib/seo";
 
 const services = servicesData as Service[];
+
+export const metadata: Metadata = {
+  title: "Printing & Signage Services Dubai | PrimePrint Dubai",
+  description: "Comprehensive printing and signage services in Dubai: stamps, screen printing, DTF, LED signs, vehicle branding, offset printing, vinyl stickers, banners, business cards, packaging, and more. Professional quality, fast turnaround.",
+  keywords: [
+    "printing services Dubai",
+    "signage services Dubai",
+    "stamps Dubai",
+    "screen printing Dubai",
+    "DTF printing Dubai",
+    "LED signs Dubai",
+    "vehicle branding Dubai",
+    "offset printing Dubai",
+    "vinyl stickers Dubai",
+    "banners Dubai",
+    "business cards Dubai",
+    "packaging Dubai",
+    "PrimePrint Dubai services",
+  ],
+  alternates: { canonical: "/services" },
+  openGraph: {
+    title: "Printing & Signage Services Dubai | PrimePrint Dubai",
+    description: "Comprehensive printing and signage services in Dubai. Professional quality, fast turnaround, competitive prices.",
+    url: "/services",
+  },
+};
 
 export default function ServicesIndex() {
   const grouped = services.reduce<Record<string, Service[]>>((acc, s) => {
@@ -18,6 +46,10 @@ export default function ServicesIndex() {
 
   return (
     <>
+      <BreadcrumbJsonLD items={[
+        { name: "Home", url: "/" },
+        { name: "Services", url: "/services" },
+      ]} />
       {/* Slim hero for Services */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 -z-10 bg-gradient-to-b from-[var(--color-brand-800)] via-[var(--color-brand-700)] to-[var(--color-brand-600)]" />

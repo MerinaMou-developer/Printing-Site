@@ -5,7 +5,7 @@ import OrderFormClient from "./order-form-client";
 import OrderSummaryClient from "./order-summary-client";
 
 export const metadata: Metadata = {
-  title: "Place Order - Billing Details | PrintPro Dubai",
+  title: "Place Order - Billing Details | PrimePrint Dubai",
   description: "Complete your order by providing billing details. Secure checkout for custom printing services in Dubai.",
 };
 

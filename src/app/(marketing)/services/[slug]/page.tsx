@@ -5,6 +5,7 @@ import Link from "next/link";
 import site from "@/content/site.json";
 import { CheckCircle2, Star, Clock, Shield, Truck, Palette, Zap, Award, Users, ArrowRight, Download, Phone, Mail, MessageCircle } from "lucide-react";
 import { createWhatsAppLink } from "@/lib/whatsapp";
+import { BreadcrumbJsonLD, ServiceJsonLD, FAQJsonLD } from "@/lib/seo";
 
 const services = data as Service[];
 
@@ -19,13 +20,13 @@ export async function generateMetadata(
   const s = services.find((x) => x.slug === slug);
   if (!s) return {};
   return {
-    title: `${s.name} Dubai | PrintPro Dubai - ${s.category}`,
-    description: `${s.desc} - Professional ${s.name} services by PrintPro Dubai in Dubai. Fast turnaround, competitive prices, professional installation. Get a free quote today!`,
+    title: `${s.name} Dubai | PrimePrint Dubai - ${s.category}`,
+    description: `${s.desc} - Professional ${s.name} services by PrimePrint Dubai in Dubai. Fast turnaround, competitive prices, professional installation. Get a free quote today!`,
     keywords: [
       `${s.name} Dubai`,
       `${s.name} UAE`,
       `${s.category} Dubai`,
-      `PrintPro Dubai ${s.name}`,
+      `PrimePrint Dubai ${s.name}`,
       `professional ${s.name} Dubai`,
       `best ${s.name} company Dubai`,
     ],
@@ -113,8 +114,32 @@ export default async function ServicePage(
     finishes: ["Multiple finish options"]
   };
 
+  const breadcrumbs = [
+    { name: "Home", url: "/" },
+    { name: "Services", url: "/services" },
+    { name: s.name, url: `/services/${s.slug}` },
+  ];
+
+  const faqs = [
+    { question: `What is the minimum order quantity for ${s.name.toLowerCase()}?`, answer: `Our minimum order quantity varies by service type. For ${s.name.toLowerCase()}, we typically require ${currentSpecs.moq}. Contact us for specific requirements.` },
+    { question: `How long does ${s.name.toLowerCase()} take?`, answer: `Our standard turnaround time for ${s.name.toLowerCase()} is ${currentSpecs.turnaround}. Rush orders may be available for an additional fee.` },
+    { question: `Do you provide design services?`, answer: "Yes! We offer free design consultation and can create custom designs for your project. Our experienced designers will work with you to bring your vision to life." },
+    { question: "Do you deliver across Dubai?", answer: "Yes, we provide delivery and installation services across Dubai, including all major areas like Downtown, Marina, JBR, and surrounding emirates." },
+    { question: "What file formats do you accept?", answer: "We accept all major file formats including PDF, AI, EPS, PSD, and high-resolution images. We also provide file preparation services if needed." },
+    { question: "Do you offer bulk discounts?", answer: "Yes, we offer competitive pricing for bulk orders. The larger the quantity, the better the price per unit. Contact us for a detailed quote." },
+  ];
+
   return (
     <>
+      <BreadcrumbJsonLD items={breadcrumbs} />
+      <ServiceJsonLD service={{
+        name: s.name,
+        description: s.desc,
+        slug: s.slug,
+        category: s.category,
+        areaServed: "Dubai",
+      }} />
+      <FAQJsonLD faqs={faqs} />
       {/* Enhanced Service Hero */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 -z-10 bg-gradient-to-br from-[var(--color-brand-800)] via-[var(--color-brand-700)] to-[var(--color-brand-600)]" />
@@ -265,7 +290,7 @@ export default async function ServicePage(
                 <div className="space-y-6">
                   <h3 className="text-xl font-semibold text-[var(--color-brand-600)] flex items-center gap-2">
                     <Award className="h-6 w-6 text-[var(--color-accent-500)]" />
-                    Why Choose PrintPro Dubai
+                    Why Choose PrimePrint Dubai
                   </h3>
                   <ul className="space-y-3">
                     {[

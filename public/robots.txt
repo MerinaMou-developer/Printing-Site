@@ -1,19 +1,34 @@
-# Robots.txt for PrintPro Dubai - Printing & Signage
+# Robots.txt for PrintPro Dubai - Printing & Signage Services
 
+# Allow all search engines
 User-agent: *
 Allow: /
-
-# Sitemaps
-Sitemap: https://printprodubai.com/sitemap.xml
-Sitemap: https://printprodubai.com/sitemap-0.xml
-
-# Disallow admin/api routes (if any)
 Disallow: /api/
+Disallow: /admin/
+Disallow: /_next/
+Disallow: /profile/
 
-# Allow all images
+# Allow Google Image Bot
 User-agent: Googlebot-Image
 Allow: /images/
+Allow: /public/
 
-# Crawl delay for all bots (optional, helps prevent server overload)
+# Allow Googlebot
+User-agent: Googlebot
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+
+# Allow Bingbot
+User-agent: Bingbot
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+
+# Sitemaps
+Sitemap: https://stamp-primeprint.com/sitemap.xml
+Sitemap: https://stamp-primeprint.com/sitemap-0.xml
+
+# Crawl delay (optional, helps prevent server overload)
 Crawl-delay: 1
 

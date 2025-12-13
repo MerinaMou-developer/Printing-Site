@@ -4,7 +4,7 @@ import { ArrowLeft, ShoppingBag, CheckCircle2 } from "lucide-react";
 import CheckoutClient from "./checkout-client";
 
 export const metadata: Metadata = {
-  title: "Checkout - Place Your Order | PrintPro Dubai",
+  title: "Checkout - Place Your Order | PrimePrint Dubai",
   description: "Place your custom printing order. Upload your design files and provide order details. Fast turnaround, premium quality in Dubai.",
 };
 

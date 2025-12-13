@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, Calendar, MapPin, Tag, ArrowRight, CheckCircle2 } from "lucide-react";
 import portfolioData from "@/content/portfolio.json";
+import { BreadcrumbJsonLD } from "@/lib/seo";
 
 type PortfolioItem = {
   slug: string;
@@ -25,9 +26,31 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (!item) return { title: "Project Not Found" };
   
   return {
-    title: `${item.title} | PrintPro Dubai Portfolio`,
-    description: `${item.description} - Professional ${item.category} services by PrintPro Dubai in Dubai.`,
+    title: `${item.title} | PrimePrint Dubai Portfolio - ${item.category}`,
+    description: `${item.description} - Professional ${item.category} services by PrimePrint Dubai in Dubai. See our quality work and get inspired for your next project.`,
+    keywords: [
+      item.category,
+      "portfolio Dubai",
+      "printing portfolio Dubai",
+      "signage portfolio Dubai",
+      item.title,
+      "PrimePrint Dubai",
+    ],
     alternates: { canonical: `/portfolio/${slug}` },
+    openGraph: {
+      title: `${item.title} | PrimePrint Dubai Portfolio`,
+      description: item.description,
+      type: "article",
+      url: `/portfolio/${slug}`,
+      images: [
+        {
+          url: item.image,
+          width: 1200,
+          height: 630,
+          alt: item.title,
+        },
+      ],
+    },
   };
 }
 
@@ -51,8 +74,15 @@ export default async function PortfolioDetailPage({ params }: { params: Promise<
     .filter((project) => project.category === item.category && project.slug !== item.slug)
     .slice(0, 3);
 
+  const breadcrumbs = [
+    { name: "Home", url: "/" },
+    { name: "Portfolio", url: "/portfolio" },
+    { name: item.title, url: `/portfolio/${slug}` },
+  ];
+
   return (
     <main>
+      <BreadcrumbJsonLD items={breadcrumbs} />
       {/* Hero Section */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 -z-10">
@@ -226,7 +256,7 @@ export default async function PortfolioDetailPage({ params }: { params: Promise<
             ">
               <p>
                 This project showcases our expertise in {item.category} services, delivering exceptional quality 
-                and attention to detail that our clients have come to expect from PrintPro Dubai.
+                and attention to detail that our clients have come to expect from PrimePrint Dubai.
               </p>
               
               <h3>What We Delivered</h3>

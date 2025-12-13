@@ -20,7 +20,7 @@ const inter = Inter({
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" suppressHydrationWarning className={inter.variable}>
+    <html lang="en-AE" suppressHydrationWarning className={inter.variable}>
       <head>
         <LocalBusinessJsonLD />
         <OrganizationJsonLD />
@@ -42,7 +42,18 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta name="msapplication-TileColor" content="#1a3a63" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-        <meta name="apple-mobile-web-app-title" content="PrintPro Dubai" />
+        <meta name="apple-mobile-web-app-title" content="PrimePrint Dubai" />
+        {/* Web App Manifest */}
+        <link rel="manifest" href="/site.webmanifest" />
+        {/* Additional SEO Meta Tags */}
+        <meta name="geo.region" content="AE-DU" />
+        <meta name="geo.placename" content="Dubai" />
+        <meta name="geo.position" content="25.2048;55.2708" />
+        <meta name="ICBM" content="25.2048, 55.2708" />
+        <meta name="language" content="English" />
+        <meta name="revisit-after" content="7 days" />
+        <meta name="distribution" content="global" />
+        <meta name="rating" content="general" />
       </head>
       <body
         className={`${inter.className} min-h-screen bg-[var(--background)] text-[var(--foreground)] antialiased`}
