@@ -341,7 +341,7 @@ export function WebsiteJsonLD() {
 }
 
 // Breadcrumb Schema Helper
-export function BreadcrumbJsonLD(items: { name: string; url: string }[] | undefined) {
+export function BreadcrumbJsonLD({ items }: { items: { name: string; url: string }[] | undefined }) {
   // Safety check: ensure items is an array
   if (!items || !Array.isArray(items) || items.length === 0) {
     return null;
@@ -367,14 +367,16 @@ export function BreadcrumbJsonLD(items: { name: string; url: string }[] | undefi
 }
 
 // Service Schema Helper
-export function ServiceJsonLD(service: {
-  name: string;
-  description: string;
-  slug: string;
-  category: string;
-  provider?: string;
-  areaServed?: string;
-  serviceType?: string;
+export function ServiceJsonLD({ service }: {
+  service: {
+    name: string;
+    description: string;
+    slug: string;
+    category: string;
+    provider?: string;
+    areaServed?: string;
+    serviceType?: string;
+  };
 }) {
   const jsonLd = {
     "@context": "https://schema.org",
@@ -412,12 +414,14 @@ export function ServiceJsonLD(service: {
 }
 
 // Product Schema Helper
-export function ProductJsonLD(product: {
-  name: string;
-  description: string;
-  slug: string;
-  image?: string;
-  brand?: string;
+export function ProductJsonLD({ product }: {
+  product: {
+    name: string;
+    description: string;
+    slug: string;
+    image?: string;
+    brand?: string;
+  };
 }) {
   const jsonLd = {
     "@context": "https://schema.org",
@@ -450,7 +454,7 @@ export function ProductJsonLD(product: {
 }
 
 // FAQ Schema Helper
-export function FAQJsonLD(faqs: { question: string; answer: string }[] | undefined) {
+export function FAQJsonLD({ faqs }: { faqs: { question: string; answer: string }[] | undefined }) {
   // Safety check: ensure faqs is an array
   if (!faqs || !Array.isArray(faqs) || faqs.length === 0) {
     return null;

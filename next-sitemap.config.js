@@ -1,7 +1,6 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-  siteUrl:
-    process.env.NEXT_PUBLIC_SITE_URL || "https://www.stamps-primeprint.com/",
+  siteUrl: process.env.NEXT_PUBLIC_SITE_URL || "https://stamp-primeprint.com",
   generateRobotsTxt: true,
   generateIndexSitemap: false,
   exclude: ["/admin/*", "/api/*"],

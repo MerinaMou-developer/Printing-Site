@@ -1,12 +1,18 @@
+import { ArrowLeft, CheckCircle2, ShoppingBag } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowLeft, ShoppingBag, CheckCircle2 } from "lucide-react";
 import OrderFormClient from "./order-form-client";
 import OrderSummaryClient from "./order-summary-client";
 
 export const metadata: Metadata = {
   title: "Place Order - Billing Details | PrimePrint Dubai",
-  description: "Complete your order by providing billing details. Secure checkout for custom printing services in Dubai.",
+  description:
+    "Complete your order by providing billing details. Secure checkout for custom printing services in Dubai.",
+  alternates: { canonical: "/order" },
+  robots: {
+    index: false,
+    follow: true,
+  },
 };
 
 export default function OrderPage() {
@@ -17,10 +23,10 @@ export default function OrderPage() {
         <div className="absolute inset-0 -z-10">
           <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-brand-800)] via-[var(--color-brand-700)] to-[var(--color-brand-600)]" />
         </div>
-        
+
         <div className="wrapper py-12 md:py-16 text-white">
-          <Link 
-            href="/checkout" 
+          <Link
+            href="/checkout"
             className="inline-flex items-center gap-2 text-white/80 hover:text-white mb-6 transition-colors"
           >
             <ArrowLeft className="h-4 w-4" />
@@ -32,13 +38,15 @@ export default function OrderPage() {
               <ShoppingBag className="h-4 w-4" />
               Complete Your Order
             </div>
-            
+
             <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-4">
               Billing Details
             </h1>
 
             <p className="text-lg text-white/90 leading-relaxed">
-              Please provide your billing information to complete your order. We&apos;ll contact you shortly to confirm details and arrange payment.
+              Please provide your billing information to complete your order.
+              We&apos;ll contact you shortly to confirm details and arrange
+              payment.
             </p>
 
             {/* Trust badges */}
@@ -86,4 +94,3 @@ export default function OrderPage() {
     </main>
   );
 }
-
