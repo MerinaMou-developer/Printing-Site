@@ -1,11 +1,37 @@
+import type { Metadata } from "next";
 import productsData from "@/content/products.json";
 import type { Product } from "@/types";
 import ProductCard from "@/components/product-card";
 import Link from "next/link";
 import site from "@/content/site.json";
 import { createWhatsAppLink } from "@/lib/whatsapp";
+import { BreadcrumbJsonLD } from "@/lib/seo";
 
 const products = productsData as Product[];
+
+export const metadata: Metadata = {
+  title: "Custom Products & Promotional Items Dubai | PrimePrint Dubai",
+  description: "Custom branded products and promotional items in Dubai: t-shirts, mugs, lanyards, bottles, safety vests, balloons, gift boxes, and more. Fast production, competitive prices, premium quality.",
+  keywords: [
+    "custom products Dubai",
+    "promotional items Dubai",
+    "custom t-shirts Dubai",
+    "custom mugs Dubai",
+    "lanyards Dubai",
+    "bottles Dubai",
+    "safety vests Dubai",
+    "balloons Dubai",
+    "gift boxes Dubai",
+    "branded merchandise Dubai",
+    "PrimePrint Dubai products",
+  ],
+  alternates: { canonical: "/products" },
+  openGraph: {
+    title: "Custom Products & Promotional Items Dubai | PrimePrint Dubai",
+    description: "Custom branded products and promotional items in Dubai. Fast production, competitive prices, premium quality.",
+    url: "/products",
+  },
+};
 
 export default function ProductsPage() {
   const phoneNumber = site.whatsapp ?? site.phone ?? "+971569324947";
@@ -13,6 +39,10 @@ export default function ProductsPage() {
 
   return (
     <>
+      <BreadcrumbJsonLD items={[
+        { name: "Home", url: "/" },
+        { name: "Products", url: "/products" },
+      ]} />
       {/* Slim hero */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 -z-10 bg-gradient-to-b from-[var(--color-brand-800)] via-[var(--color-brand-700)] to-[var(--color-brand-600)]" />

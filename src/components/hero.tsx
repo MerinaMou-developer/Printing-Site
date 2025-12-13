@@ -12,7 +12,7 @@ export default function Hero() {
       {/* Background */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-brand-900)] via-[var(--color-brand-800)] to-[var(--color-brand-700)] gradient-animate" />
-        <Image src="/images/hero-gradient.svg" alt="" fill priority className="object-cover opacity-50 mix-blend-overlay" />
+        <Image src="/images/hero-gradient.svg" alt="PrimePrint Dubai - Printing and Signage Services Background" fill priority className="object-cover opacity-50 mix-blend-overlay" />
         {/* soft light blobs + sheen */}
         <div className="absolute inset-0 hero-sheen" />
         <div className="absolute -right-24 -top-24 h-96 w-96 rounded-full bg-[var(--color-accent-500)]/10 blur-3xl animate-float" />

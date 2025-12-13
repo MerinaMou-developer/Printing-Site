@@ -2,12 +2,27 @@ import type { Metadata } from "next";
 import site from "@/content/site.json";
 import { Award, Zap, Users, Factory, Truck, HeadphonesIcon, Target, Shield, Heart } from "lucide-react";
 import { createWhatsAppLink } from "@/lib/whatsapp";
+import { BreadcrumbJsonLD, FAQJsonLD } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: `About ${site.brand ?? "Our Company"} - Leading Printing & Signage in Dubai`,
+  title: `About ${site.brand ?? "PrimePrint Dubai"} - Leading Printing & Signage Company in Dubai`,
   description:
-    "We design and produce signage, printing, apparel and packaging in Dubai—fast turnaround with installation and delivery. 10+ years of excellence.",
+    "PrimePrint Dubai - Dubai's trusted printing & signage partner with 10+ years of excellence. We design and produce stamps, signage, printing, apparel, and packaging in Dubai with fast turnaround, professional installation, and delivery. Quality guaranteed.",
+  keywords: [
+    "about PrimePrint Dubai",
+    "printing company Dubai",
+    "signage company Dubai",
+    "stamps Dubai",
+    "printing services Dubai",
+    "best printing Dubai",
+    "professional printing Dubai",
+  ],
   alternates: { canonical: "/about" },
+  openGraph: {
+    title: `About ${site.brand ?? "PrimePrint Dubai"} - Leading Printing & Signage Company in Dubai`,
+    description: "Dubai's trusted printing & signage partner with 10+ years of excellence. Fast turnaround, professional installation, quality guaranteed.",
+    url: "/about",
+  },
 };
 
 export default function AboutPage() {
@@ -58,8 +73,23 @@ export default function AboutPage() {
     { t: "4 · Deliver", d: "Pickup, delivery or on-site installation.", icon: Truck },
   ];
 
+  const breadcrumbs = [
+    { name: "Home", url: "/" },
+    { name: "About", url: "/about" },
+  ];
+
+  const faqs = [
+    { question: "How long have you been in business?", answer: `We have been serving Dubai and the UAE for over ${years} years, providing professional printing and signage services to hundreds of satisfied clients.` },
+    { question: "What areas do you serve?", answer: "We provide services across Dubai, including Downtown, Marina, JBR, Business Bay, and all surrounding areas. We also offer delivery and installation services throughout the UAE." },
+    { question: "Do you offer design services?", answer: "Yes! We offer free design consultation and can create custom designs for your project. Our experienced designers will work with you to bring your vision to life." },
+    { question: "What is your typical turnaround time?", answer: "Most orders are completed within 1-5 days. We also offer same-day rush service for urgent projects at an additional fee." },
+    { question: "Do you provide installation services?", answer: "Yes! We offer professional installation across all of Dubai for signage, vehicle wraps, and other projects. Our team ensures proper setup and quality assurance." },
+  ];
+
   return (
     <main>
+      <BreadcrumbJsonLD items={breadcrumbs} />
+      <FAQJsonLD faqs={faqs} />
       {/* Hero */}
       <section className="relative overflow-hidden min-h-[50vh] flex items-center">
         <div className="absolute inset-0 -z-10">

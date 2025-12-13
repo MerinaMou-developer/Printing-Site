@@ -5,6 +5,7 @@ import { ArrowLeft, CheckCircle2, Star, ShoppingCart, MessageCircle, Phone } fro
 import productsData from "@/content/products.json";
 import site from "@/content/site.json";
 import ProductDetailForm from "@/components/product-detail-form";
+import { BreadcrumbJsonLD, ProductJsonLD } from "@/lib/seo";
 
 type Product = {
   slug: string;
@@ -25,14 +26,14 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (!product) return { title: "Product Not Found" };
   
   return {
-    title: `${product.name} Dubai | PrintPro Dubai - Custom ${product.name} Printing`,
-    description: `${product.desc} - Professional ${product.name} printing and customization by PrintPro Dubai in Dubai. Fast turnaround, competitive prices, premium quality. Get a free quote today!`,
+    title: `${product.name} Dubai | PrimePrint Dubai - Custom ${product.name} Printing`,
+    description: `${product.desc} - Professional ${product.name} printing and customization by PrimePrint Dubai in Dubai. Fast turnaround, competitive prices, premium quality. Get a free quote today!`,
     keywords: [
       `${product.name} Dubai`,
       `${product.name} UAE`,
       `custom ${product.name} printing Dubai`,
       `${product.name} printing Dubai`,
-      `PrintPro Dubai ${product.name}`,
+      `PrimePrint Dubai ${product.name}`,
       `professional ${product.name} Dubai`,
     ],
     alternates: { canonical: `/products/${slug}` },
@@ -63,8 +64,21 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
     .filter((p) => p.slug !== product.slug)
     .slice(0, 3);
 
+  const breadcrumbs = [
+    { name: "Home", url: "/" },
+    { name: "Products", url: "/products" },
+    { name: product.name, url: `/products/${product.slug}` },
+  ];
+
   return (
     <main>
+      <BreadcrumbJsonLD items={breadcrumbs} />
+      <ProductJsonLD product={{
+        name: product.name,
+        description: product.desc,
+        slug: product.slug,
+        image: product.img,
+      }} />
       {/* Hero Section */}
       <section className="relative overflow-hidden min-h-[50vh] flex items-center">
         <div className="absolute inset-0 -z-10">
@@ -96,7 +110,7 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
               </h1>
 
               <p className="text-lg text-white/90 leading-relaxed mb-8">
-                {product.desc} - Professional printing and customization services by PrintPro Dubai in Dubai.
+                {product.desc} - Professional printing and customization services by PrimePrint Dubai in Dubai.
               </p>
 
               <div className="flex flex-wrap gap-4">

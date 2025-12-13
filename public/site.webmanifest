@@ -1,0 +1,29 @@
+{
+  "name": "PrimePrint Dubai - Printing & Signage Services",
+  "short_name": "PrimePrint Dubai",
+  "description": "Dubai's premier printing & signage company specializing in stamps, offset printing, screen printing, DTF, LED signs, vehicle branding, and more.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1a3a63",
+  "theme_color": "#1a3a63",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon-custom.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/favicon-16.svg",
+      "sizes": "16x16",
+      "type": "image/svg+xml"
+    }
+  ],
+  "categories": ["business", "shopping"],
+  "lang": "en-AE",
+  "dir": "ltr",
+  "scope": "/",
+  "prefer_related_applications": false
+}
+

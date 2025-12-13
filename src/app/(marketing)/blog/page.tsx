@@ -4,9 +4,25 @@ import Image from "next/image";
 import { Calendar, Clock, ArrowRight } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Blog - Printing & Signage Tips | Dubai",
-  description: "Expert guides on printing, signage, and branding in Dubai. Learn about DTF vs screen print, LED vs neon signs, vehicle branding, and more.",
+  title: "Blog - Printing & Signage Tips | PrimePrint Dubai",
+  description: "Expert guides on stamps, printing, signage, and branding in Dubai. Learn about DTF vs screen print, LED vs neon signs, vehicle branding, custom stamps, and more. Tips from Dubai's leading printing company.",
+  keywords: [
+    "printing tips Dubai",
+    "signage guide Dubai",
+    "stamps guide Dubai",
+    "DTF printing Dubai",
+    "screen printing Dubai",
+    "LED signs Dubai",
+    "vehicle branding Dubai",
+    "printing blog Dubai",
+    "PrimePrint Dubai blog",
+  ],
   alternates: { canonical: "/blog" },
+  openGraph: {
+    title: "Blog - Printing & Signage Tips | PrimePrint Dubai",
+    description: "Expert guides on stamps, printing, signage, and branding in Dubai. Tips from Dubai's leading printing company.",
+    url: "/blog",
+  },
 };
 
 const blogPosts = [

@@ -3,11 +3,26 @@ import site from "@/content/site.json";
 import QuoteForm from "@/components/quote-form";
 import { MessageCircle, Mail, Phone, MapPin, Clock } from "lucide-react";
 import { createWhatsAppLink, createPhoneLink, formatPhoneNumber } from "@/lib/whatsapp";
+import { BreadcrumbJsonLD, FAQJsonLD } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Contact Us - Get a Free Quote | Dubai Printing & Signage",
-  description: "Get a quote, ask about materials, or book installation—contact our Dubai team. Fast response guaranteed. Call, WhatsApp, or email us today.",
+  title: "Contact Us - Get a Free Quote | PrimePrint Dubai - Printing & Signage Services",
+  description: "Contact PrimePrint Dubai for stamps, printing, and signage services. Get a free quote, ask about materials, or book installation. Fast response guaranteed. Call, WhatsApp, or email us today. Located in Dubai Marina.",
+  keywords: [
+    "contact PrimePrint Dubai",
+    "printing quote Dubai",
+    "signage quote Dubai",
+    "stamps quote Dubai",
+    "printing services contact Dubai",
+    "PrimePrint Dubai phone",
+    "PrimePrint Dubai WhatsApp",
+  ],
   alternates: { canonical: "/contact" },
+  openGraph: {
+    title: "Contact Us - Get a Free Quote | PrimePrint Dubai",
+    description: "Contact PrimePrint Dubai for stamps, printing, and signage services. Fast response guaranteed. Call, WhatsApp, or email us today.",
+    url: "/contact",
+  },
 };
 
 export default function ContactPage() {
@@ -61,8 +76,22 @@ export default function ContactPage() {
     { icon: MessageCircle, label: "WhatsApp", value: "24/7 Available" },
   ];
 
+  const breadcrumbs = [
+    { name: "Home", url: "/" },
+    { name: "Contact", url: "/contact" },
+  ];
+
+  const faqs = [
+    { question: "What's your typical turnaround time?", answer: "Most orders are completed within 1-5 days. We also offer same-day rush service for urgent projects." },
+    { question: "Do you provide installation?", answer: "Yes! We offer professional installation across all of Dubai for signage, vehicle wraps, and other projects." },
+    { question: "Can I get a sample before ordering?", answer: "We provide free digital mockups for all projects. Physical samples may be available depending on the product." },
+    { question: "What file formats do you accept?", answer: "We accept AI, PDF, EPS, PSD, and high-resolution PNG/JPG files. Our team can also help with file preparation." },
+  ];
+
   return (
     <main>
+      <BreadcrumbJsonLD items={breadcrumbs} />
+      <FAQJsonLD faqs={faqs} />
       {/* Hero */}
       <section className="relative overflow-hidden min-h-[40vh] flex items-center">
         <div className="absolute inset-0 -z-10">
@@ -188,7 +217,7 @@ export default function ContactPage() {
           <div className="space-y-6">
             <div className="rounded-2xl overflow-hidden border-2 border-[var(--border)] shadow-lg hover:shadow-xl transition-shadow">
               <iframe
-                title="PrintPro Dubai Location - Marina Dubai"
+                title="PrimePrint Dubai Location - Marina Dubai"
                 className="w-full h-[400px]"
                 src={`https://www.google.com/maps?q=25.275614,55.3310329&hl=en&z=15&output=embed`}
                 loading="lazy"

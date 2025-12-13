@@ -2,11 +2,27 @@ import type { Metadata } from "next";
 import { FileCheck, AlertCircle, CheckCircle2, FileText, Image as ImageIcon } from "lucide-react";
 import { createWhatsAppLink } from "@/lib/whatsapp";
 import site from "@/content/site.json";
+import { BreadcrumbJsonLD } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "File Guidelines & Specifications | Dubai Printing",
-  description: "Learn how to prepare your files for printing. CMYK, vector formats, bleed requirements, and accepted file types for perfect print results.",
+  title: "File Guidelines & Specifications | PrimePrint Dubai - Print-Ready Files",
+  description: "Learn how to prepare your files for printing in Dubai. CMYK color mode, vector formats, bleed requirements, 300 DPI resolution, and accepted file types (AI, PDF, EPS, PSD) for perfect print results. Free file checking available.",
+  keywords: [
+    "file guidelines Dubai",
+    "print-ready files Dubai",
+    "CMYK printing Dubai",
+    "vector files Dubai",
+    "bleed requirements Dubai",
+    "print file specifications Dubai",
+    "PrimePrint Dubai file guidelines",
+    "preparing files for print Dubai",
+  ],
   alternates: { canonical: "/file-guidelines" },
+  openGraph: {
+    title: "File Guidelines & Specifications | PrimePrint Dubai",
+    description: "Learn how to prepare your files for printing. CMYK, vector formats, bleed requirements, and accepted file types for perfect print results.",
+    url: "/file-guidelines",
+  },
 };
 
 export default function FileGuidelinesPage() {
@@ -50,8 +66,14 @@ export default function FileGuidelinesPage() {
     },
   ];
 
+  const breadcrumbs = [
+    { name: "Home", url: "/" },
+    { name: "File Guidelines", url: "/file-guidelines" },
+  ];
+
   return (
     <main>
+      <BreadcrumbJsonLD items={breadcrumbs} />
       {/* Hero */}
       <section className="relative overflow-hidden min-h-[40vh] flex items-center">
         <div className="absolute inset-0 -z-10">
