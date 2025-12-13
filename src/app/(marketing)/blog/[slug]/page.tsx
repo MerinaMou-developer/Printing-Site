@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { Calendar, Clock, ArrowLeft, Share2 } from "lucide-react";
+import { BreadcrumbJsonLD } from "@/lib/seo";
 
 // This would normally come from a CMS or markdown files
 const blogPosts: Record<string, {
@@ -135,9 +136,34 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (!post) return { title: "Post Not Found" };
   
   return {
-    title: `${post.title} | Dubai Printing Blog`,
+    title: `${post.title} | PrimePrint Dubai Blog`,
     description: post.excerpt,
+    keywords: [
+      post.category.toLowerCase(),
+      "printing Dubai",
+      "signage Dubai",
+      "stamps Dubai",
+      "PrimePrint Dubai",
+      "printing tips Dubai",
+    ],
     alternates: { canonical: `/blog/${slug}` },
+    openGraph: {
+      title: post.title,
+      description: post.excerpt,
+      type: "article",
+      publishedTime: post.date,
+      authors: [post.author],
+      tags: [post.category],
+      url: `/blog/${slug}`,
+      images: [
+        {
+          url: post.image,
+          width: 1200,
+          height: 630,
+          alt: post.title,
+        },
+      ],
+    },
   };
 }
 
@@ -156,8 +182,15 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     );
   }
 
+  const breadcrumbs = [
+    { name: "Home", url: "/" },
+    { name: "Blog", url: "/blog" },
+    { name: post.title, url: `/blog/${slug}` },
+  ];
+
   return (
     <main>
+      <BreadcrumbJsonLD items={breadcrumbs} />
       {/* Hero */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 -z-10">

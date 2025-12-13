@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import site from "@/content/site.json";
 
-const DOMAIN = process.env.NEXT_PUBLIC_SITE_URL || "https://printprodubai.com"; // Update with actual domain
-const BRAND = site.brand ?? "PrintPro Dubai";
+const DOMAIN = process.env.NEXT_PUBLIC_SITE_URL || "https://stamp-primeprint.com";
+const BRAND = site.brand ?? "PrimePrint Dubai";
 
 export const baseMetadata: Metadata = {
   metadataBase: DOMAIN ? new URL(DOMAIN) : undefined,
@@ -11,12 +11,18 @@ export const baseMetadata: Metadata = {
     template: `%s | ${BRAND}`,
   },
   description:
-    "PrintPro Dubai - Dubai's premier printing & signage company. Offset printing, screen printing, DTF, LED signs, vehicle branding, neon signs, business cards, vinyl stickers. Fast turnaround, professional installation. Get a free quote today!",
+    "PrimePrint Dubai - Dubai's premier printing & signage company specializing in stamps, offset printing, screen printing, DTF, LED signs, vehicle branding, neon signs, business cards, vinyl stickers, and custom packaging. Fast 1-5 day turnaround, professional installation across Dubai. Get a free quote today!",
   keywords: [
-    "PrintPro Dubai",
-    "Print Pro Dubai",
+    "PrimePrint Dubai",
+    "Prime Print Dubai",
     "printing Dubai",
     "signage Dubai",
+    "stamps Dubai",
+    "stamp making Dubai",
+    "custom stamps Dubai",
+    "rubber stamps Dubai",
+    "self-ink stamps Dubai",
+    "date stamps Dubai",
     "offset printing Dubai",
     "screen printing Dubai",
     "DTF printing Dubai",
@@ -42,7 +48,6 @@ export const baseMetadata: Metadata = {
     "invoice printing Dubai",
     "box printing Dubai",
     "bag printing Dubai",
-    "stamp making Dubai",
     "company profile design Dubai",
     "3D design Dubai",
     "exhibition work Dubai",
@@ -60,6 +65,12 @@ export const baseMetadata: Metadata = {
     "die cut stickers Dubai",
     "curtain printing Dubai",
     "canvas printing Dubai",
+    "printing services UAE",
+    "signage company Dubai",
+    "best printing Dubai",
+    "professional printing Dubai",
+    "printing near me Dubai",
+    "Marina Dubai printing",
   ],
   authors: [{ name: BRAND }],
   creator: BRAND,
@@ -89,7 +100,7 @@ export const baseMetadata: Metadata = {
     locale: "en_AE",
     url: DOMAIN || undefined,
     title: `${BRAND} — Premium Printing & Signage in Dubai`,
-    description: "PrintPro Dubai - Dubai's trusted printing & signage partner. Fast turnaround, professional quality, competitive prices. Offset printing, screen printing, LED signs, vehicle branding & more.",
+    description: "PrimePrint Dubai - Dubai's trusted printing & signage partner. Fast turnaround, professional quality, competitive prices. Offset printing, screen printing, LED signs, vehicle branding & more.",
     images: [
       {
         url: "/og-image.jpg",
@@ -102,7 +113,7 @@ export const baseMetadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: `${BRAND} — Premium Printing & Signage in Dubai`,
-    description: "PrintPro Dubai - Dubai's trusted printing & signage partner. Fast turnaround, professional quality.",
+    description: "PrimePrint Dubai - Dubai's trusted printing & signage partner. Fast turnaround, professional quality.",
     images: ["/og-image.jpg"],
   },
   icons: {
@@ -120,6 +131,7 @@ export const baseMetadata: Metadata = {
     canonical: "/",
     languages: {
       'en-AE': '/',
+      'en': '/',
       // 'ar-AE': '/ar', // Add when Arabic version is ready
     },
   },
@@ -138,8 +150,8 @@ export function LocalBusinessJsonLD() {
     "@type": "LocalBusiness",
     "@id": `${DOMAIN}#business`,
     name: BRAND,
-    alternateName: "Print Pro Dubai",
-    description: "PrintPro Dubai - Professional printing and signage services in Dubai. Offset printing, screen printing, DTF, LED signs, vehicle branding, and more.",
+    alternateName: "Prime Print Dubai",
+    description: "PrimePrint Dubai - Professional printing and signage services in Dubai. Offset printing, screen printing, DTF, LED signs, vehicle branding, and more.",
     url: DOMAIN,
     telephone: site.phone ?? "+971569324947",
     email: site.email ?? "alarqauae@gmail.com",
@@ -188,6 +200,14 @@ export function LocalBusinessJsonLD() {
           "@type": "Offer",
           itemOffered: {
             "@type": "Service",
+            name: "Stamps",
+            description: "Custom stamps, self-ink stamps, date stamps, and rubber stamps in Dubai",
+          },
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
             name: "Screen Printing",
             description: "Custom screen printing for apparel and merchandise",
           },
@@ -214,6 +234,22 @@ export function LocalBusinessJsonLD() {
             "@type": "Service",
             name: "Vehicle Branding",
             description: "Vehicle wraps and decals for cars and vans",
+          },
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Offset Printing",
+            description: "Business cards, brochures, flyers, and catalogs",
+          },
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Vinyl Stickers",
+            description: "Custom vinyl stickers, reflective stickers, and glass stickers",
           },
         },
       ],
@@ -244,7 +280,7 @@ export function OrganizationJsonLD() {
     name: BRAND,
     url: DOMAIN,
     logo: `${DOMAIN}/logo.svg`,
-    description: "PrintPro Dubai - Leading printing and signage company in Dubai providing quality offset printing, screen printing, and signage services.",
+    description: "PrimePrint Dubai - Leading printing and signage company in Dubai providing quality offset printing, screen printing, and signage services.",
     address: {
       "@type": "PostalAddress",
       addressLocality: "Dubai",
@@ -282,7 +318,7 @@ export function WebsiteJsonLD() {
     "@id": `${DOMAIN}#website`,
     url: DOMAIN,
     name: BRAND,
-    description: "PrintPro Dubai - Professional printing and signage services in Dubai",
+    description: "PrimePrint Dubai - Professional printing and signage services in Dubai",
     publisher: {
       "@id": `${DOMAIN}#organization`,
     },
@@ -305,7 +341,12 @@ export function WebsiteJsonLD() {
 }
 
 // Breadcrumb Schema Helper
-export function BreadcrumbJsonLD(items: { name: string; url: string }[]) {
+export function BreadcrumbJsonLD({ items }: { items: { name: string; url: string }[] | undefined }) {
+  // Safety check: ensure items is an array
+  if (!items || !Array.isArray(items) || items.length === 0) {
+    return null;
+  }
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -314,6 +355,121 @@ export function BreadcrumbJsonLD(items: { name: string; url: string }[]) {
       position: index + 1,
       name: item.name,
       item: `${DOMAIN}${item.url}`,
+    })),
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+    />
+  );
+}
+
+// Service Schema Helper
+export function ServiceJsonLD({ service }: {
+  service: {
+    name: string;
+    description: string;
+    slug: string;
+    category: string;
+    provider?: string;
+    areaServed?: string;
+    serviceType?: string;
+  };
+}) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": `${DOMAIN}/services/${service.slug}#service`,
+    name: `${service.name} Dubai`,
+    description: service.description,
+    provider: {
+      "@id": `${DOMAIN}#organization`,
+    },
+    serviceType: service.serviceType || service.category,
+    areaServed: {
+      "@type": "City",
+      name: service.areaServed || "Dubai",
+    },
+    availableChannel: {
+      "@type": "ServiceChannel",
+      serviceUrl: `${DOMAIN}/services/${service.slug}`,
+      servicePhone: site.phone ?? "+971569324947",
+    },
+    offers: {
+      "@type": "Offer",
+      priceCurrency: "AED",
+      availability: "https://schema.org/InStock",
+      url: `${DOMAIN}/services/${service.slug}`,
+    },
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+    />
+  );
+}
+
+// Product Schema Helper
+export function ProductJsonLD({ product }: {
+  product: {
+    name: string;
+    description: string;
+    slug: string;
+    image?: string;
+    brand?: string;
+  };
+}) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "@id": `${DOMAIN}/products/${product.slug}#product`,
+    name: `${product.name} Dubai`,
+    description: product.description,
+    image: product.image ? `${DOMAIN}${product.image}` : `${DOMAIN}/images/products/${product.slug}.jpg`,
+    brand: {
+      "@type": "Brand",
+      name: product.brand || BRAND,
+    },
+    offers: {
+      "@type": "Offer",
+      priceCurrency: "AED",
+      availability: "https://schema.org/InStock",
+      url: `${DOMAIN}/products/${product.slug}`,
+      seller: {
+        "@id": `${DOMAIN}#organization`,
+      },
+    },
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+    />
+  );
+}
+
+// FAQ Schema Helper
+export function FAQJsonLD({ faqs }: { faqs: { question: string; answer: string }[] | undefined }) {
+  // Safety check: ensure faqs is an array
+  if (!faqs || !Array.isArray(faqs) || faqs.length === 0) {
+    return null;
+  }
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer,
+      },
     })),
   };
 

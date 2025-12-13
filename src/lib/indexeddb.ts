@@ -3,7 +3,7 @@
  * Used to store uploaded files that exceed localStorage size limits
  */
 
-const DB_NAME = 'PrintProFileStorage';
+const DB_NAME = 'PrimePrintFileStorage';
 const DB_VERSION = 1;
 const STORE_NAME = 'files';
 

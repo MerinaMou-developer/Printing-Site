@@ -3,7 +3,7 @@ import { createWhatsAppLink, createPhoneLink, formatPhoneNumber } from './whatsa
 
 // Site configuration - you can move this to a separate config file
 const SITE_CONFIG = {
-  brand: "PrintPro Dubai",
+  brand: "PrimePrint Dubai",
   email: "alarqauae@gmail.com",
   phone: "+971569324947",
   whatsapp: "+971569324947",
@@ -54,7 +54,7 @@ export const emailTemplates = {
         <div class="container">
           <div class="header">
             <h1>💬 WhatsApp Lead</h1>
-            <p>PrintPro Dubai - Dubai</p>
+            <p>PrimePrint Dubai - Dubai</p>
           </div>
           
           <div class="content">
@@ -99,7 +99,7 @@ export const emailTemplates = {
         <div class="container">
           <div class="header">
             <h1>📞 Phone Call Lead</h1>
-            <p>PrintPro Dubai - Dubai</p>
+            <p>PrimePrint Dubai - Dubai</p>
           </div>
           
           <div class="content">
@@ -152,7 +152,7 @@ export const emailTemplates = {
         <div class="container">
           <div class="header">
             <h1>🎯 New Quote Request</h1>
-            <p>PrintPro Dubai - Dubai</p>
+            <p>PrimePrint Dubai - Dubai</p>
           </div>
           
           <div class="content">
@@ -195,7 +195,7 @@ export const emailTemplates = {
           </div>
           
           <div class="footer">
-            <p><strong>PrintPro Dubai</strong></p>
+            <p><strong>PrimePrint Dubai</strong></p>
             <p>Professional Printing & Signage Services in Dubai</p>
             <p>This email was sent from your website contact form.</p>
           </div>
@@ -204,7 +204,7 @@ export const emailTemplates = {
       </html>
     `,
     text: `
-New Quote Request - PrintPro Dubai
+New Quote Request - PrimePrint Dubai
 
 Customer Information:
 - Name: ${data.name || 'Not provided'}
@@ -217,7 +217,7 @@ ${data.details ? `Project Details:\n${data.details}\n` : ''}
 Please contact the customer as soon as possible.
 
 ---
-PrintPro Dubai
+PrimePrint Dubai
 Professional Printing & Signage Services in Dubai
     `
   }),
@@ -227,14 +227,14 @@ Professional Printing & Signage Services in Dubai
     email: string;
     service: string;
   }) => ({
-    subject: `Thank you for your quote request - PrintPro Dubai`,
+    subject: `Thank you for your quote request - PrimePrint Dubai`,
     html: `
       <!DOCTYPE html>
       <html>
       <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Thank You - PrintPro Dubai</title>
+        <title>Thank You - PrimePrint Dubai</title>
         <style>
           body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; margin: 0; padding: 20px; background-color: #f4f4f4; }
           .container { max-width: 600px; margin: 0 auto; background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 0 20px rgba(0,0,0,0.1); }
@@ -248,7 +248,7 @@ Professional Printing & Signage Services in Dubai
         <div class="container">
           <div class="header">
             <h1>🙏 Thank You!</h1>
-            <p>PrintPro Dubai - Dubai</p>
+            <p>PrimePrint Dubai - Dubai</p>
           </div>
           
           <div class="content">
@@ -275,7 +275,7 @@ Professional Printing & Signage Services in Dubai
           </div>
           
           <div class="footer">
-            <p><strong>PrintPro Dubai</strong></p>
+            <p><strong>PrimePrint Dubai</strong></p>
             <p>Professional Printing & Signage Services in Dubai</p>
             <p>📧 ${SITE_CONFIG.email} | 📞 ${formatPhoneNumber(SITE_CONFIG.phone)}</p>
           </div>
@@ -284,7 +284,7 @@ Professional Printing & Signage Services in Dubai
       </html>
     `,
     text: `
-Thank you for your quote request - PrintPro Dubai
+Thank you for your quote request - PrimePrint Dubai
 
 Hello ${data.name},
 
@@ -303,7 +303,7 @@ Call us at: ${formatPhoneNumber(SITE_CONFIG.phone)}
 WhatsApp: ${formatPhoneNumber(SITE_CONFIG.phone)}
 
 ---
-PrintPro Dubai
+PrimePrint Dubai
 Professional Printing & Signage Services in Dubai
 📧 ${SITE_CONFIG.email} | 📞 ${formatPhoneNumber(SITE_CONFIG.phone)}
     `
@@ -481,7 +481,7 @@ export const emailTemplates_order = {
         <div class="container">
           <div class="header">
             <h1>🛒 New Order Received</h1>
-            <p>PrintPro Dubai - Dubai</p>
+            <p>PrimePrint Dubai - Dubai</p>
           </div>
           
           <div class="content">
@@ -550,7 +550,7 @@ export const emailTemplates_order = {
           </div>
           
           <div class="footer">
-            <p><strong>PrintPro Dubai</strong></p>
+            <p><strong>PrimePrint Dubai</strong></p>
             <p>Professional Printing & Signage Services in Dubai</p>
             <p>This email was sent from your website order form.</p>
           </div>
@@ -559,7 +559,7 @@ export const emailTemplates_order = {
       </html>
     `,
     text: `
-New Order Received - PrintPro Dubai
+New Order Received - PrimePrint Dubai
 
 Customer Information:
 - Name: ${data.name || 'Not provided'}
@@ -577,7 +577,7 @@ ${data.specifications ? `Specifications:\n${data.specifications}\n` : ''}
 Action Required: Process this order and contact the customer to confirm details and arrange payment.
 
 ---
-PrintPro Dubai
+PrimePrint Dubai
 Professional Printing & Signage Services in Dubai
     `
   }),
@@ -588,14 +588,14 @@ Professional Printing & Signage Services in Dubai
     product: string;
     quantity: string;
   }) => ({
-    subject: `Order Confirmation - ${data.product} | PrintPro Dubai`,
+    subject: `Order Confirmation - ${data.product} | PrimePrint Dubai`,
     html: `
       <!DOCTYPE html>
       <html>
       <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Order Confirmation - PrintPro Dubai</title>
+        <title>Order Confirmation - PrimePrint Dubai</title>
         <style>
           body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; margin: 0; padding: 20px; background-color: #f4f4f4; }
           .container { max-width: 600px; margin: 0 auto; background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 0 20px rgba(0,0,0,0.1); }
@@ -610,7 +610,7 @@ Professional Printing & Signage Services in Dubai
         <div class="container">
           <div class="header">
             <h1>✅ Order Confirmed!</h1>
-            <p>PrintPro Dubai - Dubai</p>
+            <p>PrimePrint Dubai - Dubai</p>
           </div>
           
           <div class="content">
@@ -641,7 +641,7 @@ Professional Printing & Signage Services in Dubai
           </div>
           
           <div class="footer">
-            <p><strong>PrintPro Dubai</strong></p>
+            <p><strong>PrimePrint Dubai</strong></p>
             <p>Professional Printing & Signage Services in Dubai</p>
             <p>📧 ${SITE_CONFIG.email} | 📞 ${formatPhoneNumber(SITE_CONFIG.phone)}</p>
           </div>
@@ -650,7 +650,7 @@ Professional Printing & Signage Services in Dubai
       </html>
     `,
     text: `
-Order Confirmation - PrintPro Dubai
+Order Confirmation - PrimePrint Dubai
 
 Hello ${data.name},
 
@@ -672,7 +672,7 @@ Call us at: ${formatPhoneNumber(SITE_CONFIG.phone)}
 WhatsApp: ${formatPhoneNumber(SITE_CONFIG.phone)}
 
 ---
-PrintPro Dubai
+PrimePrint Dubai
 Professional Printing & Signage Services in Dubai
 📧 ${SITE_CONFIG.email} | 📞 ${formatPhoneNumber(SITE_CONFIG.phone)}
     `
@@ -732,7 +732,7 @@ export const sendOrderEmail = async (data: {
       <div class="container">
         <div class="header">
           <h1>🛒 New Order Received</h1>
-          <p>PrintPro Dubai - Dubai</p>
+          <p>PrimePrint Dubai - Dubai</p>
         </div>
         
         <div class="content">
@@ -819,7 +819,7 @@ export const sendOrderEmail = async (data: {
         </div>
         
         <div class="footer">
-          <p><strong>PrintPro Dubai</strong></p>
+          <p><strong>PrimePrint Dubai</strong></p>
           <p>Professional Printing & Signage Services in Dubai</p>
           <p>This email was sent from your website order form.</p>
         </div>
@@ -829,7 +829,7 @@ export const sendOrderEmail = async (data: {
   `;
 
   const orderEmailText = `
-New Order Received - PrintPro Dubai
+New Order Received - PrimePrint Dubai
 
 Customer Information:
 - Name: ${data.name}
@@ -854,7 +854,7 @@ ${data.orderNotes ? `Order Notes:\n${data.orderNotes}\n` : ''}
 Action Required: Process this order and contact the customer to confirm details and arrange payment.
 
 ---
-PrintPro Dubai
+PrimePrint Dubai
 Professional Printing & Signage Services in Dubai
   `;
 
@@ -890,7 +890,7 @@ Professional Printing & Signage Services in Dubai
         <div class="container">
           <div class="header">
             <h1>✅ Order Confirmed!</h1>
-            <p>PrintPro Dubai - Dubai</p>
+            <p>PrimePrint Dubai - Dubai</p>
           </div>
           
           <div class="content">
@@ -922,7 +922,7 @@ Professional Printing & Signage Services in Dubai
           </div>
           
           <div class="footer">
-            <p><strong>PrintPro Dubai</strong></p>
+            <p><strong>PrimePrint Dubai</strong></p>
             <p>Professional Printing & Signage Services in Dubai</p>
             <p>📧 ${SITE_CONFIG.email} | 📞 ${formatPhoneNumber(SITE_CONFIG.phone)}</p>
           </div>
@@ -933,7 +933,7 @@ Professional Printing & Signage Services in Dubai
 
     await sendEmail({
       to: data.email,
-      subject: `Order Confirmation - ${data.products.length} product(s) | PrintPro Dubai`,
+      subject: `Order Confirmation - ${data.products.length} product(s) | PrimePrint Dubai`,
       html: customerEmailHtml,
       text: `Order Confirmation - Thank you for your order! We've received your order for ${data.products.length} product(s).`
     });

@@ -1,26 +1,82 @@
+import { CriticalCSS } from "@/components/critical-css";
+import Footer from "@/components/footer";
+import Header from "@/components/header";
+import { PerformanceMonitor } from "@/components/performance-monitor";
+import { ToastProvider } from "@/components/toast-provider";
+import WhatsAppFloat from "@/components/whatsapp-float";
+import { AuthProvider } from "@/context/auth-context";
+import {
+  baseMetadata,
+  LocalBusinessJsonLD,
+  OrganizationJsonLD,
+  WebsiteJsonLD,
+} from "@/lib/seo";
 import "@/styles/globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import { baseMetadata, LocalBusinessJsonLD, OrganizationJsonLD, WebsiteJsonLD } from "@/lib/seo";
-import Header from "@/components/header";
-import Footer from "@/components/footer";
-import WhatsAppFloat from "@/components/whatsapp-float";
-import { ToastProvider } from "@/components/toast-provider";
-import { PerformanceMonitor } from "@/components/performance-monitor";
-import { CriticalCSS } from "@/components/critical-css";
-import { AuthProvider } from "@/context/auth-context";
 
-export const metadata: Metadata = baseMetadata;
-const inter = Inter({ 
-  subsets: ["latin"], 
+export const metadata: Metadata = {
+  ...baseMetadata,
+  // Additional global metadata
+  applicationName: "PrimePrint Dubai",
+  generator: "Next.js",
+  referrer: "origin-when-cross-origin",
+  colorScheme: "light",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#1a3a63" },
+    { media: "(prefers-color-scheme: dark)", color: "#1a3a63" },
+  ],
+  viewport: {
+    width: "device-width",
+    initialScale: 1,
+    maximumScale: 5,
+    userScalable: true,
+  },
+  // Enhanced Open Graph
+  openGraph: {
+    ...baseMetadata.openGraph,
+    emails: ["alarqauae@gmail.com"],
+    phoneNumbers: ["+971569324947"],
+    countryName: "United Arab Emirates",
+  },
+  // Enhanced Twitter
+  twitter: {
+    ...baseMetadata.twitter,
+    creator: "@stampprimeprint",
+    site: "@stampprimeprint",
+  },
+  // Additional metadata
+  other: {
+    "mobile-web-app-capable": "yes",
+    "apple-mobile-web-app-capable": "yes",
+    "apple-mobile-web-app-status-bar-style": "default",
+    "format-detection": "telephone=no",
+    "geo.region": "AE-DU",
+    "geo.placename": "Dubai",
+    "geo.position": "25.2048;55.2708",
+    ICBM: "25.2048, 55.2708",
+    language: "English",
+    "revisit-after": "7 days",
+    distribution: "global",
+    rating: "general",
+    "apple-mobile-web-app-title": "PrimePrint Dubai",
+    "msapplication-TileColor": "#1a3a63",
+  },
+};
+const inter = Inter({
+  subsets: ["latin"],
   display: "swap",
   preload: true,
-  variable: '--font-inter',
+  variable: "--font-inter",
 });
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
-    <html lang="en" suppressHydrationWarning className={inter.variable}>
+    <html lang="en-AE" suppressHydrationWarning className={inter.variable}>
       <head>
         <LocalBusinessJsonLD />
         <OrganizationJsonLD />
@@ -29,8 +85,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <PerformanceMonitor />
         {/* Favicon */}
         <link rel="icon" href="/favicon-custom.svg" type="image/svg+xml" />
-        <link rel="shortcut icon" href="/favicon-custom.svg" type="image/svg+xml" />
-        
+        <link
+          rel="shortcut icon"
+          href="/favicon-custom.svg"
+          type="image/svg+xml"
+        />
+
         {/* Preload critical resources */}
         <link rel="preload" href="/images/hero-print.jpg" as="image" />
         <link rel="preload" href="/favicon-custom.svg" as="image" />
@@ -42,7 +102,18 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta name="msapplication-TileColor" content="#1a3a63" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-        <meta name="apple-mobile-web-app-title" content="PrintPro Dubai" />
+        <meta name="apple-mobile-web-app-title" content="PrimePrint Dubai" />
+        {/* Web App Manifest */}
+        <link rel="manifest" href="/site.webmanifest" />
+        {/* Additional SEO Meta Tags */}
+        <meta name="geo.region" content="AE-DU" />
+        <meta name="geo.placename" content="Dubai" />
+        <meta name="geo.position" content="25.2048;55.2708" />
+        <meta name="ICBM" content="25.2048, 55.2708" />
+        <meta name="language" content="English" />
+        <meta name="revisit-after" content="7 days" />
+        <meta name="distribution" content="global" />
+        <meta name="rating" content="general" />
       </head>
       <body
         className={`${inter.className} min-h-screen bg-[var(--background)] text-[var(--foreground)] antialiased`}
@@ -51,7 +122,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <AuthProvider>
           <ToastProvider>
             <Header />
-            <main style={{ paddingTop: "var(--header-height, 7.5rem)" }}>{children}</main>
+            <main style={{ paddingTop: "var(--header-height, 7.5rem)" }}>
+              {children}
+            </main>
             <Footer />
             <WhatsAppFloat />
           </ToastProvider>
