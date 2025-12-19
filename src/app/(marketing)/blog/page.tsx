@@ -1,11 +1,12 @@
+import { ArrowRight, Calendar, Clock } from "lucide-react";
 import type { Metadata } from "next";
-import Link from "next/link";
 import Image from "next/image";
-import { Calendar, Clock, ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Blog - Printing & Signage Tips | PrimePrint Dubai",
-  description: "Expert guides on stamps, printing, signage, and branding in Dubai. Learn about DTF vs screen print, LED vs neon signs, vehicle branding, custom stamps, and more. Tips from Dubai's leading printing company.",
+  description:
+    "Expert guides on stamps, printing, signage, and branding in Dubai. Learn about DTF vs screen print, LED vs neon signs, vehicle branding, custom stamps, and more. Tips from Dubai's leading printing company.",
   keywords: [
     "printing tips Dubai",
     "signage guide Dubai",
@@ -20,7 +21,8 @@ export const metadata: Metadata = {
   alternates: { canonical: "/blog" },
   openGraph: {
     title: "Blog - Printing & Signage Tips | PrimePrint Dubai",
-    description: "Expert guides on stamps, printing, signage, and branding in Dubai. Tips from Dubai's leading printing company.",
+    description:
+      "Expert guides on stamps, printing, signage, and branding in Dubai. Tips from Dubai's leading printing company.",
     url: "/blog",
   },
 };
@@ -29,7 +31,8 @@ const blogPosts = [
   {
     slug: "dtf-vs-screen-printing-dubai",
     title: "DTF vs Screen Printing: Which is Best for Your Business in Dubai?",
-    excerpt: "Confused between DTF and screen printing? Learn the pros, cons, costs, and best use cases for each method.",
+    excerpt:
+      "Confused between DTF and screen printing? Learn the pros, cons, costs, and best use cases for each method.",
     date: "2024-10-10",
     readTime: "5 min read",
     category: "Printing Guide",
@@ -37,8 +40,10 @@ const blogPosts = [
   },
   {
     slug: "led-vs-neon-signs-dubai",
-    title: "LED vs Traditional Neon Signs: A Complete Comparison for Dubai Businesses",
-    excerpt: "Discover which signage option is more cost-effective, durable, and energy-efficient for your Dubai storefront.",
+    title:
+      "LED vs Traditional Neon Signs: A Complete Comparison for Dubai Businesses",
+    excerpt:
+      "Discover which signage option is more cost-effective, durable, and energy-efficient for your Dubai storefront.",
     date: "2024-10-08",
     readTime: "6 min read",
     category: "Signage",
@@ -47,7 +52,8 @@ const blogPosts = [
   {
     slug: "vehicle-branding-guide-dubai",
     title: "The Ultimate Vehicle Branding Guide for Dubai Businesses",
-    excerpt: "Everything you need to know about vehicle wraps, partial branding, materials, costs, and regulations in Dubai.",
+    excerpt:
+      "Everything you need to know about vehicle wraps, partial branding, materials, costs, and regulations in Dubai.",
     date: "2024-10-05",
     readTime: "8 min read",
     category: "Branding",
@@ -56,7 +62,8 @@ const blogPosts = [
   {
     slug: "choosing-right-printing-method",
     title: "How to Choose the Right Printing Method for Your Project",
-    excerpt: "A comprehensive guide to offset, digital, and screen printing - when to use each method and why.",
+    excerpt:
+      "A comprehensive guide to offset, digital, and screen printing - when to use each method and why.",
     date: "2024-10-01",
     readTime: "7 min read",
     category: "Printing Guide",
@@ -65,7 +72,8 @@ const blogPosts = [
   {
     slug: "custom-packaging-boxes-dubai",
     title: "Custom Packaging Boxes: Boost Your Brand with Premium Packaging",
-    excerpt: "Learn how custom gift boxes and packaging can elevate your brand and increase customer loyalty in Dubai.",
+    excerpt:
+      "Learn how custom gift boxes and packaging can elevate your brand and increase customer loyalty in Dubai.",
     date: "2024-09-28",
     readTime: "5 min read",
     category: "Packaging",
@@ -74,7 +82,8 @@ const blogPosts = [
   {
     slug: "business-card-design-tips",
     title: "10 Business Card Design Tips That Make You Stand Out in Dubai",
-    excerpt: "Professional tips for creating memorable business cards that leave a lasting impression.",
+    excerpt:
+      "Professional tips for creating memorable business cards that leave a lasting impression.",
     date: "2024-09-25",
     readTime: "6 min read",
     category: "Design Tips",
@@ -89,10 +98,13 @@ export default function BlogPage() {
       <section className="relative overflow-hidden min-h-[40vh] flex items-center">
         <div className="absolute inset-0 -z-10">
           <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-brand-900)] via-[var(--color-brand-800)] to-[var(--color-brand-700)] gradient-animate" />
-          <div className="absolute inset-0 opacity-10" style={{
-            backgroundImage: `radial-gradient(circle, white 1px, transparent 1px)`,
-            backgroundSize: '30px 30px'
-          }} />
+          <div
+            className="absolute inset-0 opacity-10"
+            style={{
+              backgroundImage: `radial-gradient(circle, white 1px, transparent 1px)`,
+              backgroundSize: "30px 30px",
+            }}
+          />
         </div>
         <div className="wrapper py-16 text-white">
           <div className="max-w-3xl">
@@ -100,10 +112,15 @@ export default function BlogPage() {
               Blog
             </span>
             <h1 className="mt-6 text-4xl md:text-6xl font-bold leading-tight">
-              Expert <span className="bg-gradient-to-r from-[var(--color-accent-300)] to-white bg-clip-text text-transparent">Printing & Signage</span> Insights
+              Expert{" "}
+              <span className="bg-gradient-to-r from-[var(--color-accent-300)] to-white bg-clip-text text-transparent">
+                Printing & Signage
+              </span>{" "}
+              Insights
             </h1>
             <p className="mt-5 max-w-2xl text-lg text-white/90 leading-relaxed">
-              Guides, comparisons, and tips to help you make the best decisions for your printing and signage needs in Dubai
+              Guides, comparisons, and tips to help you make the best decisions
+              for your printing and signage needs in Dubai
             </p>
           </div>
         </div>
@@ -140,10 +157,10 @@ export default function BlogPage() {
                   <div className="flex items-center gap-1">
                     <Calendar className="h-3.5 w-3.5" />
                     <time dateTime={post.date}>
-                      {new Date(post.date).toLocaleDateString('en-US', { 
-                        month: 'short', 
-                        day: 'numeric', 
-                        year: 'numeric' 
+                      {new Date(post.date).toLocaleDateString("en-US", {
+                        month: "short",
+                        day: "numeric",
+                        year: "numeric",
                       })}
                     </time>
                   </div>
@@ -159,7 +176,7 @@ export default function BlogPage() {
                 </h2>
 
                 {/* Excerpt */}
-                <p className="text-sm text-[var(--color-ink)]/70 leading-relaxed mb-4 line-clamp-3">
+                <p className="text-sm text-white leading-relaxed mb-4 line-clamp-3">
                   {post.excerpt}
                 </p>
 
@@ -180,20 +197,29 @@ export default function BlogPage() {
       {/* Newsletter CTA */}
       <section className="wrapper pb-16">
         <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[var(--color-brand-800)] to-[var(--color-brand-600)] p-12 md:p-16 text-center text-white shadow-2xl">
-          <div className="absolute inset-0 opacity-10" style={{
-            backgroundImage: `radial-gradient(circle, white 1px, transparent 1px)`,
-            backgroundSize: '30px 30px'
-          }} />
+          <div
+            className="absolute inset-0 opacity-10"
+            style={{
+              backgroundImage: `radial-gradient(circle, white 1px, transparent 1px)`,
+              backgroundSize: "30px 30px",
+            }}
+          />
           <div className="relative z-10 max-w-2xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Need Expert Advice?</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Need Expert Advice?
+            </h2>
             <p className="text-lg text-white/90 mb-8">
-              Our team is here to help you choose the right printing or signage solution for your business
+              Our team is here to help you choose the right printing or signage
+              solution for your business
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
               <a href="/contact" className="btn btn-primary text-lg px-8 py-4">
                 Get Free Consultation
               </a>
-              <Link href="/services" className="btn glass text-white text-lg px-8 py-4">
+              <Link
+                href="/services"
+                className="btn glass text-white text-lg px-8 py-4"
+              >
                 View All Services
               </Link>
             </div>
@@ -203,4 +229,3 @@ export default function BlogPage() {
     </main>
   );
 }
-

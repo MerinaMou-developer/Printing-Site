@@ -1,8 +1,8 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import Image from "next/image";
 import { ShoppingBag } from "lucide-react";
+import Image from "next/image";
+import { useEffect, useState } from "react";
 
 type CartItem = {
   productSlug: string;
@@ -15,16 +15,18 @@ export default function OrderSummaryClient() {
   const [cart, setCart] = useState<CartItem[]>([]);
 
   useEffect(() => {
-    const cartData = localStorage.getItem('cart');
+    const cartData = localStorage.getItem("cart");
     if (cartData) {
       const items = JSON.parse(cartData);
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      setCart(items.map((item: any) => ({
-        productSlug: item.productSlug,
-        productName: item.productName,
-        productImg: item.productImg,
-        quantity: item.quantity
-      })));
+      setCart(
+        items.map((item: any) => ({
+          productSlug: item.productSlug,
+          productName: item.productName,
+          productImg: item.productImg,
+          quantity: item.quantity,
+        }))
+      );
     }
   }, []);
 
@@ -37,7 +39,10 @@ export default function OrderSummaryClient() {
 
       <div className="space-y-4 mb-6">
         {cart.map((item, index) => (
-          <div key={index} className="flex items-start gap-3 pb-4 border-b border-[var(--border)] last:border-0">
+          <div
+            key={index}
+            className="flex items-start gap-3 pb-4 border-b border-[var(--border)] last:border-0"
+          >
             {item.productImg && (
               <div className="relative w-16 h-16 flex-shrink-0 rounded-lg overflow-hidden border border-gray-200">
                 <Image
@@ -52,9 +57,7 @@ export default function OrderSummaryClient() {
               <h3 className="font-semibold text-sm text-[var(--color-brand-700)] truncate">
                 {item.productName}
               </h3>
-              <p className="text-xs text-[var(--color-ink)]/70 mt-1">
-                Qty: {item.quantity}
-              </p>
+              <p className="text-xs text-white mt-1">Qty: {item.quantity}</p>
             </div>
           </div>
         ))}
@@ -76,10 +79,10 @@ export default function OrderSummaryClient() {
           <strong>Payment Method:</strong> Cash on Delivery
         </p>
         <p className="text-xs text-[var(--color-ink)]/60 mt-2">
-          Pay with cash upon delivery. We&apos;ll contact you to confirm the total amount.
+          Pay with cash upon delivery. We&apos;ll contact you to confirm the
+          total amount.
         </p>
       </div>
     </div>
   );
 }
-

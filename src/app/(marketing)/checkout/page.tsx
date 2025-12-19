@@ -1,11 +1,12 @@
+import { ArrowLeft, CheckCircle2, ShoppingBag } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowLeft, ShoppingBag, CheckCircle2 } from "lucide-react";
 import CheckoutClient from "./checkout-client";
 
 export const metadata: Metadata = {
   title: "Checkout - Place Your Order | PrimePrint Dubai",
-  description: "Place your custom printing order. Upload your design files and provide order details. Fast turnaround, premium quality in Dubai.",
+  description:
+    "Place your custom printing order. Upload your design files and provide order details. Fast turnaround, premium quality in Dubai.",
   alternates: { canonical: "/checkout" },
   robots: {
     index: false,
@@ -21,10 +22,10 @@ export default function CheckoutPage() {
         <div className="absolute inset-0 -z-10">
           <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-brand-800)] via-[var(--color-brand-700)] to-[var(--color-brand-600)]" />
         </div>
-        
+
         <div className="wrapper py-12 md:py-16 text-white">
-          <Link 
-            href="/products" 
+          <Link
+            href="/products"
             className="inline-flex items-center gap-2 text-white/80 hover:text-white mb-6 transition-colors"
           >
             <ArrowLeft className="h-4 w-4" />
@@ -36,13 +37,15 @@ export default function CheckoutPage() {
               <ShoppingBag className="h-4 w-4" />
               Place Your Order
             </div>
-            
+
             <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-4">
               Checkout & Order
             </h1>
 
             <p className="text-lg text-white/90 leading-relaxed">
-              Submit your order with custom design files. We&apos;ll process your request and contact you within 2-4 hours to confirm details and payment.
+              Submit your order with custom design files. We&apos;ll process
+              your request and contact you within 2-4 hours to confirm details
+              and payment.
             </p>
 
             {/* Trust badges */}
@@ -76,21 +79,22 @@ export default function CheckoutPage() {
             <div className="text-center p-6 bg-[var(--surface-2)] rounded-xl">
               <div className="text-3xl mb-2">📧</div>
               <h3 className="font-semibold mb-2">Email Confirmation</h3>
-              <p className="text-sm text-[var(--color-ink)]/70">
-                You&apos;ll receive an email confirmation after submitting your order
+              <p className="text-sm text-white">
+                You&apos;ll receive an email confirmation after submitting your
+                order
               </p>
             </div>
             <div className="text-center p-6 bg-[var(--surface-2)] rounded-xl">
               <div className="text-3xl mb-2">📞</div>
               <h3 className="font-semibold mb-2">Quick Response</h3>
-              <p className="text-sm text-[var(--color-ink)]/70">
+              <p className="text-sm text-white">
                 We&apos;ll contact you within 2-4 hours during business hours
               </p>
             </div>
             <div className="text-center p-6 bg-[var(--surface-2)] rounded-xl">
               <div className="text-3xl mb-2">✅</div>
               <h3 className="font-semibold mb-2">Order Tracking</h3>
-              <p className="text-sm text-[var(--color-ink)]/70">
+              <p className="text-sm text-white">
                 Get updates via WhatsApp or email on your order status
               </p>
             </div>

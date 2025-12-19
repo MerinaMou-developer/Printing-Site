@@ -1,10 +1,10 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
-import Link from "next/link";
+import { ArrowRight, ShoppingBag, Trash2 } from "lucide-react";
 import Image from "next/image";
-import { ShoppingBag, Trash2, ArrowRight } from "lucide-react";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 
 type CartItem = {
   id: string;
@@ -23,38 +23,41 @@ export default function CheckoutClient() {
 
   useEffect(() => {
     // Get cart from localStorage (metadata only)
-    const cartData = localStorage.getItem('cart');
+    const cartData = localStorage.getItem("cart");
     if (cartData) {
       try {
         const parsed = JSON.parse(cartData);
         const cartArray = Array.isArray(parsed) ? parsed : [parsed];
-        
+
         // Filter out old format items (those with base64 data instead of keys)
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const validCart = cartArray.filter((item: any) => {
           // Check if it's new format (has 'key' property) or old format (has 'data')
-          const isValid = item.emiratesId?.key && item.tradeLicense?.key && !item.emiratesId?.data;
+          const isValid =
+            item.emiratesId?.key &&
+            item.tradeLicense?.key &&
+            !item.emiratesId?.data;
           if (!isValid) {
-            console.warn('Found old format cart item, removing it');
+            console.warn("Found old format cart item, removing it");
           }
           return isValid;
         });
-        
+
         // Update localStorage if we removed invalid items
         if (validCart.length !== cartArray.length) {
           if (validCart.length > 0) {
-            localStorage.setItem('cart', JSON.stringify(validCart));
+            localStorage.setItem("cart", JSON.stringify(validCart));
           } else {
-            localStorage.removeItem('cart');
+            localStorage.removeItem("cart");
           }
         }
-        
+
         setCart(validCart);
       } catch (error) {
-        console.error('Error parsing cart:', error);
+        console.error("Error parsing cart:", error);
         // Clear corrupted cart data
-        localStorage.removeItem('cart');
-        window.dispatchEvent(new Event('cartUpdated'));
+        localStorage.removeItem("cart");
+        window.dispatchEvent(new Event("cartUpdated"));
       }
     }
   }, []);
@@ -62,11 +65,11 @@ export default function CheckoutClient() {
   const removeFromCart = async (index: number) => {
     const newCart = cart.filter((_, i) => i !== index);
     setCart(newCart);
-    localStorage.setItem('cart', JSON.stringify(newCart));
-    
+    localStorage.setItem("cart", JSON.stringify(newCart));
+
     // Dispatch cart update event for header
-    window.dispatchEvent(new Event('cartUpdated'));
-    
+    window.dispatchEvent(new Event("cartUpdated"));
+
     // NOTE: Old IndexedDB code removed - now using Django API
     // Files are handled by the backend
   };
@@ -76,20 +79,20 @@ export default function CheckoutClient() {
     const newCart = [...cart];
     newCart[index].quantity = newQuantity;
     setCart(newCart);
-    localStorage.setItem('cart', JSON.stringify(newCart));
-    
+    localStorage.setItem("cart", JSON.stringify(newCart));
+
     // Dispatch cart update event for header
-    window.dispatchEvent(new Event('cartUpdated'));
+    window.dispatchEvent(new Event("cartUpdated"));
   };
 
   if (cart.length === 0) {
     return (
       <div className="text-center py-12">
         <ShoppingBag className="h-16 w-16 mx-auto text-gray-300 mb-4" />
-        <h2 className="text-2xl font-bold text-[var(--color-brand-700)] mb-2">
+        <h2 className="text-2xl font-bold text-white mb-2">
           Your cart is empty
         </h2>
-        <p className="text-[var(--color-ink)]/70 mb-6">
+        <p className="text-white mb-6">
           Add some products to your cart to continue
         </p>
         <Link href="/products" className="btn btn-primary">
@@ -104,9 +107,9 @@ export default function CheckoutClient() {
       {/* Cart Items */}
       <div>
         <h2 className="text-2xl font-bold text-[var(--color-brand-700)] mb-6">
-          Your Cart ({cart.length} {cart.length === 1 ? 'item' : 'items'})
+          Your Cart ({cart.length} {cart.length === 1 ? "item" : "items"})
         </h2>
-        
+
         <div className="space-y-4">
           {cart.map((item, index) => (
             <div
@@ -125,14 +128,14 @@ export default function CheckoutClient() {
                     />
                   </div>
                 )}
-                
+
                 {/* Product Details */}
                 <div className="flex-1">
                   <h3 className="text-lg font-semibold text-[var(--color-brand-700)] mb-2">
                     {item.productName}
                   </h3>
-                  
-                  <div className="space-y-2 text-sm text-[var(--color-ink)]/70 mb-4">
+
+                  <div className="space-y-2 text-sm text-white mb-4">
                     <div className="flex items-center gap-2">
                       <span className="font-medium">Emirates ID:</span>
                       <span>{item.emiratesId.name}</span>
@@ -160,7 +163,9 @@ export default function CheckoutClient() {
                       >
                         -
                       </button>
-                      <span className="w-12 text-center font-medium">{item.quantity}</span>
+                      <span className="w-12 text-center font-medium">
+                        {item.quantity}
+                      </span>
                       <button
                         type="button"
                         onClick={() => updateQuantity(index, item.quantity + 1)}
@@ -191,7 +196,7 @@ export default function CheckoutClient() {
           Continue Shopping
         </Link>
         <button
-          onClick={() => router.push('/order')}
+          onClick={() => router.push("/order")}
           className="btn btn-primary flex items-center gap-2"
         >
           Proceed to Checkout

@@ -1,22 +1,27 @@
 "use client";
 
-import { useState, useMemo } from "react";
-import type { Product } from "@/types";
-import ProductCard from "./product-card";
-import { Filter } from "lucide-react";
 import { cn } from "@/lib/utils";
+import type { Product } from "@/types";
+import { Filter } from "lucide-react";
+import { useMemo, useState } from "react";
+import ProductCard from "./product-card";
 
 type Props = {
   products: Product[];
 };
 
 export default function ProductGrid({ products }: Props) {
-  const [selectedCategory, setSelectedCategory] = useState<string>("All Products");
+  const [selectedCategory, setSelectedCategory] =
+    useState<string>("All Products");
 
   // Extract unique categories - ensure consistent ordering
   const categories = useMemo(() => {
     const cats = Array.from(
-      new Set(products.map(p => p.category).filter((cat): cat is string => Boolean(cat)))
+      new Set(
+        products
+          .map((p) => p.category)
+          .filter((cat): cat is string => Boolean(cat))
+      )
     ).sort();
     return ["All Products", ...cats];
   }, [products]);
@@ -26,16 +31,16 @@ export default function ProductGrid({ products }: Props) {
     if (selectedCategory === "All Products") {
       return products;
     }
-    return products.filter(p => p.category === selectedCategory);
+    return products.filter((p) => p.category === selectedCategory);
   }, [products, selectedCategory]);
 
   return (
     <div suppressHydrationWarning>
       {/* Category Filter Pills */}
-      <div className="mb-8 flex flex-wrap items-center gap-3">
+      <div className="mb-8 flex flex-wrap items-center gap-3 text-white">
         <div className="flex items-center gap-2 text-sm font-semibold text-[var(--color-ink)]">
           <Filter className="h-4 w-4" />
-          <span>Filter by:</span>
+          <span className="text-white">Filter by:</span>
         </div>
         {categories.map((category) => {
           const isActive = selectedCategory === category;
@@ -48,7 +53,7 @@ export default function ProductGrid({ products }: Props) {
                 "rounded-full px-5 py-2 text-sm font-semibold transition-all duration-300",
                 isActive
                   ? "bg-gradient-to-r from-[var(--color-accent-500)] to-[var(--color-accent-600)] text-white shadow-lg shadow-[var(--color-accent-500)]/30"
-                  : "bg-[var(--surface-2)] text-[var(--color-ink)] hover:bg-[var(--surface-3)] hover:text-[var(--color-brand-700)]"
+                  : "bg-[var(--surface-2)] text-gray-300 hover:bg-[var(--surface-3)] hover:text-gray-400"
               )}
               suppressHydrationWarning
             >
@@ -75,4 +80,3 @@ export default function ProductGrid({ products }: Props) {
     </div>
   );
 }
-

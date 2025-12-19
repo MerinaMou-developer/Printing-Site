@@ -11,6 +11,7 @@ import {
   OrganizationJsonLD,
   WebsiteJsonLD,
 } from "@/lib/seo";
+import { Providers as ReduxProviders } from "@/redux/provider";
 import "@/styles/globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
@@ -119,16 +120,19 @@ export default function RootLayout({
         className={`${inter.className} min-h-screen bg-[var(--background)] text-[var(--foreground)] antialiased`}
         suppressHydrationWarning
       >
-        <AuthProvider>
-          <ToastProvider>
-            <Header />
-            <main style={{ paddingTop: "var(--header-height, 7.5rem)" }}>
-              {children}
-            </main>
-            <Footer />
-            <WhatsAppFloat />
-          </ToastProvider>
-        </AuthProvider>
+        {/* Redux Provider - Makes Redux store available to entire app */}
+        <ReduxProviders>
+          <AuthProvider>
+            <ToastProvider>
+              <Header />
+              <main style={{ paddingTop: "var(--header-height, 7.5rem)" }}>
+                {children}
+              </main>
+              <Footer />
+              <WhatsAppFloat />
+            </ToastProvider>
+          </AuthProvider>
+        </ReduxProviders>
       </body>
     </html>
   );

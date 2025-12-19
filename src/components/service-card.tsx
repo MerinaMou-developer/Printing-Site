@@ -1,6 +1,6 @@
-import Link from "next/link";
 import type { Service } from "@/types";
-import { BadgeCheck, ArrowRight } from "lucide-react";
+import { ArrowRight, BadgeCheck } from "lucide-react";
+import Link from "next/link";
 
 type Props = { service: Service };
 
@@ -17,8 +17,12 @@ export default function ServiceCard({ service }: Props) {
             <BadgeCheck className="h-6 w-6 text-[var(--color-brand-600)]" />
           </span>
           <div className="min-w-0 flex-1">
-            <h3 className="font-bold text-lg text-[var(--foreground)] group-hover:text-[var(--color-brand-700)] transition-colors">{service.name}</h3>
-            <p className="mt-2 text-sm text-[var(--color-ink)]/70 line-clamp-2 leading-relaxed">{service.desc}</p>
+            <h3 className="font-bold text-lg text-[var(--foreground)] group-hover:text-[var(--color-brand-700)] transition-colors">
+              {service.name}
+            </h3>
+            <p className="mt-2 text-sm text-white line-clamp-2 leading-relaxed">
+              {service.desc}
+            </p>
             <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-[var(--color-accent-600)] group-hover:gap-2.5 transition-all">
               Learn more
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />

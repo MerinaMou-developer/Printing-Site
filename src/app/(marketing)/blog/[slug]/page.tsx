@@ -1,23 +1,27 @@
+import { BreadcrumbJsonLD } from "@/lib/seo";
+import { ArrowLeft, Calendar, Clock, Share2 } from "lucide-react";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { Calendar, Clock, ArrowLeft, Share2 } from "lucide-react";
-import { BreadcrumbJsonLD } from "@/lib/seo";
 
 // This would normally come from a CMS or markdown files
-const blogPosts: Record<string, {
-  title: string;
-  content: string;
-  excerpt: string;
-  date: string;
-  readTime: string;
-  category: string;
-  image: string;
-  author: string;
-}> = {
+const blogPosts: Record<
+  string,
+  {
+    title: string;
+    content: string;
+    excerpt: string;
+    date: string;
+    readTime: string;
+    category: string;
+    image: string;
+    author: string;
+  }
+> = {
   "dtf-vs-screen-printing-dubai": {
     title: "DTF vs Screen Printing: Which is Best for Your Business in Dubai?",
-    excerpt: "Confused between DTF and screen printing? Learn the pros, cons, costs, and best use cases for each method.",
+    excerpt:
+      "Confused between DTF and screen printing? Learn the pros, cons, costs, and best use cases for each method.",
     content: `
       <h2>Introduction</h2>
       <p>When it comes to custom apparel printing in Dubai, two methods dominate the market: Direct-to-Film (DTF) and Screen Printing. Both have their unique advantages, and choosing the right one can significantly impact your costs, quality, and turnaround time.</p>
@@ -130,11 +134,15 @@ export async function generateStaticParams() {
   return Object.keys(blogPosts).map((slug) => ({ slug }));
 }
 
-export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
   const { slug } = await params;
   const post = blogPosts[slug];
   if (!post) return { title: "Post Not Found" };
-  
+
   return {
     title: `${post.title} | PrimePrint Dubai Blog`,
     description: post.excerpt,
@@ -167,7 +175,11 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   };
 }
 
-export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
+export default async function BlogPostPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
   const { slug } = await params;
   const post = blogPosts[slug];
 
@@ -175,7 +187,10 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     return (
       <div className="wrapper py-16 text-center">
         <h1 className="text-3xl font-bold mb-4">Post Not Found</h1>
-        <Link href="/blog" className="text-[var(--color-accent-600)] hover:text-[var(--color-accent-700)]">
+        <Link
+          href="/blog"
+          className="text-[var(--color-accent-600)] hover:text-[var(--color-accent-700)]"
+        >
           ← Back to Blog
         </Link>
       </div>
@@ -202,10 +217,10 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           />
           <div className="absolute inset-0 bg-gradient-to-b from-[var(--color-brand-900)]/95 to-[var(--color-brand-800)]/90" />
         </div>
-        
+
         <div className="wrapper py-16 md:py-20 text-white">
-          <Link 
-            href="/blog" 
+          <Link
+            href="/blog"
             className="inline-flex items-center gap-2 text-white/80 hover:text-white mb-6 transition-colors"
           >
             <ArrowLeft className="h-4 w-4" />
@@ -216,7 +231,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             <span className="inline-block px-3 py-1 rounded-full bg-[var(--color-accent-500)] text-white text-xs font-semibold mb-4">
               {post.category}
             </span>
-            
+
             <h1 className="text-3xl md:text-5xl font-bold leading-tight mb-6">
               {post.title}
             </h1>
@@ -225,10 +240,10 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
               <div className="flex items-center gap-2">
                 <Calendar className="h-4 w-4" />
                 <time dateTime={post.date}>
-                  {new Date(post.date).toLocaleDateString('en-US', { 
-                    month: 'long', 
-                    day: 'numeric', 
-                    year: 'numeric' 
+                  {new Date(post.date).toLocaleDateString("en-US", {
+                    month: "long",
+                    day: "numeric",
+                    year: "numeric",
                   })}
                 </time>
               </div>
@@ -250,11 +265,13 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           {/* Social Share */}
           <div className="mb-8 flex items-center gap-3 pb-8 border-b border-[var(--border)]">
             <Share2 className="h-5 w-5 text-[var(--color-ink)]/60" />
-            <span className="text-sm font-semibold text-[var(--color-ink)]/60">Share this article</span>
+            <span className="text-sm font-semibold text-[var(--color-ink)]/60">
+              Share this article
+            </span>
           </div>
 
           {/* Content */}
-          <div 
+          <div
             className="prose prose-lg max-w-none
               prose-headings:font-bold prose-headings:text-[var(--color-brand-700)]
               prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-6
@@ -271,7 +288,9 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
           {/* CTA */}
           <div className="mt-12 p-8 rounded-2xl bg-gradient-to-br from-[var(--color-accent-100)] to-[var(--color-accent-200)] border-2 border-[var(--color-accent-400)]">
-            <h3 className="text-2xl font-bold mb-3 text-[var(--color-brand-700)]">Ready to Get Started?</h3>
+            <h3 className="text-2xl font-bold mb-3 text-[var(--color-brand-700)]">
+              Ready to Get Started?
+            </h3>
             <p className="text-[var(--color-ink)]/80 mb-6">
               Get a free quote and expert advice on your printing project today!
             </p>
@@ -290,14 +309,16 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
       {/* Related Articles */}
       <section className="bg-[var(--surface-2)] py-12">
         <div className="wrapper">
-          <h2 className="text-2xl md:text-3xl font-bold mb-8">Related Articles</h2>
+          <h2 className="text-2xl md:text-3xl font-bold mb-8">
+            Related Articles
+          </h2>
           <div className="grid md:grid-cols-3 gap-6">
             {/* Placeholder for related posts */}
             <Link href="/blog" className="group card card-hover">
               <h3 className="font-semibold mb-2 group-hover:text-[var(--color-accent-600)] transition-colors">
                 More articles coming soon
               </h3>
-              <p className="text-sm text-[var(--color-ink)]/70">
+              <p className="text-sm text-white">
                 Check back for more expert guides on printing and signage
               </p>
             </Link>
@@ -307,4 +328,3 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     </main>
   );
 }
-

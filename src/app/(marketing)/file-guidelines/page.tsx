@@ -1,12 +1,20 @@
-import type { Metadata } from "next";
-import { FileCheck, AlertCircle, CheckCircle2, FileText, Image as ImageIcon } from "lucide-react";
-import { createWhatsAppLink } from "@/lib/whatsapp";
 import site from "@/content/site.json";
 import { BreadcrumbJsonLD } from "@/lib/seo";
+import { createWhatsAppLink } from "@/lib/whatsapp";
+import {
+  AlertCircle,
+  CheckCircle2,
+  FileCheck,
+  FileText,
+  Image as ImageIcon,
+} from "lucide-react";
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "File Guidelines & Specifications | PrimePrint Dubai - Print-Ready Files",
-  description: "Learn how to prepare your files for printing in Dubai. CMYK color mode, vector formats, bleed requirements, 300 DPI resolution, and accepted file types (AI, PDF, EPS, PSD) for perfect print results. Free file checking available.",
+  title:
+    "File Guidelines & Specifications | PrimePrint Dubai - Print-Ready Files",
+  description:
+    "Learn how to prepare your files for printing in Dubai. CMYK color mode, vector formats, bleed requirements, 300 DPI resolution, and accepted file types (AI, PDF, EPS, PSD) for perfect print results. Free file checking available.",
   keywords: [
     "file guidelines Dubai",
     "print-ready files Dubai",
@@ -20,20 +28,45 @@ export const metadata: Metadata = {
   alternates: { canonical: "/file-guidelines" },
   openGraph: {
     title: "File Guidelines & Specifications | PrimePrint Dubai",
-    description: "Learn how to prepare your files for printing. CMYK, vector formats, bleed requirements, and accepted file types for perfect print results.",
+    description:
+      "Learn how to prepare your files for printing. CMYK, vector formats, bleed requirements, and accepted file types for perfect print results.",
     url: "/file-guidelines",
   },
 };
 
 export default function FileGuidelinesPage() {
   const fileFormats = [
-    { format: "AI (Adobe Illustrator)", recommended: true, notes: "Best for logos and vector graphics" },
-    { format: "PDF (Print-Ready)", recommended: true, notes: "Embed fonts, CMYK, with bleed" },
+    {
+      format: "AI (Adobe Illustrator)",
+      recommended: true,
+      notes: "Best for logos and vector graphics",
+    },
+    {
+      format: "PDF (Print-Ready)",
+      recommended: true,
+      notes: "Embed fonts, CMYK, with bleed",
+    },
     { format: "EPS", recommended: true, notes: "Good for vector artwork" },
-    { format: "PSD (Photoshop)", acceptable: true, notes: "Flatten layers, 300 DPI minimum" },
-    { format: "PNG", acceptable: true, notes: "High resolution (300 DPI), transparent background" },
-    { format: "JPG/JPEG", acceptable: true, notes: "300 DPI minimum, watch for compression artifacts" },
-    { format: "Word/PPT", notRecommended: true, notes: "May require file conversion, quality not guaranteed" },
+    {
+      format: "PSD (Photoshop)",
+      acceptable: true,
+      notes: "Flatten layers, 300 DPI minimum",
+    },
+    {
+      format: "PNG",
+      acceptable: true,
+      notes: "High resolution (300 DPI), transparent background",
+    },
+    {
+      format: "JPG/JPEG",
+      acceptable: true,
+      notes: "300 DPI minimum, watch for compression artifacts",
+    },
+    {
+      format: "Word/PPT",
+      notRecommended: true,
+      notes: "May require file conversion, quality not guaranteed",
+    },
   ];
 
   const quickChecklist = [
@@ -49,19 +82,22 @@ export default function FileGuidelinesPage() {
     {
       name: "CMYK",
       recommended: true,
-      description: "For all print projects. Uses Cyan, Magenta, Yellow, and Black inks.",
+      description:
+        "For all print projects. Uses Cyan, Magenta, Yellow, and Black inks.",
       icon: "🎨",
     },
     {
       name: "RGB",
       recommended: false,
-      description: "For digital/screen use only. Colors will shift when converted to CMYK.",
+      description:
+        "For digital/screen use only. Colors will shift when converted to CMYK.",
       icon: "🖥️",
     },
     {
       name: "Pantone",
       recommended: true,
-      description: "For brand-specific spot colors. Discuss availability with us first.",
+      description:
+        "For brand-specific spot colors. Discuss availability with us first.",
       icon: "🎯",
     },
   ];
@@ -78,10 +114,13 @@ export default function FileGuidelinesPage() {
       <section className="relative overflow-hidden min-h-[40vh] flex items-center">
         <div className="absolute inset-0 -z-10">
           <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-brand-900)] via-[var(--color-brand-800)] to-[var(--color-brand-700)] gradient-animate" />
-          <div className="absolute inset-0 opacity-10" style={{
-            backgroundImage: `radial-gradient(circle, white 1px, transparent 1px)`,
-            backgroundSize: '30px 30px'
-          }} />
+          <div
+            className="absolute inset-0 opacity-10"
+            style={{
+              backgroundImage: `radial-gradient(circle, white 1px, transparent 1px)`,
+              backgroundSize: "30px 30px",
+            }}
+          />
         </div>
         <div className="wrapper py-16 text-white">
           <div className="max-w-3xl">
@@ -90,10 +129,14 @@ export default function FileGuidelinesPage() {
               File Guidelines
             </span>
             <h1 className="mt-6 text-4xl md:text-6xl font-bold leading-tight">
-              How to Prepare <span className="bg-gradient-to-r from-[var(--color-accent-300)] to-white bg-clip-text text-transparent">Print-Ready Files</span>
+              How to Prepare{" "}
+              <span className="bg-gradient-to-r from-[var(--color-accent-300)] to-white bg-clip-text text-transparent">
+                Print-Ready Files
+              </span>
             </h1>
             <p className="mt-5 max-w-2xl text-lg text-white/90 leading-relaxed">
-              Follow these guidelines to ensure your files print perfectly the first time
+              Follow these guidelines to ensure your files print perfectly the
+              first time
             </p>
           </div>
         </div>
@@ -107,7 +150,9 @@ export default function FileGuidelinesPage() {
               <CheckCircle2 className="h-7 w-7 text-[var(--color-accent-700)]" />
             </div>
             <div className="flex-1">
-              <h2 className="text-2xl font-bold mb-4 text-[var(--color-brand-700)]">Pre-Flight Checklist</h2>
+              <h2 className="text-2xl font-bold mb-4 text-[var(--color-brand-700)]">
+                Pre-Flight Checklist
+              </h2>
               <div className="grid md:grid-cols-2 gap-3">
                 {quickChecklist.map((item, idx) => (
                   <div key={idx} className="flex items-center gap-2">
@@ -125,8 +170,9 @@ export default function FileGuidelinesPage() {
       <section className="wrapper py-12">
         <div className="mb-8">
           <h2 className="text-3xl font-bold mb-3">Accepted File Formats</h2>
-          <p className="text-[var(--color-ink)]/70">
-            We accept various file formats, but some work better than others for print quality
+          <p className="text-white">
+            We accept various file formats, but some work better than others for
+            print quality
           </p>
         </div>
 
@@ -136,27 +182,31 @@ export default function FileGuidelinesPage() {
               key={idx}
               className={`rounded-xl border-2 p-5 transition-all duration-300 ${
                 format.recommended
-                  ? 'border-green-400 bg-green-50 hover:shadow-md'
+                  ? "border-green-400 bg-green-50 hover:shadow-md"
                   : format.acceptable
-                  ? 'border-blue-400 bg-blue-50 hover:shadow-md'
-                  : 'border-orange-400 bg-orange-50'
+                  ? "border-blue-400 bg-blue-50 hover:shadow-md"
+                  : "border-orange-400 bg-orange-50"
               }`}
             >
               <div className="flex items-start gap-4">
-                <div className={`flex-shrink-0 inline-flex items-center justify-center w-12 h-12 rounded-lg ${
-                  format.recommended
-                    ? 'bg-green-100'
-                    : format.acceptable
-                    ? 'bg-blue-100'
-                    : 'bg-orange-100'
-                }`}>
-                  <FileText className={`h-6 w-6 ${
+                <div
+                  className={`flex-shrink-0 inline-flex items-center justify-center w-12 h-12 rounded-lg ${
                     format.recommended
-                      ? 'text-green-700'
+                      ? "bg-green-100"
                       : format.acceptable
-                      ? 'text-blue-700'
-                      : 'text-orange-700'
-                  }`} />
+                      ? "bg-blue-100"
+                      : "bg-orange-100"
+                  }`}
+                >
+                  <FileText
+                    className={`h-6 w-6 ${
+                      format.recommended
+                        ? "text-green-700"
+                        : format.acceptable
+                        ? "text-blue-700"
+                        : "text-orange-700"
+                    }`}
+                  />
                 </div>
                 <div className="flex-1">
                   <div className="flex items-center gap-2 mb-1">
@@ -177,7 +227,7 @@ export default function FileGuidelinesPage() {
                       </span>
                     )}
                   </div>
-                  <p className="text-sm text-[var(--color-ink)]/70">{format.notes}</p>
+                  <p className="text-sm text-white">{format.notes}</p>
                 </div>
               </div>
             </div>
@@ -190,7 +240,7 @@ export default function FileGuidelinesPage() {
         <div className="wrapper">
           <div className="mb-8">
             <h2 className="text-3xl font-bold mb-3">Color Modes Explained</h2>
-            <p className="text-[var(--color-ink)]/70">
+            <p className="text-white">
               Understanding color modes is crucial for accurate print colors
             </p>
           </div>
@@ -201,8 +251,8 @@ export default function FileGuidelinesPage() {
                 key={idx}
                 className={`rounded-2xl p-6 border-2 ${
                   mode.recommended
-                    ? 'border-green-400 bg-white hover:shadow-lg'
-                    : 'border-orange-400 bg-white'
+                    ? "border-green-400 bg-white hover:shadow-lg"
+                    : "border-orange-400 bg-white"
                 } transition-all duration-300`}
               >
                 <div className="text-4xl mb-4">{mode.icon}</div>
@@ -214,7 +264,7 @@ export default function FileGuidelinesPage() {
                     <AlertCircle className="h-5 w-5 text-orange-600" />
                   )}
                 </h3>
-                <p className="text-sm text-[var(--color-ink)]/70 leading-relaxed">
+                <p className="text-sm text-white leading-relaxed">
                   {mode.description}
                 </p>
               </div>
@@ -233,11 +283,24 @@ export default function FileGuidelinesPage() {
             </div>
             <h3 className="text-2xl font-bold mb-4">Image Resolution</h3>
             <div className="space-y-3 text-[var(--color-ink)]/80">
-              <p><strong className="text-green-600">✓ 300 DPI or higher</strong> - Perfect for print</p>
-              <p><strong className="text-orange-600">⚠ 150-299 DPI</strong> - May show pixelation</p>
-              <p><strong className="text-red-600">✗ Below 150 DPI</strong> - Will look blurry</p>
+              <p>
+                <strong className="text-green-600">✓ 300 DPI or higher</strong>{" "}
+                - Perfect for print
+              </p>
+              <p>
+                <strong className="text-orange-600">⚠ 150-299 DPI</strong> - May
+                show pixelation
+              </p>
+              <p>
+                <strong className="text-red-600">✗ Below 150 DPI</strong> - Will
+                look blurry
+              </p>
               <div className="mt-6 p-4 rounded-xl bg-blue-50 border border-blue-200">
-                <p className="text-sm"><strong>Pro Tip:</strong> Always save images at actual print size with 300 DPI. Upscaling low-res images doesn&apos;t improve quality!</p>
+                <p className="text-sm">
+                  <strong>Pro Tip:</strong> Always save images at actual print
+                  size with 300 DPI. Upscaling low-res images doesn&apos;t
+                  improve quality!
+                </p>
               </div>
             </div>
           </div>
@@ -249,11 +312,21 @@ export default function FileGuidelinesPage() {
             </div>
             <h3 className="text-2xl font-bold mb-4">Bleed & Safe Area</h3>
             <div className="space-y-3 text-[var(--color-ink)]/80">
-              <p><strong>Bleed:</strong> 3mm extra on all sides</p>
-              <p><strong>Safe Area:</strong> Keep text/logos 5mm from edge</p>
-              <p><strong>Trim Marks:</strong> Remove before sending files</p>
+              <p>
+                <strong>Bleed:</strong> 3mm extra on all sides
+              </p>
+              <p>
+                <strong>Safe Area:</strong> Keep text/logos 5mm from edge
+              </p>
+              <p>
+                <strong>Trim Marks:</strong> Remove before sending files
+              </p>
               <div className="mt-6 p-4 rounded-xl bg-purple-50 border border-purple-200">
-                <p className="text-sm"><strong>Why?</strong> Printing presses can shift slightly during cutting. Bleed ensures no white edges appear if trimming isn&apos;t perfect.</p>
+                <p className="text-sm">
+                  <strong>Why?</strong> Printing presses can shift slightly
+                  during cutting. Bleed ensures no white edges appear if
+                  trimming isn&apos;t perfect.
+                </p>
               </div>
             </div>
           </div>
@@ -266,8 +339,13 @@ export default function FileGuidelinesPage() {
           <div className="flex items-start gap-4 mb-6">
             <AlertCircle className="h-8 w-8 text-red-600 flex-shrink-0 mt-1" />
             <div>
-              <h2 className="text-2xl md:text-3xl font-bold mb-3 text-red-900">Common Mistakes to Avoid</h2>
-              <p className="text-red-800/80">These issues cause delays and reprints. Double-check before submitting!</p>
+              <h2 className="text-2xl md:text-3xl font-bold mb-3 text-red-900">
+                Common Mistakes to Avoid
+              </h2>
+              <p className="text-red-800/80">
+                These issues cause delays and reprints. Double-check before
+                submitting!
+              </p>
             </div>
           </div>
           <ul className="grid md:grid-cols-2 gap-3">
@@ -293,20 +371,34 @@ export default function FileGuidelinesPage() {
       {/* Help CTA */}
       <section className="wrapper pb-16">
         <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[var(--color-brand-800)] to-[var(--color-brand-600)] p-12 md:p-16 text-center text-white shadow-2xl">
-          <div className="absolute inset-0 opacity-10" style={{
-            backgroundImage: `radial-gradient(circle, white 1px, transparent 1px)`,
-            backgroundSize: '30px 30px'
-          }} />
+          <div
+            className="absolute inset-0 opacity-10"
+            style={{
+              backgroundImage: `radial-gradient(circle, white 1px, transparent 1px)`,
+              backgroundSize: "30px 30px",
+            }}
+          />
           <div className="relative z-10 max-w-2xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Need Help with Your Files?</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Need Help with Your Files?
+            </h2>
             <p className="text-lg text-white/90 mb-8">
-              Our design team can check your files for free and help you prepare them for perfect printing
+              Our design team can check your files for free and help you prepare
+              them for perfect printing
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
               <a href="/contact" className="btn btn-primary text-lg px-8 py-4">
                 Send Your Files
               </a>
-              <a href={createWhatsAppLink(site.whatsapp ?? site.phone ?? "+971569324947", "Hi! I need help with my print files. Can you check them for me?")} target="_blank" rel="noopener noreferrer" className="btn glass text-white text-lg px-8 py-4">
+              <a
+                href={createWhatsAppLink(
+                  site.whatsapp ?? site.phone ?? "+971569324947",
+                  "Hi! I need help with my print files. Can you check them for me?"
+                )}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn glass text-white text-lg px-8 py-4"
+              >
                 WhatsApp Us
               </a>
             </div>
@@ -316,4 +408,3 @@ export default function FileGuidelinesPage() {
     </main>
   );
 }
-

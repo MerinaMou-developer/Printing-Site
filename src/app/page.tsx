@@ -1,17 +1,19 @@
-import Link from "next/link";
-import type { Metadata } from "next";
-import productsData from "@/content/products.json";
-import type { Product } from "@/types";
 import Hero from "@/components/hero";
 import ProductGrid from "@/components/product-grid";
+import productsData from "@/content/products.json";
 import { baseMetadata } from "@/lib/seo";
+import type { Product } from "@/types";
+import type { Metadata } from "next";
+import Link from "next/link";
 
 const products = productsData as Product[];
 
 export const metadata: Metadata = {
   ...baseMetadata,
-  title: "PrimePrint Dubai - Premium Stamps, Printing & Signage Services in Dubai",
-  description: "PrimePrint Dubai - Dubai's leading printing & signage company specializing in stamps, offset printing, screen printing, DTF, LED signs, vehicle branding, neon signs, business cards, vinyl stickers, and custom packaging. Fast 1-5 day turnaround, professional installation across Dubai. Get a free quote today!",
+  title:
+    "PrimePrint Dubai - Premium Stamps, Printing & Signage Services in Dubai",
+  description:
+    "PrimePrint Dubai - Dubai's leading printing & signage company specializing in stamps, offset printing, screen printing, DTF, LED signs, vehicle branding, neon signs, business cards, vinyl stickers, and custom packaging. Fast 1-5 day turnaround, professional installation across Dubai. Get a free quote today!",
   keywords: [
     ...(baseMetadata.keywords as string[]),
     "stamps Dubai",
@@ -28,12 +30,14 @@ export const metadata: Metadata = {
   openGraph: {
     ...baseMetadata.openGraph,
     title: "PrimePrint Dubai - Premium Stamps, Printing & Signage Services",
-    description: "Dubai's leading printing & signage company. Stamps, offset printing, screen printing, DTF, LED signs, vehicle branding, and more. Fast turnaround, professional installation.",
+    description:
+      "Dubai's leading printing & signage company. Stamps, offset printing, screen printing, DTF, LED signs, vehicle branding, and more. Fast turnaround, professional installation.",
   },
   twitter: {
     ...baseMetadata.twitter,
     title: "PrimePrint Dubai - Premium Stamps, Printing & Signage Services",
-    description: "Dubai's leading printing & signage company. Stamps, offset printing, screen printing, DTF, LED signs, vehicle branding, and more.",
+    description:
+      "Dubai's leading printing & signage company. Stamps, offset printing, screen printing, DTF, LED signs, vehicle branding, and more.",
   },
 };
 
@@ -69,7 +73,7 @@ export default function HomePage() {
       <section className="wrapper pb-16 pt-8">
         <div className="mb-6 flex items-center justify-between">
           <h2 className="text-2xl md:text-3xl font-semibold">Products</h2>
-          <Link href="/products" className="text-sm font-medium text-[var(--color-ink)]/80 hover:text-[var(--foreground)]">
+          <Link href="/products" className="text-sm font-medium text-white">
             View all →
           </Link>
         </div>
@@ -85,8 +89,6 @@ export default function HomePage() {
 
       {/* 5) Testimonials */}
       {/* <Testimonials /> */}
-
-      
     </>
   );
 }
