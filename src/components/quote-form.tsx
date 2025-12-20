@@ -66,36 +66,36 @@ export default function QuoteForm({ defaultService }: Props) {
           name="name" 
           required 
           placeholder="Your name" 
-          className="w-full border border-gray-300 rounded-lg p-3 text-[var(--color-brand-900)] placeholder:text-black bg-white focus:ring-2 focus:ring-[var(--color-accent-500)] focus:border-[var(--color-accent-500)] transition-all" 
+          className="w-full border rounded-lg p-3 text-[var(--foreground)] placeholder:text-[var(--foreground)]/60 bg-[var(--surface-1)] border-[var(--border)] focus:ring-2 focus:ring-[var(--color-accent-500)] focus:border-[var(--color-accent-500)] transition-all" 
         />
         <input 
           name="phone" 
           required 
           placeholder="WhatsApp / phone" 
-          className="w-full border border-gray-300 rounded-lg p-3 text-[var(--color-brand-900)] placeholder:text-black bg-white focus:ring-2 focus:ring-[var(--color-accent-500)] focus:border-[var(--color-accent-500)] transition-all" 
+          className="w-full border rounded-lg p-3 text-[var(--foreground)] placeholder:text-[var(--foreground)]/60 bg-[var(--surface-1)] border-[var(--border)] focus:ring-2 focus:ring-[var(--color-accent-500)] focus:border-[var(--color-accent-500)] transition-all" 
         />
         <input 
           name="email" 
           type="email" 
           placeholder="Email (optional)" 
-          className="w-full border border-gray-300 rounded-lg p-3 text-[var(--color-brand-900)] placeholder:text-black bg-white focus:ring-2 focus:ring-[var(--color-accent-500)] focus:border-[var(--color-accent-500)] transition-all" 
+          className="w-full border rounded-lg p-3 text-[var(--foreground)] placeholder:text-[var(--foreground)]/60 bg-[var(--surface-1)] border-[var(--border)] focus:ring-2 focus:ring-[var(--color-accent-500)] focus:border-[var(--color-accent-500)] transition-all" 
         />
         <input 
           name="service_slug" 
           defaultValue={defaultService} 
           placeholder="Service" 
-          className="w-full border border-gray-300 rounded-lg p-3 text-[var(--color-brand-900)] placeholder:text-black bg-white focus:ring-2 focus:ring-[var(--color-accent-500)] focus:border-[var(--color-accent-500)] transition-all" 
+          className="w-full border rounded-lg p-3 text-[var(--foreground)] placeholder:text-[var(--foreground)]/60 bg-[var(--surface-1)] border-[var(--border)] focus:ring-2 focus:ring-[var(--color-accent-500)] focus:border-[var(--color-accent-500)] transition-all" 
         />
         <textarea 
           name="details" 
           placeholder="Details (size, material, qty...)" 
           rows={4}
-          className="w-full border border-gray-300 rounded-lg p-3 text-[var(--color-brand-900)] placeholder:text-black bg-white focus:ring-2 focus:ring-[var(--color-accent-500)] focus:border-[var(--color-accent-500)] transition-all resize-none" 
+          className="w-full border rounded-lg p-3 text-[var(--foreground)] placeholder:text-[var(--foreground)]/60 bg-[var(--surface-1)] border-[var(--border)] focus:ring-2 focus:ring-[var(--color-accent-500)] focus:border-[var(--color-accent-500)] transition-all resize-none" 
         />
         <input 
           name="file" 
           type="file" 
-          className="w-full border border-gray-300 rounded-lg p-3 text-[var(--color-brand-900)] bg-white focus:ring-2 focus:ring-[var(--color-accent-500)] focus:border-[var(--color-accent-500)] transition-all file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-[var(--color-accent-100)] file:text-[var(--color-accent-700)] hover:file:bg-[var(--color-accent-200)]" 
+          className="w-full border rounded-lg p-3 text-[var(--foreground)] bg-[var(--surface-1)] border-[var(--border)] focus:ring-2 focus:ring-[var(--color-accent-500)] focus:border-[var(--color-accent-500)] transition-all file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-[var(--color-accent-100)] file:text-[var(--color-accent-700)] hover:file:bg-[var(--color-accent-200)]" 
         />
         <button 
           disabled={pending} 

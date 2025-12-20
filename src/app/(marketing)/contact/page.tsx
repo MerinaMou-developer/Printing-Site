@@ -168,7 +168,7 @@ export default function ContactPage() {
             return (
               <div
                 key={idx}
-                className={`group relative overflow-hidden rounded-2xl bg-white border-2 ${
+                className={`group relative overflow-hidden rounded-2xl bg-[var(--surface-1)] border-2 ${
                   method.primary
                     ? "border-[var(--color-accent-400)]"
                     : "border-[var(--border)]"
@@ -235,7 +235,7 @@ export default function ContactPage() {
                     <div className="text-xs text-white uppercase tracking-wider font-semibold">
                       {info.label}
                     </div>
-                    <div className="font-semibold text-gray-400">
+                    <div className="font-semibold text-[var(--foreground)]">
                       {info.value}
                     </div>
                   </div>
@@ -258,19 +258,19 @@ export default function ContactPage() {
               <h2 className="mt-4 text-3xl font-bold text-white">
                 Get Your Free Quote
               </h2>
-              <p className="mt-2 text-gray-400">
+              <p className="mt-2 text-[var(--foreground)]/80">
                 Fill out the form below or attach your artwork. We&apos;ll
                 respond with pricing and timeline within hours.
               </p>
             </div>
 
-            <div className="rounded-2xl border-2 border-[var(--border)] p-6 md:p-8 bg-white shadow-lg">
+            <div className="rounded-2xl border-2 border-[var(--border)] p-6 md:p-8 bg-[var(--surface-1)] shadow-lg">
               <QuoteForm defaultService="general" />
             </div>
 
             {/* Additional Info */}
             <div className="mt-6 grid gap-4 sm:grid-cols-2">
-              <div className="rounded-xl border border-[var(--border)] bg-white p-4">
+              <div className="rounded-xl border border-[var(--border)] bg-[var(--surface-1)] p-4">
                 <div className="flex items-center gap-2 text-green-600 mb-2">
                   <svg
                     className="w-5 h-5"
@@ -289,7 +289,7 @@ export default function ContactPage() {
                   We typically respond within 2-4 hours during business hours
                 </p>
               </div>
-              <div className="rounded-xl border border-[var(--border)] bg-white p-4">
+              <div className="rounded-xl border border-[var(--border)] bg-[var(--surface-1)] p-4">
                 <div className="flex items-center gap-2 text-blue-600 mb-2">
                   <svg
                     className="w-5 h-5"
@@ -323,8 +323,8 @@ export default function ContactPage() {
                 allowFullScreen
                 style={{ border: 0 }}
               />
-              <div className="p-6 bg-white border-t border-[var(--border)]">
-                <h3 className="font-bold text-xl mb-2 text-[var(--color-brand-900)]">
+              <div className="p-6 bg-[var(--surface-1)] border-t border-[var(--border)]">
+                <h3 className="font-bold text-xl mb-2 text-[var(--foreground)]">
                   Visit Our Location
                 </h3>
                 <div className="flex items-start gap-2">
@@ -380,7 +380,7 @@ export default function ContactPage() {
       <section className="bg-[var(--surface-2)] py-16">
         <div className="wrapper max-w-3xl">
           <div className="text-center mb-10">
-            <h2 className="text-3xl font-bold text-[var(--color-brand-900)]">
+            <h2 className="text-3xl font-bold text-[var(--foreground)]">
               Common Questions
             </h2>
           </div>
@@ -405,9 +405,9 @@ export default function ContactPage() {
             ].map((faq, idx) => (
               <details
                 key={idx}
-                className="group rounded-xl border-2 border-[var(--border)] bg-white p-5 hover:border-[var(--color-accent-400)] transition-colors"
+                className="group rounded-xl border-2 border-[var(--border)] bg-[var(--surface-1)] p-5 hover:border-[var(--color-accent-400)] transition-colors"
               >
-                <summary className="font-bold cursor-pointer flex items-center justify-between text-[var(--color-brand-900)]">
+                <summary className="font-bold cursor-pointer flex items-center justify-between text-[var(--foreground)]">
                   {faq.q}
                   <svg
                     className="w-5 h-5 transition-transform group-open:rotate-180 text-[var(--color-brand-700)]"

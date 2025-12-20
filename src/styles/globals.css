@@ -4,8 +4,9 @@
    Design tokens
 ---------------------------------*/
 :root {
-  --background: #ffffff;
-  --foreground: #0f172a; /* crisp ink */
+  /* Static colors - same for both light and dark mode (using dark mode values) */
+  --background: #0a0f1b;
+  --foreground: #e5e7eb; /* crisp ink */
 
   /* brand — deep navy */
   --color-brand-50:  #eaf0f7;
@@ -36,33 +37,20 @@
   --color-success-500:   #16a34a;
   --color-info-500:      #0ea5e9;
   --color-muted:         #f6f7f9;
-  --color-ink:           #334155;
+  --color-ink:           #e5e7eb; /* Updated for dark mode visibility */
   --color-whatsapp:      #25d366;
 
-  /* surfaces & borders */
-  --surface-1: #ffffff;
-  --surface-2: #fafbfc;
-  --surface-3: #f3f5f7;
-  --border:    #e5e7eb;
+  /* surfaces & borders - using dark mode values */
+  --surface-1: #0f1524;
+  --surface-2: #111a2b;
+  --surface-3: #122036;
+  --border: rgba(255,255,255,.08);
   --ring:      var(--color-accent-500);
 
-  /* shadows & radius */
-  --shadow-soft: 0 10px 20px -8px rgba(0,0,0,.12);
-  --shadow-card: 0 12px 28px -16px rgba(15, 23, 42, .18);
+  /* shadows & radius - using dark mode values */
+  --shadow-soft: 0 10px 20px -8px rgba(0,0,0,.5);
+  --shadow-card: 0 12px 28px -16px rgba(0,0,0,.6);
   --radius: 16px;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0f1b;
-    --foreground: #e5e7eb;
-    --surface-1: #0f1524;
-    --surface-2: #111a2b;
-    --surface-3: #122036;
-    --border: rgba(255,255,255,.08);
-    --shadow-soft: 0 10px 20px -8px rgba(0,0,0,.5);
-    --shadow-card: 0 12px 28px -16px rgba(0,0,0,.6);
-  }
 }
 
 /* ------------------------------
@@ -161,8 +149,8 @@ section { scroll-margin-top: 88px; }
   }
 
   .btn-light {
-    background: rgba(255, 255, 255, .90);
-    color: #0f172a;
+    background: var(--surface-1);
+    color: var(--foreground);
   }
 
   .btn-ghost {

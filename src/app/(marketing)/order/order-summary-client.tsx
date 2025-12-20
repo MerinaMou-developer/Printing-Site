@@ -56,7 +56,7 @@ export default function OrderSummaryClient() {
               <h3 className="font-semibold text-sm text-[var(--color-brand-700)] truncate">
                 {item.productName}
               </h3>
-              <p className="text-xs text-white mt-1">Qty: {item.quantity}</p>
+              <p className="text-xs text-[var(--foreground)]/70 mt-1">Qty: {item.quantity}</p>
             </div>
           </div>
         ))}
