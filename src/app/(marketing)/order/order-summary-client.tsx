@@ -17,10 +17,9 @@ export default function OrderSummaryClient() {
   useEffect(() => {
     const cartData = localStorage.getItem("cart");
     if (cartData) {
-      const items = JSON.parse(cartData);
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const items = JSON.parse(cartData) as CartItem[];
       setCart(
-        items.map((item: any) => ({
+        items.map((item) => ({
           productSlug: item.productSlug,
           productName: item.productName,
           productImg: item.productImg,
