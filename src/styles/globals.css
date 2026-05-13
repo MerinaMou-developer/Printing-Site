@@ -4,9 +4,9 @@
    Design tokens
 ---------------------------------*/
 :root {
-  /* Static colors - same for both light and dark mode (using dark mode values) */
-  --background: #0a0f1b;
-  --foreground: #e5e7eb; /* crisp ink */
+  /* Page canvas & body text (light theme) */
+  --background: #ffffff;
+  --foreground: #0f172a;
 
   /* brand — deep navy */
   --color-brand-50:  #eaf0f7;
@@ -37,19 +37,19 @@
   --color-success-500:   #16a34a;
   --color-info-500:      #0ea5e9;
   --color-muted:         #f6f7f9;
-  --color-ink:           #e5e7eb; /* Updated for dark mode visibility */
+  --color-ink:           #334155;
   --color-whatsapp:      #25d366;
 
-  /* surfaces & borders - using dark mode values */
-  --surface-1: #0f1524;
-  --surface-2: #111a2b;
-  --surface-3: #122036;
-  --border: rgba(255,255,255,.08);
+  /* surfaces & borders */
+  --surface-1: #ffffff;
+  --surface-2: #f8fafc;
+  --surface-3: #f1f5f9;
+  --border: rgba(15, 23, 42, 0.1);
   --ring:      var(--color-accent-500);
 
-  /* shadows & radius - using dark mode values */
-  --shadow-soft: 0 10px 20px -8px rgba(0,0,0,.5);
-  --shadow-card: 0 12px 28px -16px rgba(0,0,0,.6);
+  /* shadows */
+  --shadow-soft: 0 10px 24px -12px rgba(15, 23, 42, 0.08);
+  --shadow-card: 0 16px 40px -20px rgba(15, 23, 42, 0.12);
   --radius: 16px;
 }
 
@@ -141,7 +141,7 @@ section { scroll-margin-top: 88px; }
 
   .btn-primary {
     background: var(--color-accent-500);
-    color: var(--background);
+    color: #0f172a;
   }
 
   .btn-primary:hover {
@@ -303,7 +303,7 @@ section { scroll-margin-top: 88px; }
 
 /* Shimmer loading effect */
 .shimmer {
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,.15), transparent);
+  background: linear-gradient(90deg, transparent, rgba(15, 23, 42, 0.06), transparent);
   background-size: 1000px 100%;
   animation: shimmer 2s infinite;
 }

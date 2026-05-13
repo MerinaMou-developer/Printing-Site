@@ -4,7 +4,7 @@ import { createWhatsAppLink, createPhoneLink, formatPhoneNumber } from './whatsa
 // Site configuration - you can move this to a separate config file
 const SITE_CONFIG = {
   brand: "PrimePrint Dubai",
-  email: "alarqauae@gmail.com",
+  email: "dubaiprimeprints@gmail.com",
   phone: "+971569324947",
   whatsapp: "+971569324947",
   address: "16B Naif Road, Naif, Deira, Dubai, UAE"

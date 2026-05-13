@@ -11,25 +11,23 @@ export default function ProductCard({ product }: Props) {
   return (
     <Link
       href={href}
-      className="group relative block overflow-hidden rounded-lg bg-white border border-gray-200 hover:border-[var(--color-accent-500)] transition-all duration-300 hover:shadow-lg"
+      className="group relative flex h-full flex-col overflow-hidden rounded-xl border border-slate-200/90 bg-[var(--surface-1)] shadow-md shadow-slate-900/6 ring-1 ring-slate-900/[0.04] transition-all duration-300 hover:-translate-y-0.5 hover:border-[var(--color-accent-400)] hover:shadow-xl hover:shadow-slate-900/10 hover:ring-[var(--color-accent-500)]/20"
       aria-label={`View ${product.name}`}
       suppressHydrationWarning
     >
-      {/* Image container */}
-      <div className="relative aspect-square bg-gradient-to-br from-gray-50 to-gray-100 p-2 flex items-center justify-center">
+      <div className="relative aspect-square bg-gradient-to-b from-slate-100 via-slate-50 to-white p-3 ring-1 ring-inset ring-slate-200/80 flex items-center justify-center">
         <Image
           src={img}
           alt={product.name}
           width={180}
           height={180}
-          className="object-contain w-full h-full"
+          className="object-contain w-full h-full drop-shadow-sm"
           suppressHydrationWarning
         />
       </div>
 
-      {/* Content */}
-      <div className="p-3 text-center border-t border-gray-100">
-        <h3 className="font-medium text-sm text-gray-900 group-hover:text-[var(--color-accent-600)] transition-colors line-clamp-2">
+      <div className="mt-auto border-t border-slate-200/90 bg-[var(--surface-2)] px-3 py-3.5 text-center sm:px-3.5">
+        <h3 className="min-h-[2.5rem] text-center text-sm font-semibold leading-snug text-slate-900 transition-colors line-clamp-2 group-hover:text-[var(--color-brand-800)] sm:text-[0.9375rem]">
           {product.name}
         </h3>
       </div>

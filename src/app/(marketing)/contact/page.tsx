@@ -33,7 +33,7 @@ export const metadata: Metadata = {
 };
 
 export default function ContactPage() {
-  const email = site.email ?? "alarqauae@gmail.com";
+  const email = site.email ?? "dubaiprimeprints@gmail.com";
   const phoneNumber = site.whatsapp ?? site.phone ?? "+971569324947";
   const displayPhone = formatPhoneNumber(site.phone ?? phoneNumber);
   const waLink = createWhatsAppLink(
@@ -41,16 +41,6 @@ export default function ContactPage() {
     "Hi! I'm interested in your printing services. Can you help me?"
   );
   const telLink = createPhoneLink(phoneNumber);
-
-  // Debug: Log the generated links
-  console.log("Contact Page Debug:", {
-    phoneNumber,
-    displayPhone,
-    waLink,
-    telLink,
-    sitePhone: site.phone,
-    siteWhatsapp: site.whatsapp,
-  });
 
   const contactMethods = [
     {
@@ -168,21 +158,21 @@ export default function ContactPage() {
             return (
               <div
                 key={idx}
-                className={`group relative overflow-hidden rounded-2xl bg-[var(--surface-1)] border-2 ${
+                className={`group relative overflow-hidden rounded-2xl border p-6 shadow-lg shadow-black/25 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-black/30 bg-[var(--surface-2)] ${
                   method.primary
-                    ? "border-[var(--color-accent-400)]"
-                    : "border-[var(--border)]"
-                } p-6 hover:shadow-2xl transition-all duration-300 hover:-translate-y-1`}
+                    ? "border-[var(--color-accent-400)] ring-1 ring-[var(--color-accent-400)]/25"
+                    : "border-white/12"
+                }`}
               >
                 <div
                   className={`inline-flex items-center justify-center w-14 h-14 rounded-xl bg-gradient-to-br ${method.color} mb-4 group-hover:scale-110 transition-transform duration-300`}
                 >
                   <Icon className="h-7 w-7 text-white" />
                 </div>
-                <h3 className="font-bold text-xl mb-2 text-[var(--color-brand-900)]">
+                <h3 className="font-bold text-xl mb-2 text-[var(--foreground)]">
                   {method.title}
                 </h3>
-                <p className="text-sm text-[var(--color-ink)]/70 mb-4">
+                <p className="text-sm text-[var(--foreground)]/75 mb-4 leading-relaxed">
                   {method.desc}
                 </p>
                 <a
@@ -193,11 +183,13 @@ export default function ContactPage() {
                       ? "noopener noreferrer"
                       : undefined
                   }
-                  className={`inline-flex items-center gap-2 ${
+                  className={`inline-flex items-center gap-2 min-w-0 max-w-full ${
                     method.primary
-                      ? "btn btn-primary"
-                      : "font-semibold text-[var(--color-brand-700)] hover:text-[var(--color-accent-600)]"
-                  } transition-colors`}
+                      ? "btn btn-primary shrink-0"
+                      : `font-semibold text-[var(--color-accent-400)] hover:text-[var(--color-accent-300)] underline-offset-2 hover:underline transition-colors ${
+                          method.title === "Email" ? "break-all" : ""
+                        }`
+                  }`}
                 >
                   {method.action}
                   <svg
@@ -221,18 +213,21 @@ export default function ContactPage() {
       </section>
 
       {/* Quick Info Bar */}
-      <section className="bg-[var(--surface-2)] border-y border-[var(--border)] py-8">
+      <section className="bg-[var(--surface-2)] border-y border-white/10 py-8">
         <div className="wrapper">
           <div className="grid md:grid-cols-3 gap-6">
             {quickInfo.map((info, idx) => {
               const Icon = info.icon;
               return (
-                <div key={idx} className="flex items-center gap-3">
-                  <div className="flex-shrink-0 inline-flex items-center justify-center w-12 h-12 rounded-lg bg-gradient-to-br from-[var(--color-brand-100)] to-[var(--color-brand-200)]">
-                    <Icon className="h-6 w-6 text-[var(--color-brand-600)]" />
+                <div
+                  key={idx}
+                  className="flex items-center gap-3 rounded-xl border border-white/10 bg-[var(--surface-1)]/80 px-4 py-3"
+                >
+                  <div className="flex-shrink-0 inline-flex items-center justify-center w-12 h-12 rounded-lg bg-gradient-to-br from-[var(--color-brand-200)] to-[var(--color-brand-400)]">
+                    <Icon className="h-6 w-6 text-white" />
                   </div>
-                  <div>
-                    <div className="text-xs text-white uppercase tracking-wider font-semibold">
+                  <div className="min-w-0">
+                    <div className="text-xs text-[var(--foreground)]/55 uppercase tracking-wider font-semibold">
                       {info.label}
                     </div>
                     <div className="font-semibold text-[var(--foreground)]">
@@ -258,20 +253,20 @@ export default function ContactPage() {
               <h2 className="mt-4 text-3xl font-bold text-white">
                 Get Your Free Quote
               </h2>
-              <p className="mt-2 text-[var(--foreground)]/80">
+              <p className="mt-2 text-[var(--foreground)]/85 leading-relaxed">
                 Fill out the form below or attach your artwork. We&apos;ll
                 respond with pricing and timeline within hours.
               </p>
             </div>
 
-            <div className="rounded-2xl border-2 border-[var(--border)] p-6 md:p-8 bg-[var(--surface-1)] shadow-lg">
+            <div className="rounded-2xl border border-white/12 p-6 md:p-8 bg-[var(--surface-2)] shadow-lg shadow-black/20">
               <QuoteForm defaultService="general" />
             </div>
 
             {/* Additional Info */}
             <div className="mt-6 grid gap-4 sm:grid-cols-2">
-              <div className="rounded-xl border border-[var(--border)] bg-[var(--surface-1)] p-4">
-                <div className="flex items-center gap-2 text-green-600 mb-2">
+              <div className="rounded-xl border border-white/10 bg-[var(--surface-2)] p-4">
+                <div className="flex items-center gap-2 text-green-500 mb-2">
                   <svg
                     className="w-5 h-5"
                     fill="currentColor"
@@ -285,12 +280,12 @@ export default function ContactPage() {
                   </svg>
                   <span className="font-semibold">Fast Response</span>
                 </div>
-                <p className="text-sm text-[var(--color-ink)]/80">
+                <p className="text-sm text-[var(--foreground)]/75">
                   We typically respond within 2-4 hours during business hours
                 </p>
               </div>
-              <div className="rounded-xl border border-[var(--border)] bg-[var(--surface-1)] p-4">
-                <div className="flex items-center gap-2 text-blue-600 mb-2">
+              <div className="rounded-xl border border-white/10 bg-[var(--surface-2)] p-4">
+                <div className="flex items-center gap-2 text-sky-400 mb-2">
                   <svg
                     className="w-5 h-5"
                     fill="currentColor"
@@ -304,7 +299,7 @@ export default function ContactPage() {
                   </svg>
                   <span className="font-semibold">Free Mockup</span>
                 </div>
-                <p className="text-sm text-[var(--color-ink)]/80">
+                <p className="text-sm text-[var(--foreground)]/75">
                   Get a free design mockup before you commit
                 </p>
               </div>
@@ -313,7 +308,7 @@ export default function ContactPage() {
 
           {/* Map */}
           <div className="space-y-6">
-            <div className="rounded-2xl overflow-hidden border-2 border-[var(--border)] shadow-lg hover:shadow-xl transition-shadow">
+            <div className="rounded-2xl overflow-hidden border border-white/12 shadow-lg shadow-black/20 hover:shadow-xl hover:shadow-black/25 transition-shadow">
               <iframe
                 title="PrimePrint Dubai — Deira, Dubai"
                 className="w-full h-[400px]"
@@ -323,15 +318,15 @@ export default function ContactPage() {
                 allowFullScreen
                 style={{ border: 0 }}
               />
-              <div className="p-6 bg-[var(--surface-1)] border-t border-[var(--border)]">
+              <div className="p-6 bg-[var(--surface-2)] border-t border-white/10">
                 <h3 className="font-bold text-xl mb-2 text-[var(--foreground)]">
                   Visit Our Location
                 </h3>
                 <div className="flex items-start gap-2">
-                  <MapPin className="h-5 w-5 mt-0.5 flex-shrink-0 text-[var(--color-accent-600)]" />
-                  <p className="leading-relaxed text-[var(--color-ink)]">
+                  <MapPin className="h-5 w-5 mt-0.5 flex-shrink-0 text-[var(--color-accent-500)]" />
+                  <p className="leading-relaxed text-[var(--foreground)]/90">
                     {site.address}
-                    <span className="text-sm mt-2 block text-[var(--color-ink)]/70">
+                    <span className="text-sm mt-2 block text-[var(--foreground)]/65">
                       Installation & delivery available across Dubai
                     </span>
                   </p>
@@ -358,7 +353,10 @@ export default function ContactPage() {
                   <MessageCircle className="h-5 w-5 mr-2" />
                   WhatsApp Now
                 </a>
-                <a href={telLink} className="btn btn-light">
+                <a
+                  href={telLink}
+                  className="btn bg-white text-[var(--color-brand-900)] hover:bg-white/90"
+                >
                   <Phone className="h-5 w-5 mr-2" />
                   Call Now
                 </a>
@@ -369,7 +367,7 @@ export default function ContactPage() {
       </section>
 
       {/* FAQ Section */}
-      <section className="bg-[var(--surface-2)] py-16">
+      <section className="bg-[var(--surface-2)] border-t border-white/10 py-16">
         <div className="wrapper max-w-3xl">
           <div className="text-center mb-10">
             <h2 className="text-3xl font-bold text-[var(--foreground)]">
@@ -397,12 +395,12 @@ export default function ContactPage() {
             ].map((faq, idx) => (
               <details
                 key={idx}
-                className="group rounded-xl border-2 border-[var(--border)] bg-[var(--surface-1)] p-5 hover:border-[var(--color-accent-400)] transition-colors"
+                className="group rounded-xl border border-white/10 bg-[var(--surface-1)] p-5 hover:border-[var(--color-accent-400)]/60 transition-colors"
               >
-                <summary className="font-bold cursor-pointer flex items-center justify-between text-[var(--foreground)]">
+                <summary className="font-bold cursor-pointer flex items-center justify-between gap-3 text-[var(--foreground)]">
                   {faq.q}
                   <svg
-                    className="w-5 h-5 transition-transform group-open:rotate-180 text-[var(--color-brand-700)]"
+                    className="w-5 h-5 shrink-0 transition-transform group-open:rotate-180 text-[var(--color-accent-500)]"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -415,7 +413,7 @@ export default function ContactPage() {
                     />
                   </svg>
                 </summary>
-                <p className="mt-3 text-[var(--color-ink)]/80 leading-relaxed">
+                <p className="mt-3 text-[var(--foreground)]/80 leading-relaxed">
                   {faq.a}
                 </p>
               </details>
