@@ -21,7 +21,7 @@ export default function Testimonials() {
         <h2 className="mt-4 text-3xl md:text-4xl font-bold">
           What Our Clients Say
         </h2>
-        <p className="mt-3 text-white max-w-2xl mx-auto">
+        <p className="mt-3 text-[var(--foreground)]/70 max-w-2xl mx-auto">
           Don&apos;t just take our word for it — hear from businesses we&apos;ve
           helped succeed
         </p>
@@ -60,7 +60,7 @@ export default function Testimonials() {
               <div className="font-semibold text-[var(--color-brand-700)]">
                 {t.name}
               </div>
-              <div className="text-sm text-white">{t.role}</div>
+              <div className="text-sm text-[var(--foreground)]/65">{t.role}</div>
               {t.location && (
                 <div className="text-xs text-[var(--color-ink)]/60 mt-1">
                   📍 {t.location}
@@ -75,16 +75,16 @@ export default function Testimonials() {
       <div className="mt-12 text-center">
         <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-[var(--surface-2)] border border-[var(--border)]">
           <div className="flex -space-x-2">
-            <div className="w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 border-2 border-white"></div>
-            <div className="w-8 h-8 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 border-2 border-white"></div>
-            <div className="w-8 h-8 rounded-full bg-gradient-to-br from-orange-500 to-red-500 border-2 border-white"></div>
-            <div className="w-8 h-8 rounded-full bg-gradient-to-br from-green-500 to-teal-500 border-2 border-white"></div>
+            <div className="w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 border-2 border-[var(--background)]"></div>
+            <div className="w-8 h-8 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 border-2 border-[var(--background)]"></div>
+            <div className="w-8 h-8 rounded-full bg-gradient-to-br from-orange-500 to-red-500 border-2 border-[var(--background)]"></div>
+            <div className="w-8 h-8 rounded-full bg-gradient-to-br from-green-500 to-teal-500 border-2 border-[var(--background)]"></div>
           </div>
           <div className="text-left">
             <div className="text-sm font-semibold text-[var(--foreground)]">
               Trusted by 500+ businesses
             </div>
-            <div className="text-xs text-white">
+            <div className="text-xs text-[var(--foreground)]/60">
               Join our growing family of satisfied clients
             </div>
           </div>

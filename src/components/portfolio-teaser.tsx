@@ -13,13 +13,13 @@ export default function PortfolioTeaser() {
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
             Our Work
           </h2>
-          <p className="mt-2 text-white">
+          <p className="mt-2 text-[var(--foreground)]/70">
             Showcasing our best projects in Dubai
           </p>
         </div>
         <Link
           href="/portfolio"
-          className="group flex items-center gap-2 px-5 py-2 rounded-full bg-[var(--surface-2)] hover:bg-[var(--surface-3)] transition-colors"
+          className="group flex items-center gap-2 px-5 py-2 rounded-full bg-[var(--surface-2)] border border-[var(--border)] text-[var(--foreground)] hover:bg-[var(--surface-3)] transition-colors"
         >
           View all work
           <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />

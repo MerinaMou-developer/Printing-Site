@@ -71,10 +71,21 @@ export default function HomePage() {
 
       {/* 6) Products with category filter */}
       <section className="wrapper pb-16 pt-8">
-        <div className="mb-6 flex items-center justify-between">
-          <h2 className="text-2xl md:text-3xl font-semibold">Products</h2>
-          <Link href="/products" className="text-sm font-medium text-white">
-            View all →
+        <div className="mb-8 flex flex-col gap-3 border-b border-slate-200/90 pb-6 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <h2 className="text-2xl font-bold tracking-tight text-[var(--color-brand-900)] md:text-3xl">
+              Products
+            </h2>
+            <p className="mt-1 max-w-xl text-sm text-[var(--color-ink)] md:text-base">
+              Stamps and branded items — filter by category below.
+            </p>
+          </div>
+          <Link
+            href="/products"
+            className="inline-flex shrink-0 items-center gap-1 text-sm font-semibold text-[var(--color-brand-700)] underline-offset-4 hover:text-[var(--color-accent-700)] hover:underline"
+          >
+            View all products
+            <span aria-hidden>→</span>
           </Link>
         </div>
 

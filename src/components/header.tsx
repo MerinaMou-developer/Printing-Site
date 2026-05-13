@@ -114,11 +114,11 @@ export default function Header() {
             <span className={`text-2xl md:text-3xl font-bold leading-tight transition-all duration-300 ${
               scrolled ? 'text-[var(--color-brand-700)]' : 'text-[var(--color-brand-800)]'
             }`}>
-              <span className="text-[var(--color-brand-700)]">Print</span>
-              <span className="text-[var(--color-accent-500)]">Pro</span>
+              <span className="text-[var(--color-brand-700)]">Prime</span>
+              <span className="text-[var(--color-accent-500)]">Print</span>
             </span>
             <span className="text-xs md:text-sm font-semibold text-[var(--color-accent-600)] tracking-wider">
-              DUBAI
+              Dubai
             </span>
           </div>
         </Link>

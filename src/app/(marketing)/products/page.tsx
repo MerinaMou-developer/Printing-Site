@@ -44,16 +44,25 @@ export default function ProductsPage() {
         { name: "Products", url: "/products" },
       ]} />
       {/* Slim hero */}
-      <section className="relative overflow-hidden">
-        <div className="absolute inset-0 -z-10 bg-gradient-to-b from-[var(--color-brand-800)] via-[var(--color-brand-700)] to-[var(--color-brand-600)]" />
-        <div className="wrapper py-12 md:py-16 text-white">
-          <h1 className="text-3xl md:text-5xl font-bold">Products</h1>
-          <p className="mt-3 max-w-2xl text-white/80">
+      <section className="relative overflow-hidden bg-[var(--background)]">
+        <div className="absolute inset-0 -z-10 bg-gradient-to-br from-white via-[var(--color-brand-50)] to-[var(--surface-2)]" />
+        <div className="wrapper py-12 md:py-16 text-[var(--foreground)]">
+          <h1 className="text-3xl font-bold text-[var(--color-brand-900)] md:text-5xl">
+            Products
+          </h1>
+          <p className="mt-3 max-w-2xl text-[var(--color-ink)]">
             Branded merchandise and promo items with fast production and reliable delivery across Dubai.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
-            <Link href="/contact" className="btn btn-primary">Get a Quote</Link>
-            <a href={waLink} target="_blank" rel="noopener noreferrer" className="btn btn-ghost">
+            <Link href="/contact" className="btn btn-primary">
+              Get a Quote
+            </Link>
+            <a
+              href={waLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-outline border-[var(--color-brand-200)] hover:border-[var(--color-accent-500)] hover:bg-[var(--color-brand-50)]"
+            >
               WhatsApp us
             </a>
           </div>
@@ -61,12 +70,10 @@ export default function ProductsPage() {
       </section>
 
       {/* Grid */}
-      <section className="wrapper py-12">
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <section className="wrapper py-10 md:py-12">
+        <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 lg:grid-cols-4 lg:gap-5">
           {products.map((p) => (
-            <div key={p.slug}>
-              <ProductCard product={p} />
-            </div>
+            <ProductCard key={p.slug} product={p} />
           ))}
         </div>
       </section>

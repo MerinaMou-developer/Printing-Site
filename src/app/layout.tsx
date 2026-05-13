@@ -36,7 +36,7 @@ export const metadata: Metadata = {
   // Enhanced Open Graph
   openGraph: {
     ...baseMetadata.openGraph,
-    emails: ["alarqauae@gmail.com"],
+    emails: ["dubaiprimeprints@gmail.com"],
     phoneNumbers: ["+971569324947"],
     countryName: "United Arab Emirates",
   },

@@ -154,7 +154,7 @@ export function LocalBusinessJsonLD() {
     description: "PrimePrint Dubai - Professional printing and signage services in Dubai. Offset printing, screen printing, DTF, LED signs, vehicle branding, and more.",
     url: DOMAIN,
     telephone: site.phone ?? "+971569324947",
-    email: site.email ?? "alarqauae@gmail.com",
+    email: site.email ?? "dubaiprimeprints@gmail.com",
     priceRange: "$$",
     image: `${DOMAIN}/favicon-custom.svg`,
     logo: `${DOMAIN}/favicon-custom.svg`,
