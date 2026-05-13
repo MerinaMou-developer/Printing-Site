@@ -70,7 +70,7 @@ export const baseMetadata: Metadata = {
     "best printing Dubai",
     "professional printing Dubai",
     "printing near me Dubai",
-    "Marina Dubai printing",
+    "Deira Dubai printing",
   ],
   authors: [{ name: BRAND }],
   creator: BRAND,
@@ -160,14 +160,15 @@ export function LocalBusinessJsonLD() {
     logo: `${DOMAIN}/favicon-custom.svg`,
     address: {
       "@type": "PostalAddress",
-      addressLocality: "Dubai",
+      streetAddress: "16B Naif Road, Naif",
+      addressLocality: "Deira",
       addressRegion: "Dubai",
       addressCountry: "AE",
     },
     geo: {
       "@type": "GeoCoordinates",
-      latitude: "25.2048",
-      longitude: "55.2708",
+      latitude: "25.2738",
+      longitude: "55.3038",
     },
     areaServed: [
       {
@@ -283,7 +284,9 @@ export function OrganizationJsonLD() {
     description: "PrimePrint Dubai - Leading printing and signage company in Dubai providing quality offset printing, screen printing, and signage services.",
     address: {
       "@type": "PostalAddress",
-      addressLocality: "Dubai",
+      streetAddress: "16B Naif Road, Naif",
+      addressLocality: "Deira",
+      addressRegion: "Dubai",
       addressCountry: "AE",
     },
     contactPoint: {

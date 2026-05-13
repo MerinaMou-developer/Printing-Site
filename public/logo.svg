@@ -79,15 +79,15 @@
   
   <!-- Company Name -->
   <g transform="translate(75, 8)">
-    <!-- PrintPro -->
+    <!-- PrimePrint -->
     <text x="0" y="32" 
           font-family="'Segoe UI', 'Montserrat', 'Poppins', Arial, sans-serif" 
-          font-size="28" 
+          font-size="24" 
           font-weight="900" 
           fill="url(#textGradient)"
           filter="url(#shadow)"
-          letter-spacing="1px">
-      PrintPro
+          letter-spacing="0.5px">
+      PrimePrint
     </text>
     
     <!-- Dubai -->
