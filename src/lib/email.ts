@@ -7,7 +7,7 @@ const SITE_CONFIG = {
   email: "alarqauae@gmail.com",
   phone: "+971569324947",
   whatsapp: "+971569324947",
-  address: "Dubai, U.A.E."
+  address: "16B Naif Road, Naif, Deira, Dubai, UAE"
 };
 
 // SMTP Configuration

@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   title:
     "Contact Us - Get a Free Quote | PrimePrint Dubai - Printing & Signage Services",
   description:
-    "Contact PrimePrint Dubai for stamps, printing, and signage services. Get a free quote, ask about materials, or book installation. Fast response guaranteed. Call, WhatsApp, or email us today. Located in Dubai Marina.",
+    "Contact PrimePrint Dubai for stamps, printing, and signage services. Get a free quote, ask about materials, or book installation. Fast response guaranteed. Call, WhatsApp, or email us today. Visit us on Naif Road, Deira, Dubai.",
   keywords: [
     "contact PrimePrint Dubai",
     "printing quote Dubai",
@@ -81,7 +81,7 @@ export default function ContactPage() {
   ];
 
   const quickInfo = [
-    { icon: MapPin, label: "Location", value: "Marina Dubai, U.A.E." },
+    { icon: MapPin, label: "Location", value: "Deira, Dubai, U.A.E." },
     {
       icon: Clock,
       label: "Working Hours",
@@ -315,9 +315,9 @@ export default function ContactPage() {
           <div className="space-y-6">
             <div className="rounded-2xl overflow-hidden border-2 border-[var(--border)] shadow-lg hover:shadow-xl transition-shadow">
               <iframe
-                title="PrimePrint Dubai Location - Marina Dubai"
+                title="PrimePrint Dubai — Deira, Dubai"
                 className="w-full h-[400px]"
-                src={`https://www.google.com/maps?q=25.275614,55.3310329&hl=en&z=15&output=embed`}
+                src={`https://www.google.com/maps?q=${encodeURIComponent(site.address ?? "16B Naif Road, Naif, Deira, Dubai, UAE")}&hl=en&z=16&output=embed`}
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
                 allowFullScreen
@@ -330,15 +330,7 @@ export default function ContactPage() {
                 <div className="flex items-start gap-2">
                   <MapPin className="h-5 w-5 mt-0.5 flex-shrink-0 text-[var(--color-accent-600)]" />
                   <p className="leading-relaxed text-[var(--color-ink)]">
-                    Dubai Marina Sail Tower
-                    <br />
-                    Hor Al Anz - Marsa Dubai
-                    <br />
-                    Dubai - United Arab Emirates
-                    <br />
-                    <span className="text-sm text-[var(--color-ink)]/60 mt-1 block">
-                      Plus Code: 78GM+6C Dubai
-                    </span>
+                    {site.address}
                     <span className="text-sm mt-2 block text-[var(--color-ink)]/70">
                       Installation & delivery available across Dubai
                     </span>
