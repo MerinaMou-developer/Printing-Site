@@ -1,4 +1,3 @@
-import { CriticalCSS } from "@/components/critical-css";
 import Footer from "@/components/footer";
 import Header from "@/components/header";
 import { PerformanceMonitor } from "@/components/performance-monitor";
@@ -36,7 +35,7 @@ export const metadata: Metadata = {
   // Enhanced Open Graph
   openGraph: {
     ...baseMetadata.openGraph,
-    emails: ["dubaiprimeprints@gmail.com"],
+    emails: ["primeprintdubai@gmail.com"],
     phoneNumbers: ["+971569324947"],
     countryName: "United Arab Emirates",
   },
@@ -82,8 +81,6 @@ export default function RootLayout({
         <LocalBusinessJsonLD />
         <OrganizationJsonLD />
         <WebsiteJsonLD />
-        <CriticalCSS />
-        <PerformanceMonitor />
         {/* Favicon */}
         <link rel="icon" href="/favicon-custom.svg" type="image/svg+xml" />
         <link
@@ -130,6 +127,7 @@ export default function RootLayout({
               </main>
               <Footer />
               <WhatsAppFloat />
+              <PerformanceMonitor />
             </ToastProvider>
           </AuthProvider>
         </ReduxProviders>

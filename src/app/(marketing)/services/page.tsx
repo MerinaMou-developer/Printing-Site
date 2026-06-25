@@ -10,12 +10,15 @@ import { BreadcrumbJsonLD } from "@/lib/seo";
 const services = servicesData as Service[];
 
 export const metadata: Metadata = {
-  title: "Printing & Signage Services Dubai | PrimePrint Dubai",
-  description: "Comprehensive printing and signage services in Dubai: stamps, screen printing, DTF, LED signs, vehicle branding, offset printing, vinyl stickers, banners, business cards, packaging, and more. Professional quality, fast turnaround.",
+  title: "Custom Stamps & Printing Services Dubai | PrimePrint Dubai",
+  description: "Custom stamps, self-inking stamps, date stamps & rubber stamps in Dubai — plus screen printing, DTF, LED signs, vehicle branding, offset printing, vinyl stickers, banners, business cards & packaging. Same-day stamp orders available.",
   keywords: [
-    "printing services Dubai",
-    "signage services Dubai",
     "stamps Dubai",
+    "stamp making Dubai",
+    "custom stamps Dubai",
+    "rubber stamps Dubai",
+    "self-ink stamps Dubai",
+    "printing services Dubai",
     "screen printing Dubai",
     "DTF printing Dubai",
     "LED signs Dubai",
@@ -54,10 +57,9 @@ export default function ServicesIndex() {
       <section className="relative overflow-hidden bg-[var(--background)]">
         <div className="absolute inset-0 -z-10 bg-gradient-to-br from-white via-[var(--color-brand-50)] to-[var(--surface-2)]" />
         <div className="wrapper py-12 md:py-16 text-[var(--foreground)]">
-          <h1 className="text-3xl font-bold text-[var(--color-brand-900)] md:text-5xl">Services</h1>
+          <h1 className="text-3xl font-bold text-[var(--color-brand-900)] md:text-5xl">Custom Stamps &amp; Printing Services</h1>
           <p className="mt-3 max-w-2xl text-[var(--color-ink)]">
-            End-to-end production in Dubai: signage, screen/DTF printing, stickers,
-            packaging, installation &amp; delivery.
+            Custom stamps, self-inking stamps, date stamps &amp; rubber stamps — plus signage, screen/DTF printing, stickers, packaging, installation &amp; delivery across Dubai.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
             <Link href="/contact" className="btn btn-primary">Get a Quote</Link>

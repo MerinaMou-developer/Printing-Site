@@ -16,7 +16,12 @@ import { createPhoneLink, formatPhoneNumber } from "@/lib/whatsapp";
 
 /** Lightweight type matching your services JSON */
 type Svc = { slug: string; title?: string; name?: string };
-const services: Svc[] = (servicesData as Svc[]).slice(0, 6);
+/** Popular services — stamps first for SEO */
+const STAMP_SERVICE = { slug: "stamps", name: "Custom Stamps" };
+const otherServices: Svc[] = (servicesData as Svc[])
+  .filter((s) => s.slug !== "stamps")
+  .slice(0, 5);
+const services: Svc[] = [STAMP_SERVICE, ...otherServices];
 
 /** Local pages list (keeps footer independent of nav module) */
 const PAGES = [
@@ -53,8 +58,7 @@ export default function Footer() {
         <div>
           <p className="text-lg font-semibold">{site.brand}</p>
           <p className="mt-3 text-white/80">
-            Printing, signage, apparel &amp; packaging in Dubai—fast turnaround
-            with installation and delivery.
+            Custom stamps, self-inking stamps, date stamps &amp; rubber stamps in Dubai — plus printing, signage &amp; packaging with fast turnaround.
           </p>
         </div>
 

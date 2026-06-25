@@ -10,25 +10,30 @@ import { BreadcrumbJsonLD } from "@/lib/seo";
 const products = productsData as Product[];
 
 export const metadata: Metadata = {
-  title: "Custom Products & Promotional Items Dubai | PrimePrint Dubai",
-  description: "Custom branded products and promotional items in Dubai: t-shirts, mugs, lanyards, bottles, safety vests, balloons, gift boxes, and more. Fast production, competitive prices, premium quality.",
+  title: "Custom Stamps Dubai | Self-Ink, Date & Rubber Stamps | PrimePrint Dubai",
+  description: "Buy custom stamps in Dubai — self-inking stamps, date stamps, rubber stamps, company stamps, pocket stamps & heavy-duty Trodat, Shiny & Colop stamps. Same-day service, free design, delivery across Dubai.",
   keywords: [
-    "custom products Dubai",
-    "promotional items Dubai",
-    "custom t-shirts Dubai",
-    "custom mugs Dubai",
-    "lanyards Dubai",
-    "bottles Dubai",
-    "safety vests Dubai",
-    "balloons Dubai",
-    "gift boxes Dubai",
-    "branded merchandise Dubai",
-    "PrimePrint Dubai products",
+    "stamps Dubai",
+    "stamp making Dubai",
+    "custom stamps Dubai",
+    "rubber stamps Dubai",
+    "self-ink stamps Dubai",
+    "self inking stamps Dubai",
+    "date stamps Dubai",
+    "company stamp Dubai",
+    "pocket stamps Dubai",
+    "Trodat stamps Dubai",
+    "Shiny stamps Dubai",
+    "Colop stamps Dubai",
+    "stamp shop Dubai",
+    "stamp maker Dubai",
+    "stamps near me Dubai",
+    "PrimePrint Dubai stamps",
   ],
   alternates: { canonical: "/products" },
   openGraph: {
-    title: "Custom Products & Promotional Items Dubai | PrimePrint Dubai",
-    description: "Custom branded products and promotional items in Dubai. Fast production, competitive prices, premium quality.",
+    title: "Custom Stamps Dubai | Self-Ink, Date & Rubber Stamps | PrimePrint Dubai",
+    description: "Custom stamps in Dubai — self-inking, date, rubber & company stamps. Same-day service, free design, delivery across Dubai.",
     url: "/products",
   },
 };
@@ -48,10 +53,10 @@ export default function ProductsPage() {
         <div className="absolute inset-0 -z-10 bg-gradient-to-br from-white via-[var(--color-brand-50)] to-[var(--surface-2)]" />
         <div className="wrapper py-12 md:py-16 text-[var(--foreground)]">
           <h1 className="text-3xl font-bold text-[var(--color-brand-900)] md:text-5xl">
-            Products
+            Custom Stamps in Dubai
           </h1>
           <p className="mt-3 max-w-2xl text-[var(--color-ink)]">
-            Branded merchandise and promo items with fast production and reliable delivery across Dubai.
+            Self-inking stamps, date stamps, rubber stamps, pocket stamps &amp; heavy-duty stamps — Trodat, Shiny &amp; Colop brands. Same-day orders, free design, delivery across Dubai.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
             <Link href="/contact" className="btn btn-primary">

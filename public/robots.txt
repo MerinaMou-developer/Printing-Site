@@ -3,9 +3,14 @@ User-agent: *
 Allow: /
 Disallow: /admin/
 Disallow: /api/
+Disallow: /login
+Disallow: /register
+Disallow: /profile
+Disallow: /checkout
+Disallow: /order
 
 # Host
-Host: http://localhost:3000
+Host: https://stamp-primeprint.com
 
 # Sitemaps
-Sitemap: http://localhost:3000/sitemap.xml
+Sitemap: https://stamp-primeprint.com/sitemap.xml

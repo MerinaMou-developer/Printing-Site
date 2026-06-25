@@ -7,11 +7,11 @@ const BRAND = site.brand ?? "PrimePrint Dubai";
 export const baseMetadata: Metadata = {
   metadataBase: DOMAIN ? new URL(DOMAIN) : undefined,
   title: {
-    default: `${BRAND} — Premium Printing & Signage Solutions in Dubai`,
+    default: `${BRAND} — Custom Stamps, Printing & Signage in Dubai`,
     template: `%s | ${BRAND}`,
   },
   description:
-    "PrimePrint Dubai - Dubai's premier printing & signage company specializing in stamps, offset printing, screen printing, DTF, LED signs, vehicle branding, neon signs, business cards, vinyl stickers, and custom packaging. Fast 1-5 day turnaround, professional installation across Dubai. Get a free quote today!",
+    "PrimePrint Dubai - Dubai's #1 stamp maker. Custom stamps, self-inking stamps, date stamps, rubber stamps & company stamps. Also offset printing, screen printing, DTF, LED signs, vehicle branding & packaging. Same-day stamp orders, fast 1-5 day turnaround across Dubai.",
   keywords: [
     "PrimePrint Dubai",
     "Prime Print Dubai",
@@ -19,10 +19,19 @@ export const baseMetadata: Metadata = {
     "signage Dubai",
     "stamps Dubai",
     "stamp making Dubai",
+    "stamp maker Dubai",
+    "stamp shop Dubai",
+    "stamps near me Dubai",
     "custom stamps Dubai",
     "rubber stamps Dubai",
     "self-ink stamps Dubai",
+    "self inking stamps Dubai",
     "date stamps Dubai",
+    "company stamp Dubai",
+    "pocket stamps Dubai",
+    "Trodat stamps Dubai",
+    "Shiny stamps Dubai",
+    "Colop stamps Dubai",
     "offset printing Dubai",
     "screen printing Dubai",
     "DTF printing Dubai",
@@ -151,10 +160,10 @@ export function LocalBusinessJsonLD() {
     "@id": `${DOMAIN}#business`,
     name: BRAND,
     alternateName: "Prime Print Dubai",
-    description: "PrimePrint Dubai - Professional printing and signage services in Dubai. Offset printing, screen printing, DTF, LED signs, vehicle branding, and more.",
+    description: "PrimePrint Dubai - Dubai's leading stamp maker and printing company. Custom stamps, self-inking stamps, date stamps, rubber stamps, offset printing, screen printing, DTF, LED signs, vehicle branding, and more.",
     url: DOMAIN,
     telephone: site.phone ?? "+971569324947",
-    email: site.email ?? "dubaiprimeprints@gmail.com",
+    email: site.email ?? "primeprintdubai@gmail.com",
     priceRange: "$$",
     image: `${DOMAIN}/favicon-custom.svg`,
     logo: `${DOMAIN}/favicon-custom.svg`,
@@ -281,7 +290,7 @@ export function OrganizationJsonLD() {
     name: BRAND,
     url: DOMAIN,
     logo: `${DOMAIN}/logo.svg`,
-    description: "PrimePrint Dubai - Leading printing and signage company in Dubai providing quality offset printing, screen printing, and signage services.",
+    description: "PrimePrint Dubai - Leading stamp maker and printing company in Dubai providing custom stamps, self-inking stamps, date stamps, offset printing, screen printing, and signage services.",
     address: {
       "@type": "PostalAddress",
       streetAddress: "16B Naif Road, Naif",
@@ -321,17 +330,9 @@ export function WebsiteJsonLD() {
     "@id": `${DOMAIN}#website`,
     url: DOMAIN,
     name: BRAND,
-    description: "PrimePrint Dubai - Professional printing and signage services in Dubai",
+    description: "PrimePrint Dubai - Custom stamps, self-inking stamps, date stamps & printing services in Dubai",
     publisher: {
       "@id": `${DOMAIN}#organization`,
-    },
-    potentialAction: {
-      "@type": "SearchAction",
-      target: {
-        "@type": "EntryPoint",
-        urlTemplate: `${DOMAIN}/search?q={search_term_string}`,
-      },
-      "query-input": "required name=search_term_string",
     },
   };
 

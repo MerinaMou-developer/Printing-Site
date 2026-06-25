@@ -36,17 +36,34 @@ export async function generateMetadata({
   const product = products.find((x) => x.slug === slug);
   if (!product) return { title: "Product Not Found" };
 
+  const category = (product as { category?: string }).category ?? "Stamp";
+  const isStamp = category.toLowerCase().includes("stamp");
+
   return {
-    title: `${product.name} Dubai | PrimePrint Dubai - Custom ${product.name} Printing`,
-    description: `${product.desc} - Professional ${product.name} printing and customization by PrimePrint Dubai in Dubai. Fast turnaround, competitive prices, premium quality. Get a free quote today!`,
-    keywords: [
-      `${product.name} Dubai`,
-      `${product.name} UAE`,
-      `custom ${product.name} printing Dubai`,
-      `${product.name} printing Dubai`,
-      `PrimePrint Dubai ${product.name}`,
-      `professional ${product.name} Dubai`,
-    ],
+    title: isStamp
+      ? `${product.name} Stamp Dubai | ${category} | PrimePrint Dubai`
+      : `${product.name} Dubai | PrimePrint Dubai`,
+    description: isStamp
+      ? `${product.desc} — Buy ${product.name} stamps in Dubai. Custom text, logo & date stamps. Same-day service, free design. PrimePrint Dubai, Deira.`
+      : `${product.desc} - Professional ${product.name} by PrimePrint Dubai in Dubai. Fast turnaround, competitive prices, premium quality. Get a free quote today!`,
+    keywords: isStamp
+      ? [
+          `${product.name} stamp Dubai`,
+          `${product.name} Dubai`,
+          `${category} Dubai`,
+          "custom stamps Dubai",
+          "stamp making Dubai",
+          "self-ink stamps Dubai",
+          "date stamps Dubai",
+          "rubber stamps Dubai",
+          `PrimePrint Dubai ${product.name}`,
+        ]
+      : [
+          `${product.name} Dubai`,
+          `${product.name} UAE`,
+          `PrimePrint Dubai ${product.name}`,
+          `professional ${product.name} Dubai`,
+        ],
     alternates: { canonical: `/products/${slug}` },
   };
 }

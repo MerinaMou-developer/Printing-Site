@@ -4,7 +4,7 @@ import { createWhatsAppLink, createPhoneLink, formatPhoneNumber } from './whatsa
 // Site configuration - you can move this to a separate config file
 const SITE_CONFIG = {
   brand: "PrimePrint Dubai",
-  email: "dubaiprimeprints@gmail.com",
+  email: "primeprintdubai@gmail.com",
   phone: "+971569324947",
   whatsapp: "+971569324947",
   address: "16B Naif Road, Naif, Deira, Dubai, UAE"
@@ -422,7 +422,7 @@ export const sendQuoteRequestEmail = async (data: {
   
   // Send to business email
   await sendEmail({
-    to: 'merinamou3@gmail.com', // Fixed: Direct business email
+    to: SITE_CONFIG.email,
     subject: template.subject,
     html: template.html,
     text: template.text,
@@ -860,7 +860,7 @@ Professional Printing & Signage Services in Dubai
 
   // Send to business email
   await sendEmail({
-    to: 'merinamou3@gmail.com',
+    to: SITE_CONFIG.email,
     subject: `New Order: ${data.products.length} product(s) (Qty: ${totalQuantity}) - ${data.name}`,
     html: orderEmailHtml,
     text: orderEmailText,

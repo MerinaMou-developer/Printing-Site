@@ -36,6 +36,33 @@ export async function generateMetadata({
   const { slug } = await params;
   const s = services.find((x) => x.slug === slug);
   if (!s) return {};
+  if (s.slug === "stamps") {
+    return {
+      title: "Custom Stamps Dubai | Self-Ink, Date & Rubber Stamps | PrimePrint Dubai",
+      description:
+        "Order custom stamps in Dubai — self-inking stamps, date stamps, rubber stamps, company stamps & pocket stamps. Trodat, Shiny & Colop brands. Same-day service, free design, delivery across Dubai.",
+      keywords: [
+        "stamps Dubai",
+        "stamp making Dubai",
+        "custom stamps Dubai",
+        "rubber stamps Dubai",
+        "self-ink stamps Dubai",
+        "self inking stamps Dubai",
+        "date stamps Dubai",
+        "company stamp Dubai",
+        "pocket stamps Dubai",
+        "heavy duty stamps Dubai",
+        "Trodat stamps Dubai",
+        "Shiny stamps Dubai",
+        "Colop stamps Dubai",
+        "stamp shop Dubai",
+        "stamp maker Dubai",
+        "stamps near me Dubai",
+        "PrimePrint Dubai stamps",
+      ],
+      alternates: { canonical: "/services/stamps" },
+    };
+  }
   return {
     title: `${s.name} Dubai | PrimePrint Dubai - ${s.category}`,
     description: `${s.desc} - Professional ${s.name} services by PrimePrint Dubai in Dubai. Fast turnaround, competitive prices, professional installation. Get a free quote today!`,
@@ -125,6 +152,14 @@ export default async function ServicePage({
       colors: "Full color printing",
       finishes: ["Standard", "Premium", "Weatherproof"],
     },
+    stamps: {
+      materials: ["Rubber", "Self-inking Trodat", "Shiny", "Colop"],
+      sizes: ["Round", "Oval", "Rectangular", "Pocket", "Heavy-duty"],
+      turnaround: "Same day to 1 business day",
+      moq: "1 stamp minimum",
+      colors: "Black, blue, red, green ink pads",
+      finishes: ["Self-inking", "Classic rubber", "Dater", "Pocket"],
+    },
   };
 
   const currentSpecs = specifications[
@@ -144,7 +179,40 @@ export default async function ServicePage({
     { name: s.name, url: `/services/${s.slug}` },
   ];
 
-  const faqs = [
+  const faqs =
+    s.slug === "stamps"
+      ? [
+          {
+            question: "What types of custom stamps do you make in Dubai?",
+            answer:
+              "We make self-inking stamps, date stamps, rubber stamps, company stamps, pocket stamps, and heavy-duty stamps. Brands include Trodat, Shiny, and Colop. Round, oval, rectangular, and dater stamp formats are all available.",
+          },
+          {
+            question: "Do you offer same-day stamp orders in Dubai?",
+            answer:
+              "Yes. Most custom stamp orders in Dubai are ready the same day or within 1 business day. Visit us on Naif Road, Deira, or order via WhatsApp for fast turnaround.",
+          },
+          {
+            question: "What is the minimum order for custom stamps?",
+            answer: "Just 1 stamp. Whether you need a single company stamp or bulk orders for your team, we can help with free design and competitive pricing.",
+          },
+          {
+            question: "Which stamp brands do you carry in Dubai?",
+            answer:
+              "We stock Trodat, Shiny, and Colop stamps — including self-inking, dater, pocket, oval, round, and heavy-duty models. Browse our full catalog online or visit our Deira shop.",
+          },
+          {
+            question: "Can I get a company stamp with my logo in Dubai?",
+            answer:
+              "Yes. We create custom company stamps with your business name, logo, TRN number, and received/paid text. Free design proof before production.",
+          },
+          {
+            question: "Do you deliver stamps across Dubai?",
+            answer:
+              "Yes. We deliver custom stamps across Dubai including Deira, Bur Dubai, Downtown, Marina, JBR, and all major areas. Pickup is also available at our Naif Road location.",
+          },
+        ]
+      : [
     {
       question: `What is the minimum order quantity for ${s.name.toLowerCase()}?`,
       answer: `Our minimum order quantity varies by service type. For ${s.name.toLowerCase()}, we typically require ${
@@ -204,16 +272,36 @@ export default async function ServicePage({
                 {s.category}
               </span>
               <h1 className="text-4xl md:text-6xl font-bold leading-tight">
-                Professional{" "}
-                <span className="text-[var(--color-accent-400)]">{s.name}</span>{" "}
-                in Dubai
+                {s.slug === "stamps" ? (
+                  <>
+                    Custom{" "}
+                    <span className="text-[var(--color-accent-400)]">Stamps</span>{" "}
+                    in Dubai
+                  </>
+                ) : (
+                  <>
+                    Professional{" "}
+                    <span className="text-[var(--color-accent-400)]">{s.name}</span>{" "}
+                    in Dubai
+                  </>
+                )}
               </h1>
               <p className="text-lg text-white/90 leading-relaxed max-w-xl">
-                {s.desc} High-quality materials, fast turnaround, and
-                professional installation across Dubai.
+                {s.desc}
+                {s.slug === "stamps"
+                  ? " Same-day orders, free design proof, Trodat, Shiny & Colop brands."
+                  : " High-quality materials, fast turnaround, and professional installation across Dubai."}
               </p>
 
               <div className="flex flex-wrap gap-4">
+                {s.slug === "stamps" && (
+                  <Link
+                    href="/products"
+                    className="btn glass text-white text-lg px-8 py-4 hover:bg-white/15 transition-all"
+                  >
+                    Browse Stamp Products <ArrowRight className="ml-2 h-5 w-5" />
+                  </Link>
+                )}
                 <Link
                   href="/contact"
                   className="btn btn-primary text-lg px-8 py-4 animate-pulse-glow shadow-xl hover:shadow-2xl transition-all"
@@ -291,6 +379,32 @@ export default async function ServicePage({
           </div>
         </div>
       </section>
+
+      {s.slug === "stamps" && (
+        <section className="wrapper py-16">
+          <h2 className="text-3xl md:text-4xl font-bold text-[var(--color-brand-700)]">
+            Types of Custom Stamps We Make in Dubai
+          </h2>
+          <p className="mt-4 max-w-3xl text-[var(--color-ink)]">
+            PrimePrint Dubai is a leading stamp maker in Deira. We supply and customize all major stamp types for businesses and individuals across the UAE.
+          </p>
+          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {[
+              { title: "Self-Inking Stamps", desc: "Trodat, Shiny & Colop self-inking stamps — round, oval & rectangular. No separate ink pad needed." },
+              { title: "Date Stamps", desc: "Dater stamps with date, company name & received/paid text. Ideal for offices and warehouses." },
+              { title: "Rubber Stamps", desc: "Classic rubber stamps with wooden or plastic handles. Durable and economical." },
+              { title: "Company Stamps", desc: "Custom company stamps with your business name, logo, TRN & address for official documents." },
+              { title: "Pocket Stamps", desc: "Compact pocket-sized stamps for professionals on the go. Shiny Elite & S-series models." },
+              { title: "Heavy-Duty Stamps", desc: "Trodat heavy-duty stamps built for high-volume daily use in busy offices." },
+            ].map((item) => (
+              <div key={item.title} className="card border border-[var(--border)] p-6 rounded-xl">
+                <h3 className="text-lg font-semibold text-[var(--color-brand-700)]">{item.title}</h3>
+                <p className="mt-2 text-sm text-[var(--color-ink)]">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
 
       {/* Service Gallery */}
       <section className="wrapper py-16">

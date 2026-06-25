@@ -12,7 +12,7 @@ export default function Hero() {
       {/* Background */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-brand-900)] via-[var(--color-brand-800)] to-[var(--color-brand-700)] gradient-animate" />
-        <Image src="/images/hero-gradient.svg" alt="PrimePrint Dubai - Printing and Signage Services Background" fill priority className="object-cover opacity-50 mix-blend-overlay" />
+        <Image src="/images/hero-gradient.svg" alt="PrimePrint Dubai - Custom Stamps and Printing Services in Dubai" fill priority className="object-cover opacity-50 mix-blend-overlay" />
         {/* soft light blobs + sheen */}
         <div className="absolute inset-0 hero-sheen" />
         <div className="absolute -right-24 -top-24 h-96 w-96 rounded-full bg-[var(--color-accent-500)]/10 blur-3xl animate-float" />
@@ -32,7 +32,7 @@ export default function Hero() {
           <div className="flex justify-center animate-fade-in-up">
             <span className="inline-flex items-center gap-2 rounded-full bg-white/10 glass px-4 py-1.5 text-xs uppercase tracking-wider font-semibold backdrop-blur-sm">
               <span className="inline-block w-2 h-2 rounded-full bg-[var(--color-accent-400)] animate-pulse"></span>
-              Printing & Signage in Dubai
+              Custom Stamps & Printing in Dubai
             </span>
           </div>
 
@@ -46,16 +46,16 @@ export default function Hero() {
 
           {/* Description - Centered with max-width for readability */}
           <p className="mt-4 md:mt-5 mx-auto max-w-2xl text-center text-sm md:text-base lg:text-lg text-white/90 leading-relaxed animate-fade-in-up" style={{animationDelay: '0.2s'}}>
-            Offset, Screen & DTF Printing, LED Signage, Vehicle Branding, Packaging — Professional quality with fast turnaround across Dubai.
+            Custom stamps, self-ink stamps, date stamps & rubber stamps — plus offset, screen & DTF printing, LED signage, vehicle branding & packaging. Same-day stamp orders available across Dubai.
           </p>
 
           {/* CTAs - Centered with better spacing */}
           <div className="mt-6 md:mt-8 flex flex-wrap justify-center gap-3 md:gap-4 animate-fade-in-up" style={{animationDelay: '0.3s'}}>
-            <Link href="/contact" className="btn btn-primary ring-focus text-sm md:text-base px-6 md:px-8 py-2.5 md:py-3 animate-pulse-glow shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all">
-              Get Free Quote
+            <Link href="/services/stamps" className="btn btn-primary ring-focus text-sm md:text-base px-6 md:px-8 py-2.5 md:py-3 animate-pulse-glow shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all">
+              Order Custom Stamps
             </Link>
-            <Link href="/services" className="btn glass text-white ring-focus text-sm md:text-base px-6 md:px-8 py-2.5 md:py-3 hover:bg-white/15 backdrop-blur-sm transform hover:scale-105 transition-all">
-              View Services
+            <Link href="/products" className="btn glass text-white ring-focus text-sm md:text-base px-6 md:px-8 py-2.5 md:py-3 hover:bg-white/15 backdrop-blur-sm transform hover:scale-105 transition-all">
+              Browse Stamp Products
             </Link>
           </div>
 

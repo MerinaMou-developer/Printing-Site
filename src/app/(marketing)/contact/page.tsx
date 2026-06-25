@@ -33,7 +33,7 @@ export const metadata: Metadata = {
 };
 
 export default function ContactPage() {
-  const email = site.email ?? "dubaiprimeprints@gmail.com";
+  const email = site.email ?? "primeprintdubai@gmail.com";
   const phoneNumber = site.whatsapp ?? site.phone ?? "+971569324947";
   const displayPhone = formatPhoneNumber(site.phone ?? phoneNumber);
   const waLink = createWhatsAppLink(

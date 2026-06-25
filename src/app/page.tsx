@@ -74,10 +74,10 @@ export default function HomePage() {
         <div className="mb-8 flex flex-col gap-3 border-b border-slate-200/90 pb-6 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <h2 className="text-2xl font-bold tracking-tight text-[var(--color-brand-900)] md:text-3xl">
-              Products
+              Custom Stamps in Dubai
             </h2>
             <p className="mt-1 max-w-xl text-sm text-[var(--color-ink)] md:text-base">
-              Stamps and branded items — filter by category below.
+              Self-inking, date, rubber &amp; pocket stamps — Trodat, Shiny &amp; Colop. Filter by category below.
             </p>
           </div>
           <Link

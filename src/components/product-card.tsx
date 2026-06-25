@@ -18,7 +18,7 @@ export default function ProductCard({ product }: Props) {
       <div className="relative aspect-square bg-gradient-to-b from-slate-100 via-slate-50 to-white p-3 ring-1 ring-inset ring-slate-200/80 flex items-center justify-center">
         <Image
           src={img}
-          alt={product.name}
+          alt={`${product.name} stamp - ${(product as { category?: string }).category ?? "custom stamp"} Dubai`}
           width={180}
           height={180}
           className="object-contain w-full h-full drop-shadow-sm"
