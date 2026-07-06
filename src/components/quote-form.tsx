@@ -44,8 +44,20 @@ export default function QuoteForm({ defaultService }: Props) {
       } else {
         showError(
           "Failed to Send ❌",
-          data.error || 'Failed to send. Please try again.',
-          { duration: 6000 }
+          data.error || "Failed to send. Please try WhatsApp for instant help.",
+          {
+            duration: 8000,
+            action: {
+              label: "WhatsApp Us",
+              onClick: () => {
+                const phoneNumber = site.whatsapp ?? site.phone ?? "+971569324947";
+                window.open(
+                  createWhatsAppLink(phoneNumber, "Hi! I tried to submit a quote on your website. Can you help me?"),
+                  "_blank"
+                );
+              },
+            },
+          }
         );
       }
     } catch (error) {

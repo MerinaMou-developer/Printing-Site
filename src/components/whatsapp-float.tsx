@@ -1,42 +1,17 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import site from "@/content/site.json";
 import { MessageCircle, Phone, X } from "lucide-react";
 import { createWhatsAppLink, createPhoneLink, formatPhoneNumber } from "@/lib/whatsapp";
 
 export default function WhatsAppFloat() {
-  const [isVisible, setIsVisible] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
-  
-  // EXACT same variables as contact page - FORCE REFRESH
+
   const phoneNumber = site.whatsapp ?? site.phone ?? "+971569324947";
   const displayPhone = formatPhoneNumber(site.phone ?? phoneNumber);
-  const waLink = createWhatsAppLink(phoneNumber, "Hi! I'm interested in your printing services. Can you help me?");
+  const waLink = createWhatsAppLink(phoneNumber, "Hi! I need a stamp/printing quote in Dubai. Can you help?");
   const telLink = createPhoneLink(phoneNumber);
-
-  // Debug: Log the generated links
-  console.log("WhatsApp Float Debug:", {
-    phoneNumber,
-    displayPhone,
-    waLink,
-    telLink,
-    sitePhone: site.phone,
-    siteWhatsapp: site.whatsapp,
-    timestamp: new Date().toISOString()
-  });
-
-  // Show after scrolling a bit
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsVisible(window.scrollY > 300);
-    };
-    
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  if (!isVisible) return null;
 
   return (
     <div

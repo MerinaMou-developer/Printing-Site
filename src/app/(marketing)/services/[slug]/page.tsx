@@ -295,19 +295,29 @@ export default async function ServicePage({
 
               <div className="flex flex-wrap gap-4">
                 {s.slug === "stamps" && (
+                  <>
+                    <Link
+                      href="/order-now"
+                      className="btn btn-primary text-lg px-8 py-4 animate-pulse-glow shadow-xl hover:shadow-2xl transition-all"
+                    >
+                      Order Stamp Now <ArrowRight className="ml-2 h-5 w-5" />
+                    </Link>
+                    <Link
+                      href="/products"
+                      className="btn glass text-white text-lg px-8 py-4 hover:bg-white/15 transition-all"
+                    >
+                      Browse Stamp Products <ArrowRight className="ml-2 h-5 w-5" />
+                    </Link>
+                  </>
+                )}
+                {s.slug !== "stamps" && (
                   <Link
-                    href="/products"
-                    className="btn glass text-white text-lg px-8 py-4 hover:bg-white/15 transition-all"
+                    href="/contact"
+                    className="btn btn-primary text-lg px-8 py-4 animate-pulse-glow shadow-xl hover:shadow-2xl transition-all"
                   >
-                    Browse Stamp Products <ArrowRight className="ml-2 h-5 w-5" />
+                    Get Free Quote <ArrowRight className="ml-2 h-5 w-5" />
                   </Link>
                 )}
-                <Link
-                  href="/contact"
-                  className="btn btn-primary text-lg px-8 py-4 animate-pulse-glow shadow-xl hover:shadow-2xl transition-all"
-                >
-                  Get Free Quote <ArrowRight className="ml-2 h-5 w-5" />
-                </Link>
                 {waLink && (
                   <a
                     href={waLink}

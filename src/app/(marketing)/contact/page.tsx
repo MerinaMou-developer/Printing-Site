@@ -259,6 +259,16 @@ export default function ContactPage() {
               </p>
             </div>
 
+            <div className="rounded-2xl border border-green-500/30 bg-green-500/10 p-4 mb-4">
+              <p className="text-sm text-[var(--foreground)]/90">
+                <strong>Fastest way to get a quote:</strong> message us on{" "}
+                <a href={waLink} target="_blank" rel="noopener noreferrer" className="text-green-400 font-semibold hover:underline">
+                  WhatsApp
+                </a>{" "}
+                — we reply within minutes during business hours.
+              </p>
+            </div>
+
             <div className="rounded-2xl border border-white/12 p-6 md:p-8 bg-[var(--surface-2)] shadow-lg shadow-black/20">
               <QuoteForm defaultService="general" />
             </div>

@@ -17,10 +17,8 @@ export function createWhatsAppLink(phoneNumber: string, message?: string): strin
   return baseUrl;
 }
 
-// Utility function to create phone links
 export function createPhoneLink(phoneNumber: string): string {
-  // Remove all non-digit characters except +
-  const cleanNumber = phoneNumber.replace(/[^\d+]/g, '');
+  const cleanNumber = phoneNumber.replace(/[^\d+]/g, "");
   return `tel:${cleanNumber}`;
 }
 

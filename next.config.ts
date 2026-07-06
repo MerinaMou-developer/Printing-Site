@@ -78,6 +78,26 @@ const nextConfig: NextConfig = {
         destination: '/',
         permanent: true,
       },
+      {
+        source: '/stamps',
+        destination: '/services/stamps',
+        permanent: true,
+      },
+      {
+        source: '/stamp-shop-dubai',
+        destination: '/services/stamps',
+        permanent: true,
+      },
+      {
+        source: '/custom-stamps-dubai',
+        destination: '/services/stamps',
+        permanent: true,
+      },
+      {
+        source: '/order',
+        destination: '/order-now',
+        permanent: false,
+      },
     ];
   },
 };

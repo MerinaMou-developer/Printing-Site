@@ -51,7 +51,7 @@ export default function Hero() {
 
           {/* CTAs - Centered with better spacing */}
           <div className="mt-6 md:mt-8 flex flex-wrap justify-center gap-3 md:gap-4 animate-fade-in-up" style={{animationDelay: '0.3s'}}>
-            <Link href="/services/stamps" className="btn btn-primary ring-focus text-sm md:text-base px-6 md:px-8 py-2.5 md:py-3 animate-pulse-glow shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all">
+            <Link href="/order-now" className="btn btn-primary ring-focus text-sm md:text-base px-6 md:px-8 py-2.5 md:py-3 animate-pulse-glow shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all">
               Order Custom Stamps
             </Link>
             <Link href="/products" className="btn glass text-white ring-focus text-sm md:text-base px-6 md:px-8 py-2.5 md:py-3 hover:bg-white/15 backdrop-blur-sm transform hover:scale-105 transition-all">

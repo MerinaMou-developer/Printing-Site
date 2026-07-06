@@ -10,19 +10,22 @@ const SITE_CONFIG = {
   address: "16B Naif Road, Naif, Deira, Dubai, UAE"
 };
 
-// SMTP Configuration
+// SMTP Configuration — set SMTP_USER and SMTP_PASS in Vercel environment variables
 const createTransporter = () => {
+  const user = process.env.SMTP_USER;
+  const pass = process.env.SMTP_PASS;
+
+  if (!user || !pass) {
+    throw new Error(
+      "Email is not configured. Add SMTP_USER and SMTP_PASS in Vercel environment variables."
+    );
+  }
+
   return nodemailer.createTransport({
-    host: process.env.SMTP_HOST || 'smtp.gmail.com',
-    port: parseInt(process.env.SMTP_PORT || '587'),
-    secure: process.env.SMTP_SECURE === 'true', // true for 465, false for other ports
-    auth: {
-      user: process.env.SMTP_USER || 'merinamou3@gmail.com',
-      pass: process.env.SMTP_PASS || 'kjwyawwlkxbzavsp',
-    },
-    tls: {
-      rejectUnauthorized: false
-    }
+    host: process.env.SMTP_HOST || "smtp.gmail.com",
+    port: parseInt(process.env.SMTP_PORT || "587", 10),
+    secure: process.env.SMTP_SECURE === "true",
+    auth: { user, pass },
   });
 };
 
@@ -343,7 +346,7 @@ export const sendEmail = async (options: {
   }).filter(att => att !== undefined && att !== null); // Remove any null/undefined attachments
 
   const mailOptions = {
-    from: process.env.SMTP_FROM || process.env.SMTP_USER || 'merinamou3@gmail.com',
+    from: process.env.SMTP_FROM || process.env.SMTP_USER || SITE_CONFIG.email,
     to: Array.isArray(options.to) ? options.to.join(', ') : options.to,
     subject: options.subject,
     html: options.html,
@@ -679,7 +682,48 @@ Professional Printing & Signage Services in Dubai
   })
 };
 
-// Order email function
+// Single product order (product detail page form)
+export const sendSimpleOrderEmail = async (data: {
+  name: string;
+  phone: string;
+  email: string;
+  address: string;
+  product: string;
+  productSlug: string;
+  quantity: string;
+  specifications: string;
+  attachments?: Array<{
+    filename: string;
+    content: Buffer;
+  }>;
+}) => {
+  const template = emailTemplates_order.orderNotification(data);
+
+  await sendEmail({
+    to: SITE_CONFIG.email,
+    subject: template.subject,
+    html: template.html,
+    text: template.text,
+    attachments: data.attachments,
+  });
+
+  if (data.email) {
+    const customerTemplate = emailTemplates_order.orderConfirmation({
+      name: data.name,
+      email: data.email,
+      product: data.product,
+      quantity: data.quantity,
+    });
+    await sendEmail({
+      to: data.email,
+      subject: customerTemplate.subject,
+      html: customerTemplate.html,
+      text: customerTemplate.text,
+    });
+  }
+};
+
+// Cart / multi-product order email function
 export const sendOrderEmail = async (data: {
   name: string;
   phone: string;
@@ -943,9 +987,10 @@ Professional Printing & Signage Services in Dubai
 const emailService = {
   sendEmail,
   sendQuoteRequestEmail,
+  sendSimpleOrderEmail,
   sendOrderEmail,
   emailTemplates,
-  emailTemplates_order
+  emailTemplates_order,
 };
 
 export default emailService;
