@@ -14,7 +14,6 @@ export const NAV_ITEMS: NavItem[] = [
   { href: "/about", label: "About" },
   { href: "/services", label: "Services" },
   { href: "/products", label: "Products" },
-  { href: "/order-now", label: "Order Now" },
 ];
 
 // NavLink component to create individual links
